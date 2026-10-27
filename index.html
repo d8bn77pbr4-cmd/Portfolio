@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Portfolio Vorname Nachname</title>
+<title>Portfolio Tjark Reichart</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Projekte, Lernerfolge und Eigeninitiative: Modemarke, Video-Reihe, Song, Audio-Plugins und Web-Apps, verbunden durch einen grünen Faden.">
+<meta name="description" content="Portfolio von Tjark Reichart: Modemarke, Video-Reihe, Song, Audio-Plugins und Web-Apps, verbunden durch einen grünen Faden.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
 <style>
 /* Layout: eine Route. Links läuft der grüne Faden als Schiene durch alle Stationen (Projekte);
-   zwischen zwei Stationen erklärt ein Knoten, wie das eine zum nächsten geführt hat. */
+   zwischen zwei Stationen erklärt ein Knoten in einem Satz, wie das eine zum nächsten geführt hat. */
 :root{
   --paper:#F3F4F8; --surface:#FFFFFF; --ink:#12152C; --muted:#585E78; --line:#D8DBE8;
   --blue:#3442F0; --blue-ink:#2733D6; --blue-soft:rgba(52,66,240,.08);
@@ -49,7 +49,6 @@ a{color:var(--blue-ink);text-underline-offset:.18em}
 h1,h2,h3{margin:0;text-wrap:balance}
 p{margin:0}
 .wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.mono{font-family:var(--f-mono)}
 .eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .todo{background:var(--todo-soft);color:var(--todo);border-bottom:1px dashed currentColor;padding:0 .2em;border-radius:3px}
 
@@ -62,29 +61,26 @@ p{margin:0}
 .top nav::-webkit-scrollbar{display:none}
 .top nav a{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px;white-space:nowrap}
 .top nav a:hover{color:var(--ink);background:var(--blue-soft)}
-@media (max-width:640px){.top nav a.opt{display:none}}
+@media (max-width:480px){.top nav a.opt{display:none}}
 
 /* Einstieg */
 .hero{padding-block:72px 28px}
-.hero h1{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:clamp(2.1rem,6.2vw,4.4rem);line-height:1.02;letter-spacing:-.015em;max-width:15ch;margin-top:18px;hyphens:manual}
-.hero h1 em{font-style:normal;color:var(--green-ink);background:linear-gradient(var(--green),var(--green)) 0 92%/100% .12em no-repeat;padding-bottom:.04em}
-.hero .lead{font-size:clamp(1.15rem,1.9vw,1.35rem);line-height:1.55;max-width:58ch;margin-top:26px;color:var(--ink)}
-.hero .lead b{font-weight:600}
+.hero h1{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:clamp(2.3rem,7vw,5rem);line-height:1;letter-spacing:-.015em}
+.hero h1 span{display:block;font-size:.38em;letter-spacing:.02em;color:var(--green-ink);margin-bottom:.2em}
+.hero .lead{font-size:clamp(1.15rem,1.9vw,1.35rem);line-height:1.55;max-width:52ch;margin-top:24px}
 
 /* Karte des grünen Fadens */
 .mapsec{padding-block:24px 64px}
-.map-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.map-head p{font-size:1rem;color:var(--muted);max-width:52ch}
+.mapsec .eyebrow{margin-bottom:18px}
 .map{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));position:relative}
 .map::before{content:"";position:absolute;left:calc(100%/16);right:calc(100%/16);top:15px;height:4px;border-radius:2px;background:var(--green)}
 .map li{min-width:0}
 .map a{display:flex;flex-direction:column;align-items:center;text-align:center;gap:4px;text-decoration:none;color:var(--ink);padding:0 4px 8px;border-radius:8px}
 .map .knot{width:34px;height:34px;border-radius:50%;background:var(--surface);border:3px solid var(--green);display:grid;place-items:center;font-family:var(--f-mono);font-size:.78rem;font-weight:600;color:var(--green-ink);position:relative;margin-bottom:8px;transition:background .2s,color .2s}
 .map a:hover .knot{background:var(--green);color:var(--surface)}
+.map .txt{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;max-width:100%}
 .map .cat{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .map .ttl{font-family:var(--f-display);font-weight:750;font-stretch:88%;font-size:.98rem;line-height:1.2;overflow-wrap:anywhere}
-.map .yr{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
-.map .txt{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:0;max-width:100%}
 .map li.next .knot{border-style:dashed;color:var(--blue-ink);border-color:var(--blue)}
 .map li.next .ttl{color:var(--blue-ink)}
 @media (max-width:820px){
@@ -93,41 +89,36 @@ p{margin:0}
   .map a{flex-direction:row;align-items:center;text-align:left;gap:12px;padding:6px 0}
   .map .knot{margin:0;flex:none}
   .map .ttl{font-size:1.02rem}
-  .map .txt{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;min-width:0}
+  .map .txt{flex-direction:row;flex-wrap:wrap;align-items:baseline;gap:2px 10px}
 }
 
 /* Route mit Schiene */
-.route{position:relative;padding-left:var(--route-pad);padding-bottom:8px}
+.route{position:relative;padding-left:var(--route-pad);padding-top:8px;padding-bottom:8px}
 .rail{position:absolute;left:calc(var(--rail-x) - 2px);top:8px;bottom:0;width:4px;border-radius:2px;background:var(--green-faint);overflow:hidden}
 .rail i{position:absolute;inset:0;background:var(--green);transform-origin:top;transform:scaleY(var(--p,0))}
 .sec-title{font-family:var(--f-display);font-weight:800;font-stretch:120%;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.1;margin-bottom:8px}
-.route-intro{padding-block:8px 40px}
-.route-intro p{color:var(--muted);max-width:60ch;font-size:1.05rem}
 
 .station{position:relative;scroll-margin-top:84px}
 .node{position:absolute;left:calc(var(--rail-x) - var(--route-pad) - 17px);top:2px;width:34px;height:34px;border-radius:50%;background:var(--surface);border:3px solid var(--green);display:grid;place-items:center;font-family:var(--f-mono);font-size:.78rem;font-weight:600;color:var(--green-ink);transition:background .25s,color .25s}
 .station.on .node{background:var(--green);color:var(--surface)}
-@media (max-width:640px){.node{width:28px;height:28px;left:calc(var(--rail-x) - var(--route-pad) - 14px);font-size:.7rem}}
+@media (max-width:640px){.node{width:28px;height:28px;left:calc(var(--rail-x) - var(--route-pad) - 14px);font-size:.7rem}.station h2{font-stretch:100%}}
 .st-meta{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:7px}
 .station h2{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:clamp(1.9rem,4.6vw,3.1rem);line-height:1.04;letter-spacing:-.01em;margin-top:8px;overflow-wrap:anywhere}
-.st-lead{font-size:clamp(1.12rem,1.8vw,1.3rem);line-height:1.5;max-width:56ch;margin-top:12px}
-.st-body{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px 44px;margin-top:30px;align-items:start}
+.st-lead{font-size:clamp(1.12rem,1.8vw,1.3rem);line-height:1.5;max-width:52ch;margin-top:12px}
+.st-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 44px;margin-top:28px;align-items:start}
 @media (max-width:900px){.st-body{grid-template-columns:minmax(0,1fr)}}
-.st-text{display:flex;flex-direction:column;gap:22px;min-width:0}
+.st-text{display:flex;flex-direction:column;gap:20px;min-width:0}
 .blk h3{font-family:var(--f-display);font-weight:700;font-stretch:110%;font-size:.95rem;letter-spacing:.02em;margin-bottom:6px}
 .blk p,.blk li{font-size:1.05rem}
 .blk ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:3px}
 .blk li::marker{color:var(--muted)}
 .blk.learned h3{color:var(--green-ink);display:flex;align-items:center;gap:8px}
 .blk.learned h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
-.blk.role{font-size:1rem}
-.blk.role p{font-size:1rem;color:var(--muted)}
 .st-media{display:flex;flex-direction:column;gap:16px;min-width:0}
 figure{margin:0}
 .shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
 figcaption{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.5}
-.duo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:start}
-.duo.wide-narrow{grid-template-columns:minmax(0,2.4fr) minmax(0,1fr)}
+.duo{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,1fr);gap:12px;align-items:start}
 
 .spec{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);margin:0;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:.82rem}
 .spec dt,.spec dd{padding:9px 0;border-bottom:1px solid var(--line);margin:0}
@@ -144,24 +135,32 @@ figcaption{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-
 .btn:hover{background:var(--blue);color:var(--surface)}
 .note{font-family:var(--f-mono);font-size:.76rem;color:var(--muted);line-height:1.5}
 
-.xlinks{margin-top:26px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.xlinks{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .xlinks .eyebrow{margin-right:4px}
 .xl{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink);border:1.5px solid var(--green);border-radius:999px;padding:6px 14px;font-size:.92rem;line-height:1.3}
 .xl b{font-family:var(--f-display);font-weight:700;font-stretch:105%;color:var(--green-ink);white-space:nowrap}
 .xl:hover{background:var(--green-soft)}
 
+/* YouTube-Thumbnails */
+.yt{display:grid;grid-template-columns:minmax(0,2.3fr) repeat(3,minmax(0,1fr));gap:12px;margin-top:28px;align-items:start}
+.yt .feat{grid-row:span 2}
+@media (max-width:760px){.yt{grid-template-columns:repeat(2,minmax(0,1fr))}.yt .feat{grid-column:1/-1;grid-row:auto}}
+.yt a{display:block;text-decoration:none;color:var(--ink);min-width:0}
+.yt img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:8px;border:1px solid var(--line);transition:outline-color .15s;outline:3px solid transparent;outline-offset:2px}
+.yt a:hover img{outline-color:var(--green)}
+.yt span{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 8px;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-top:6px;font-variant-numeric:tabular-nums}
+.yt span b{color:var(--ink);font-weight:600}
+.yt .feat span{font-size:.8rem}
+
 /* Knoten zwischen zwei Stationen */
-.hop{position:relative;margin-block:56px 64px}
-.hop::before{content:"";position:absolute;left:calc(var(--rail-x) - var(--route-pad) - 7px);top:22px;width:14px;height:14px;border-radius:3px;transform:rotate(45deg);background:var(--green)}
-.hop-box{background:var(--green-soft);border-radius:12px;padding:16px 20px;max-width:640px;border:1px solid var(--green-faint)}
-.hop-box .eyebrow{color:var(--green-ink)}
-.hop-box p{margin-top:6px;font-size:1.06rem;line-height:1.5}
-.hop-box .from{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);margin-top:8px}
+.hop{position:relative;margin-block:48px 56px}
+.hop::before{content:"";position:absolute;left:calc(var(--rail-x) - var(--route-pad) - 7px);top:50%;margin-top:-7px;width:14px;height:14px;border-radius:3px;transform:rotate(45deg);background:var(--green)}
+.hop-box{background:var(--green-soft);border-radius:12px;padding:12px 18px;max-width:600px;border:1px solid var(--green-faint);display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.hop-box .from{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;color:var(--green-ink);white-space:nowrap}
+.hop-box p{font-size:1.04rem;line-height:1.45}
 
 /* Player */
 .player{border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:18px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 16px;align-items:center}
-.player .ptitle{grid-column:1/-1;display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.player .ptitle b{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:1.6rem;color:var(--blue-ink)}
 .play{width:56px;height:56px;border-radius:50%;border:0;background:var(--blue);color:var(--surface);display:grid;place-items:center;cursor:pointer;flex:none}
 .play:hover{filter:brightness(1.08)}
 .play svg{width:22px;height:22px;fill:currentColor}
@@ -172,13 +171,12 @@ figcaption{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-
 .ptime{grid-column:1/-1;display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.76rem;color:var(--muted);font-variant-numeric:tabular-nums}
 
 /* Ziel der Route */
-.goal{position:relative;padding-top:4px}
 .goal .node{border-style:dashed;border-color:var(--blue);color:var(--blue-ink);background:var(--surface)}
 .goal h2{color:var(--blue-ink)}
 
 /* Folgeabschnitte */
 .section{padding-block:96px 0}
-.matrix-wrap{overflow-x:auto;margin-top:24px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+.matrix-wrap{overflow-x:auto;margin-top:20px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
 .matrix{border-collapse:collapse;width:100%;min-width:720px;font-family:var(--f-mono);font-size:.8rem}
 .matrix th,.matrix td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:center}
 .matrix tr:last-child th,.matrix tr:last-child td{border-bottom:0}
@@ -188,27 +186,20 @@ figcaption{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-
 .matrix tbody th{text-align:left;font-family:var(--f-body);font-weight:600;font-size:.98rem;white-space:nowrap;position:sticky;left:0;background:var(--surface)}
 .dot{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--green);vertical-align:middle}
 .matrix td.no::after{content:"";display:inline-block;width:4px;height:4px;border-radius:50%;background:var(--line);vertical-align:middle}
-.matrix .count{color:var(--muted)}
 
-.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
+.steps{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s}
 @media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
 .steps li{counter-increment:s;border-top:3px solid var(--green);padding-top:12px;min-width:0}
 .steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-mono);font-size:.76rem;color:var(--green-ink)}
-.steps b{display:block;font-family:var(--f-display);font-weight:750;font-stretch:110%;font-size:1.08rem;margin:4px 0 6px}
+.steps b{display:block;font-family:var(--f-display);font-weight:750;font-stretch:110%;font-size:1.08rem;margin:4px 0 4px}
 .steps p{font-size:1rem;color:var(--muted)}
-.ai{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px 44px;align-items:start;border-top:1px solid var(--line);padding-top:28px}
-@media (max-width:820px){.ai{grid-template-columns:minmax(0,1fr)}}
-.ai h3{font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:1.35rem;line-height:1.2}
-.ai p{font-size:1.05rem;max-width:62ch}
-.ai p + p{margin-top:12px}
+.ai-note{margin-top:28px;max-width:62ch;font-size:1.05rem;border-top:1px solid var(--line);padding-top:20px}
 
-.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px 56px;margin-top:24px;align-items:start}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;margin-top:20px;align-items:start}
 @media (max-width:820px){.about{grid-template-columns:minmax(0,1fr)}}
-.about p{max-width:60ch}
-.about p + p{margin-top:14px}
 
-.contact{margin-top:24px;display:flex;flex-direction:column;gap:18px}
+.contact{margin-top:20px;display:flex;flex-direction:column;gap:18px}
 .mail{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .mail .addr{font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:clamp(1.3rem,3.6vw,2.2rem);overflow-wrap:anywhere;user-select:all}
 footer{margin-top:96px;border-top:1px solid var(--line);padding-block:24px 40px}
@@ -219,11 +210,10 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#start"><i aria-hidden="true"></i><span class="todo">Vorname Nachname</span></a>
+    <a class="brand" href="#start"><i aria-hidden="true"></i>Tjark Reichart</a>
     <nav aria-label="Abschnitte">
-      <a href="#faden">Der grüne Faden</a>
+      <a href="#faden">Projekte</a>
       <a class="opt" href="#faehigkeiten">Fähigkeiten</a>
-      <a class="opt" href="#arbeitsweise">Arbeitsweise</a>
       <a class="opt" href="#ueber-mich">Über mich</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -232,172 +222,136 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
 
 <main id="start">
   <section class="hero wrap">
-    <p class="eyebrow">Portfolio · Bewerbung für eine Ausbildung oder ein Studium</p>
-    <h1>Wenn mir ein Werkzeug fehlt, baue ich es <em>selbst.</em></h1>
-    <p class="lead">Ich habe mit Freunden eine Modemarke aufgebaut, eine Video-Reihe gedreht, einen Song produziert und zwei Audio-Plugins und zwei Web-Apps entwickelt. <b>Jedes Projekt hat zum nächsten geführt.</b> Der grüne Faden zeigt, wie alles zusammenhängt und was ich unterwegs gelernt habe.</p>
+    <h1><span>Portfolio</span>Tjark Reichart</h1>
+    <p class="lead">Wenn mir ein Werkzeug fehlt, baue ich es selbst. Der grüne Faden zeigt, wie ein Projekt zum nächsten geführt hat.</p>
   </section>
 
-  <section class="mapsec wrap" aria-labelledby="map-title">
-    <div class="map-head">
-      <h2 id="map-title" class="eyebrow">Der grüne Faden auf einen Blick</h2>
-      <p>Klicken Sie auf eine Station, um direkt zum Projekt zu springen.</p>
-    </div>
+  <section class="mapsec wrap" aria-label="Übersicht">
+    <p class="eyebrow">Der grüne Faden</p>
     <ol class="map">
-      <li><a href="#bravourfinds"><span class="knot">1</span><span class="txt"><span class="cat">Modemarke</span><span class="ttl">Bravourfinds</span><span class="yr">seit <span class="todo">2024</span></span></span></a></li>
-      <li><a href="#tshirtalshose"><span class="knot">2</span><span class="txt"><span class="cat">Video-Reihe</span><span class="ttl">TSHIRTALSHOSE</span><span class="yr">2026</span></span></a></li>
-      <li><a href="#blue"><span class="knot">3</span><span class="txt"><span class="cat">Song</span><span class="ttl">Blue</span><span class="yr">2026</span></span></a></li>
-      <li><a href="#auric-master"><span class="knot">4</span><span class="txt"><span class="cat">Audio-Plugin</span><span class="ttl">Auric Master</span><span class="yr">2026</span></span></a></li>
-      <li><a href="#vox-clear"><span class="knot">5</span><span class="txt"><span class="cat">Audio-Plugin</span><span class="ttl">Vox Clear</span><span class="yr">2026</span></span></a></li>
-      <li><a href="#bandzentrale"><span class="knot">6</span><span class="txt"><span class="cat">Web-App</span><span class="ttl">Bandzentrale</span><span class="yr">2026</span></span></a></li>
-      <li><a href="#sparplan"><span class="knot">7</span><span class="txt"><span class="cat">Web-App</span><span class="ttl">Sparplan</span><span class="yr"><span class="todo">Jahr</span></span></span></a></li>
-      <li class="next"><a href="#naechste-station"><span class="knot">→</span><span class="txt"><span class="cat">Nächste Station</span><span class="ttl">Bei Ihnen</span><span class="yr">Ausbildung / Studium</span></span></a></li>
+      <li><a href="#bravourfinds"><span class="knot">1</span><span class="txt"><span class="cat">Modemarke</span><span class="ttl">Bravourfinds</span></span></a></li>
+      <li><a href="#tshirtalshose"><span class="knot">2</span><span class="txt"><span class="cat">Video</span><span class="ttl">TSHIRTALSHOSE</span></span></a></li>
+      <li><a href="#blue"><span class="knot">3</span><span class="txt"><span class="cat">Song</span><span class="ttl">Blue</span></span></a></li>
+      <li><a href="#auric-master"><span class="knot">4</span><span class="txt"><span class="cat">Plugin</span><span class="ttl">Auric Master</span></span></a></li>
+      <li><a href="#vox-clear"><span class="knot">5</span><span class="txt"><span class="cat">Plugin</span><span class="ttl">Vox Clear</span></span></a></li>
+      <li><a href="#bandzentrale"><span class="knot">6</span><span class="txt"><span class="cat">Web-App</span><span class="ttl">Bandzentrale</span></span></a></li>
+      <li><a href="#sparplan"><span class="knot">7</span><span class="txt"><span class="cat">Web-App</span><span class="ttl">Sparplan</span></span></a></li>
+      <li class="next"><a href="#naechste-station"><span class="knot">→</span><span class="txt"><span class="cat">Als Nächstes</span><span class="ttl">Bei Ihnen</span></span></a></li>
     </ol>
   </section>
 
-  <section class="wrap" id="faden" aria-labelledby="faden-title">
+  <section class="wrap" id="faden" aria-label="Projekte">
     <div class="route">
       <div class="rail" aria-hidden="true"><i></i></div>
 
-      <div class="route-intro">
-        <h2 id="faden-title" class="sec-title">Sieben Stationen</h2>
-        <p>Jede Station zeigt die Idee, was ich gemacht habe und was ich gelernt habe. Die grünen Knoten dazwischen erklären, warum das eine Projekt zum nächsten geführt hat.</p>
-      </div>
-
-      <!-- Station 1 -->
+      <!-- 1 -->
       <article class="station" id="bravourfinds">
         <span class="node" aria-hidden="true">1</span>
-        <p class="st-meta">Station 1 · Modemarke · mit Freunden gegründet · <span class="todo">2024</span></p>
+        <p class="st-meta">Modemarke · seit <span class="todo">2024</span></p>
         <h2>Bravourfinds</h2>
-        <p class="st-lead">Vintage- und Designer-Mode, neu kuratiert und über Social Media einer jungen Zielgruppe zugänglich gemacht.</p>
+        <p class="st-lead">Mit Freunden gegründet: Vintage- und Designer-Mode für eine junge Zielgruppe.</p>
         <div class="st-body">
           <div class="st-text">
             <div class="blk">
-              <h3>Die Idee</h3>
-              <p>Hochwertige Einzelstücke statt Massenware: Wir haben Vintage- und Designer-Pieces gesucht, aufbereitet und als Marke präsentiert. Im Fokus standen nachhaltiger Konsum und ein authentischer Streetwear-Auftritt.</p>
-            </div>
-            <div class="blk">
-              <h3>Meine Aufgaben</h3>
+              <h3>Was ich gemacht habe</h3>
               <ul>
-                <li>Instagram-Auftritt aufgebaut und gestaltet</li>
-                <li>Content Creation und Produktfotografie</li>
-                <li>Branding und visuelle Identität</li>
-                <li>Kommunikation mit Kundinnen und Kunden über Social Media</li>
-                <li>Produkte und Listings organisiert</li>
-                <li>Aktionen geplant, z. B. den Sale „The Bravour Friday“, und Produkte an Influencer wie @marli_global geschickt</li>
+                <li>Instagram-Auftritt und Branding</li>
+                <li>Produktfotos und Content</li>
+                <li>Kundenkontakt und Listings</li>
+                <li>Sale-Aktionen und Influencer-Kooperationen</li>
               </ul>
             </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p>Wie man digitale Reichweite aufbaut, eine Community pflegt und Produkte professionell präsentiert. Dazu kamen Preise festlegen, Kundengespräche führen und im Team Aufgaben aufteilen.</p>
+              <p>Reichweite aufbauen, eine Community pflegen und Produkte so präsentieren, dass sie sich verkaufen.</p>
+            </div>
+            <div class="figures">
+              <div><b>224</b><span>Follower TikTok</span></div>
+              <div><b>2.939</b><span>Likes TikTok</span></div>
+              <div><b>157</b><span>Follower Instagram</span></div>
             </div>
           </div>
           <div class="st-media">
-            <figure>
-              <div class="shot"><img src="assets/img/bravourfinds-drop.jpg" width="1000" height="1000" alt="Flatlay mit fünf Vintage-Jacken und Hosen von Nike und Adidas, daneben durchgestrichene alte Preise und neue Sale-Preise in Blau" loading="lazy"></div>
-              <figcaption>Sale-Post für „The Bravour Friday“: Fotografie, Preisgestaltung und Layout</figcaption>
-            </figure>
-            <div class="figures">
-              <div><b>224</b><span>Follower auf TikTok</span></div>
-              <div><b>2.939</b><span>Likes auf TikTok</span></div>
-              <div><b>157</b><span>Follower auf Instagram</span></div>
+            <div class="shot"><img src="assets/img/bravourfinds-drop.jpg" width="1000" height="1000" alt="Sale-Post von Bravourfinds: fünf Vintage-Jacken und Hosen von Nike und Adidas mit alten und neuen Preisen" loading="lazy"></div>
+            <div class="duo">
+              <div class="shot"><img src="assets/img/bravourfinds-shop.jpg" width="646" height="433" alt="Startseite des Bravourfinds-Onlineshops" loading="lazy"></div>
+              <div class="shot"><img src="assets/img/bravourfinds-logo.jpg" width="400" height="400" alt="Logo von Bravourfinds" loading="lazy"></div>
             </div>
-            <figure>
-              <div class="duo wide-narrow">
-                <div class="shot"><img src="assets/img/bravourfinds-shop.jpg" width="646" height="433" alt="Startseite des Bravourfinds-Onlineshops mit Menü Home, Verfügbar, Neuster Drop, Männer, Frauen, Kids über einem Foto mit Trainingsjacken" loading="lazy"></div>
-                <div class="shot"><img src="assets/img/bravourfinds-logo.jpg" width="400" height="400" alt="Logo von Bravourfinds: weißer Schriftzug bravour. finds auf blauem Quadrat" loading="lazy"></div>
-              </div>
-              <figcaption>Onlineshop und Logo</figcaption>
-            </figure>
           </div>
         </div>
         <div class="xlinks">
           <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#tshirtalshose"><b>TSHIRTALSHOSE</b> Content für eine Zielgruppe</a>
-          <a class="xl" href="#bandzentrale"><b>Bandzentrale</b> Reichweite messen</a>
+          <a class="xl" href="#tshirtalshose"><b>TSHIRTALSHOSE</b> Content</a>
+          <a class="xl" href="#bandzentrale"><b>Bandzentrale</b> Social Media</a>
         </div>
       </article>
 
-      <div class="hop">
-        <div class="hop-box">
-          <p class="eyebrow">Daraus folgt</p>
-          <p>Für Bravourfinds habe ich Fotos und Clips geplant, aufgenommen und für eine Zielgruppe aufbereitet. Dasselbe Handwerk funktioniert auch in Bewegtbild: drehen, auswählen, schneiden, veröffentlichen.</p>
-          <p class="from">Bravourfinds → TSHIRTALSHOSE</p>
-        </div>
-      </div>
+      <div class="hop"><div class="hop-box"><span class="from">1 → 2</span><p>Fotos und Clips für eine Zielgruppe planen geht auch als Video.</p></div></div>
 
-      <!-- Station 2 -->
+      <!-- 2 -->
       <article class="station" id="tshirtalshose">
         <span class="node" aria-hidden="true">2</span>
-        <p class="st-meta">Station 2 · Video-Reihe auf YouTube · Mai bis Juli 2026</p>
+        <p class="st-meta">Video-Reihe auf YouTube · Mai bis Juli 2026</p>
         <h2>TSHIRTALSHOSE</h2>
-        <p class="st-lead">Eine Vlog-Reihe über Musik-Events und Ausflüge mit Freunden: sieben Folgen in elf Wochen.</p>
+        <p class="st-lead">Vlogs von Festivals und Konzerten: sieben Folgen in elf Wochen.</p>
         <div class="st-body">
           <div class="st-text">
             <div class="blk">
-              <h3>Die Idee</h3>
-              <p>Erlebnisse nicht nur festhalten, sondern als fortlaufende Serie erzählen. Jede Folge ist ein eigenes Kapitel, durchnummeriert von VOL.1 bis VOL.7.</p>
-            </div>
-            <div class="blk">
-              <h3>Umsetzung</h3>
-              <p>Filmen vor Ort, Material sichten, schneiden und hochladen, alles selbst. Geschnitten mit <span class="todo">Schnittprogramm</span>.</p>
+              <h3>Was ich gemacht habe</h3>
+              <ul>
+                <li>Gedreht auf Splash, in Berlin und auf einer Release-Party</li>
+                <li>Geschnitten mit <span class="todo">Programm</span></li>
+                <li>Thumbnails im einheitlichen Serien-Look</li>
+              </ul>
             </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p>Aus vielen Stunden Material wenige Minuten machen, die man sich gern ansieht. Und dranbleiben: Sieben Folgen in elf Wochen schafft man nur mit einem festen Ablauf.</p>
+              <p>Aus Stunden Material wenige gute Minuten machen und regelmäßig liefern.</p>
             </div>
           </div>
           <div class="st-media">
             <div class="figures">
-              <div><b>7</b><span>Folgen veröffentlicht</span></div>
-              <div><b>1.139</b><span>Aufrufe insgesamt</span></div>
-              <div><b>530</b><span>Aufrufe der meistgesehenen Folge (VOL.3)</span></div>
+              <div><b>7</b><span>Folgen</span></div>
+              <div><b>1.139</b><span>Aufrufe</span></div>
+              <div><b>21</b><span>Abonnenten</span></div>
             </div>
-            <dl class="spec">
-              <dt>Kanal</dt><dd>@TSHIRTALSHOSE · 21 Abonnenten</dd>
-              <dt>Zeitraum</dt><dd>03.05. bis 16.07.2026</dd>
-              <dt>Format</dt><dd>Vlog-Serie, VOL.1 bis VOL.7</dd>
-              <dt>Stand</dt><dd>Oktober 2026</dd>
-            </dl>
-            <div class="links">
-              <a class="btn" href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener">Kanal auf YouTube ansehen ↗</a>
-            </div>
+            <div class="links"><a class="btn" href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener">Kanal ansehen ↗</a></div>
           </div>
         </div>
+        <div class="yt">
+          <a class="feat" href="https://www.youtube.com/watch?v=V2yvMHzrUYk" target="_blank" rel="noopener"><img src="assets/img/yt/vol3.jpg" width="640" height="360" alt="Thumbnail VOL.3: BLN 26, Straße in Berlin" loading="lazy"><span><b>VOL.3 · BLN 26</b>530 Aufrufe · meistgesehen</span></a>
+          <a href="https://www.youtube.com/watch?v=SIi5gJ0dY_I" target="_blank" rel="noopener"><img src="assets/img/yt/vol1.jpg" width="640" height="360" alt="Thumbnail VOL.1: BLN 26, Menschenmenge im Park" loading="lazy"><span><b>VOL.1</b>182</span></a>
+          <a href="https://www.youtube.com/watch?v=zr_Oki3ew4A" target="_blank" rel="noopener"><img src="assets/img/yt/vol2.jpg" width="640" height="360" alt="Thumbnail VOL.2: BLN 26, Menschenmenge auf der Straße bei Nacht" loading="lazy"><span><b>VOL.2</b>101</span></a>
+          <a href="https://www.youtube.com/watch?v=ucZMgwc5NVI" target="_blank" rel="noopener"><img src="assets/img/yt/vol4.jpg" width="640" height="360" alt="Thumbnail VOL.4: Release-Party im Club" loading="lazy"><span><b>VOL.4</b>84</span></a>
+          <a href="https://www.youtube.com/watch?v=YW6sw-Am-YA" target="_blank" rel="noopener"><img src="assets/img/yt/vol5.jpg" width="640" height="360" alt="Thumbnail VOL.5: Splash 26, Künstler auf der Bühne" loading="lazy"><span><b>VOL.5</b>91</span></a>
+          <a href="https://www.youtube.com/watch?v=EJxmt8n8CJw" target="_blank" rel="noopener"><img src="assets/img/yt/vol6.jpg" width="640" height="360" alt="Thumbnail VOL.6: Splash 26, Bühne mit Publikum" loading="lazy"><span><b>VOL.6</b>65</span></a>
+          <a href="https://www.youtube.com/watch?v=Unb8eGIrgA0" target="_blank" rel="noopener"><img src="assets/img/yt/vol7.jpg" width="640" height="360" alt="Thumbnail VOL.7: Splash 26, Auftritt mit Pyrotechnik" loading="lazy"><span><b>VOL.7</b>86</span></a>
+        </div>
+        <p class="note" style="margin-top:10px">Aufrufe: Stand Oktober 2026</p>
         <div class="xlinks">
           <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#bravourfinds"><b>Bravourfinds</b> Foto und Content</a>
-          <a class="xl" href="#blue"><b>Blue</b> Musik im Mittelpunkt</a>
+          <a class="xl" href="#bravourfinds"><b>Bravourfinds</b> Content</a>
+          <a class="xl" href="#blue"><b>Blue</b> Musik</a>
         </div>
       </article>
 
-      <div class="hop">
-        <div class="hop-box">
-          <p class="eyebrow">Daraus folgt</p>
-          <p>Bei jedem Event in meinen Videos steht Musik im Mittelpunkt. Irgendwann wollte ich sie nicht nur filmen, sondern selbst machen.</p>
-          <p class="from">TSHIRTALSHOSE → Blue</p>
-        </div>
-      </div>
+      <div class="hop"><div class="hop-box"><span class="from">2 → 3</span><p>Bei jedem Event steht Musik im Mittelpunkt, also mache ich sie selbst.</p></div></div>
 
-      <!-- Station 3 -->
+      <!-- 3 -->
       <article class="station" id="blue">
         <span class="node" aria-hidden="true">3</span>
-        <p class="st-meta">Station 3 · Song · 2026</p>
+        <p class="st-meta">Song · 2026</p>
         <h2>Blue</h2>
-        <p class="st-lead">Mein eigener Song, komplett allein gemacht: von der ersten Idee bis zum fertigen Master.</p>
+        <p class="st-lead">Mein eigener Song: Idee, Beat, Arrangement, Mix und Master, alles allein in FL Studio.</p>
         <div class="st-body">
           <div class="st-text">
-            <div class="blk">
-              <h3>Umsetzung</h3>
-              <p>Produziert in FL Studio. Idee, Beat, Arrangement, Mix und Master habe ich alle selbst gemacht.</p>
-            </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p>Einen Song wirklich fertig machen, nicht nur anfangen. Und hören lernen, woran es im Mix hakt: dröhnender Bass, harte Höhen, eine Stimme, die nicht durchkommt. Genau aus diesen Problemen sind die nächsten beiden Projekte entstanden.</p>
+              <p>Einen Song wirklich fertig machen und hören, woran es im Mix hakt.</p>
             </div>
           </div>
           <div class="st-media">
             <div class="player" id="player">
-              <div class="ptitle"><b>Blue</b><span class="eyebrow">Hören Sie rein</span></div>
               <button class="play" id="playBtn" type="button" aria-label="Blue abspielen">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path id="playIcon" d="M7 4.5v15l13-7.5z"/></svg>
               </button>
@@ -408,252 +362,175 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
               <div class="ptime"><span id="cur">0:00</span><span id="dur">3:00</span></div>
               <audio id="audio" src="assets/audio/blue.mp3" preload="metadata"></audio>
             </div>
-            <dl class="spec">
-              <dt>Länge</dt><dd>3:00 min</dd>
-              <dt>Software</dt><dd>FL Studio</dd>
-              <dt>Export</dt><dd>48 kHz · Stereo</dd>
-              <dt>Beteiligt</dt><dd>nur ich</dd>
-            </dl>
           </div>
         </div>
         <div class="xlinks">
           <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#auric-master"><b>Auric Master</b> Mix und Master</a>
-          <a class="xl" href="#vox-clear"><b>Vox Clear</b> Saubere Aufnahmen</a>
+          <a class="xl" href="#auric-master"><b>Auric Master</b> Master</a>
+          <a class="xl" href="#vox-clear"><b>Vox Clear</b> Aufnahme</a>
         </div>
       </article>
 
-      <div class="hop">
-        <div class="hop-box">
-          <p class="eyebrow">Daraus folgt</p>
-          <p>Ein Song ist erst fertig, wenn er gemischt und gemastert ist. Statt fünf einzelne Effekte zu stapeln, wollte ich eine Kette, die meinen Mix analysiert und mir zeigt, wo es kracht.</p>
-          <p class="from">Blue → Auric Master</p>
-        </div>
-      </div>
+      <div class="hop"><div class="hop-box"><span class="from">3 → 4</span><p>Ein Song ist erst fertig, wenn er gemastert ist.</p></div></div>
 
-      <!-- Station 4 -->
+      <!-- 4 -->
       <article class="station" id="auric-master">
         <span class="node" aria-hidden="true">4</span>
-        <p class="st-meta">Station 4 · Audio-Plugin (VST3 / AU) · Oktober 2026</p>
+        <p class="st-meta">Audio-Plugin · Oktober 2026</p>
         <h2>Auric Master</h2>
-        <p class="st-lead">Ein Mastering-Plugin für FL Studio: die komplette Kette vom Mix zum fertigen Song in einem Fenster.</p>
+        <p class="st-lead">Mastering-Plugin für FL Studio: vom Mix zum fertigen Song in einem Fenster.</p>
         <div class="st-body">
           <div class="st-text">
             <div class="blk">
-              <h3>Was es macht</h3>
-              <p>Die Signalkette: Input → Bass und Air → Resonance Control → Glue-Kompressor → Stereobreite → Röhren-Sättigung → Limiter. Die Funktion <b>Auto-Match</b> hört etwa 10 Sekunden des Songs, vergleicht das Spektrum mit einer Referenzkurve für das Genre (Pop, Hip-Hop/Trap, EDM, Rock, Acoustic) und stellt sechs Bänder gegen störende Resonanzen ein.</p>
-            </div>
-            <div class="blk role">
-              <h3>Meine Rolle</h3>
-              <p>Idee, Funktionsumfang und Bedienkonzept festgelegt, mit eigenen Songs in FL Studio getestet, Fehler beschrieben und nachgeschärft. Programmiert habe ich mit KI-Unterstützung (Claude Code) in C++ mit dem JUCE-Framework.</p>
+              <h3>Was es kann</h3>
+              <ul>
+                <li>Komplette Kette von EQ über Kompressor bis Limiter</li>
+                <li>Auto-Match erkennt störende Resonanzen per Genre-Vergleich</li>
+                <li>Läuft auf Windows und macOS</li>
+              </ul>
             </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p>Wie Mastering technisch funktioniert: Frequenzspektrum (FFT), Kompression, Sättigung und Limiter, und warum dabei Latenz entsteht. Außerdem, wie man Software automatisch für Windows und macOS bauen lässt (GitHub Actions).</p>
+              <p>Wie Mastering technisch funktioniert: Spektrum, Kompression, Limiter, Latenz.</p>
             </div>
+            <dl class="spec">
+              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
+              <dt>Technik</dt><dd>C++ · JUCE · VST3/AU</dd>
+            </dl>
+            <div class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Auric-Master" target="_blank" rel="noopener">GitHub ↗</a></div>
           </div>
           <div class="st-media">
-            <figure>
-              <div class="shot"><img src="assets/img/auric-master.jpg" width="1000" height="700" alt="Oberfläche von Auric Master im Tab Resonance: Frequenzspektrum mit sechs Bändern Low, Mud, Box, Harsh, Sibilance und High, Auto-Match-Analyse bei 75 Prozent" loading="lazy"></div>
-              <figcaption>Resonance-Ansicht: Auto-Match erkennt gerade Frequenz-Clashes</figcaption>
-            </figure>
-            <dl class="spec">
-              <dt>Format</dt><dd>VST3 und AU, Windows und macOS</dd>
-              <dt>Latenz</dt><dd>ca. 45 ms (FL gleicht automatisch aus)</dd>
-              <dt>Limiter</dt><dd>Lookahead, 4× Oversampling</dd>
-              <dt>Technik</dt><dd>C++ · JUCE · CMake · GitHub Actions</dd>
-            </dl>
-            <div class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Auric-Master" target="_blank" rel="noopener">Code auf GitHub ↗</a></div>
+            <div class="shot"><img src="assets/img/auric-master.jpg" width="1000" height="700" alt="Oberfläche von Auric Master: Frequenzspektrum mit sechs Bändern und laufender Auto-Match-Analyse" loading="lazy"></div>
           </div>
         </div>
         <div class="xlinks">
           <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#blue"><b>Blue</b> Der Anlass</a>
-          <a class="xl" href="#vox-clear"><b>Vox Clear</b> Gleiche Technik, früher in der Kette</a>
+          <a class="xl" href="#vox-clear"><b>Vox Clear</b> Gleiche Technik</a>
         </div>
       </article>
 
-      <div class="hop">
-        <div class="hop-box">
-          <p class="eyebrow">Daraus folgt</p>
-          <p>Mastering kann eine verrauschte Aufnahme nicht retten. Das Problem entsteht früher: beim Aufnehmen im eigenen Zimmer. Also setzt das nächste Werkzeug direkt auf der Gesangsspur an.</p>
-          <p class="from">Auric Master → Vox Clear</p>
-        </div>
-      </div>
+      <div class="hop"><div class="hop-box"><span class="from">4 → 5</span><p>Mastering rettet keine verrauschte Aufnahme. Also direkt an der Stimme ansetzen.</p></div></div>
 
-      <!-- Station 5 -->
+      <!-- 5 -->
       <article class="station" id="vox-clear">
         <span class="node" aria-hidden="true">5</span>
-        <p class="st-meta">Station 5 · Audio-Plugin (VST3 / AU) · Oktober 2026</p>
+        <p class="st-meta">Audio-Plugin · Oktober 2026</p>
         <h2>Vox Clear</h2>
-        <p class="st-lead">Ein Vocal-Plugin für Home-Recording: Es macht Aufnahmen aus dem Zimmer sauber und bringt die Stimme nach vorne.</p>
+        <p class="st-lead">Vocal-Plugin für Aufnahmen im eigenen Zimmer: sauber und präsent.</p>
         <div class="st-body">
           <div class="st-text">
             <div class="blk">
-              <h3>Was es macht</h3>
+              <h3>Was es kann</h3>
               <ul>
-                <li><b>Clean</b> entfernt Schmatzer, Rauschen, Netzbrummen (50/60 Hz), Plopp-Laute und Geräusche in Pausen.</li>
-                <li><b>Auto Clean</b> analysiert jede Aufnahme selbst und stellt die Regler laufend passend ein.</li>
-                <li><b>Mikrofon</b> gleicht Schwächen günstiger Mikros aus und misst das eigene Mikro beim Singen ein.</li>
-                <li><b>Vocal Push</b> bringt die Stimme nach vorne und hält sie auf Wunsch über dem Beat.</li>
-                <li>12 Presets, von Rap über Pop bis Podcast.</li>
+                <li>Entfernt Rauschen, Schmatzer, Brummen und Plopp-Laute</li>
+                <li>Stellt sich per Auto Clean selbst ein</li>
+                <li>Lässt günstige Mikrofone besser klingen</li>
+                <li>12 Presets von Rap bis Podcast</li>
               </ul>
-            </div>
-            <div class="blk role">
-              <h3>Meine Rolle</h3>
-              <p>Wie bei Auric Master: Ich habe festgelegt, was das Plugin können muss, es mit meinen eigenen Aufnahmen getestet und so lange nachgeschärft, bis es passt. Programmiert mit KI-Unterstützung (Claude Code).</p>
             </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p>Ein unscharfes Problem wie „klingt nach Zimmer“ in messbare Größen übersetzen: Abstand zwischen Stimme und Rauschen, Klicks pro Minute, tiefster Ton der Stimme. Und an Sonderfälle denken: Klicklaute, die in Sprachen wie Xhosa zum Wortschatz gehören, bleiben erhalten.</p>
+              <p>Ein Gefühl wie „klingt nach Zimmer“ in messbare Werte übersetzen.</p>
             </div>
+            <dl class="spec">
+              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
+              <dt>Leistung</dt><dd>ca. 4 % CPU · 51 ms Latenz</dd>
+            </dl>
+            <div class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Vox-Clear" target="_blank" rel="noopener">GitHub ↗</a></div>
           </div>
           <div class="st-media">
-            <figure>
-              <div class="shot"><img src="assets/img/vox-clear.jpg" width="936" height="655" alt="Oberfläche von Vox Clear mit den Bereichen Clean, Mikrofon und Vocal Push, Spektrum-Anzeige und Pegelmetern" loading="lazy"></div>
-              <figcaption>Alle drei Bereiche in einem Fenster; Auto zeigt live, was es gerade einstellt</figcaption>
-            </figure>
-            <dl class="spec">
-              <dt>CPU</dt><dd>ca. 3,5 bis 4,5 % eines Kerns (gemessen)</dd>
-              <dt>Latenz</dt><dd>ca. 51 ms bei 48 kHz</dd>
-              <dt>Format</dt><dd>VST3 und AU, Windows und macOS</dd>
-              <dt>Technik</dt><dd>C++ · JUCE · FFT · GitHub Actions</dd>
-            </dl>
-            <div class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Vox-Clear" target="_blank" rel="noopener">Code auf GitHub ↗</a></div>
+            <div class="shot"><img src="assets/img/vox-clear.jpg" width="936" height="655" alt="Oberfläche von Vox Clear mit den Bereichen Clean, Mikrofon und Vocal Push" loading="lazy"></div>
           </div>
         </div>
         <div class="xlinks">
           <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#auric-master"><b>Auric Master</b> Gleiche FFT-Technik</a>
-          <a class="xl" href="#bandzentrale"><b>Bandzentrale</b> Werkzeug für den Musikalltag</a>
+          <a class="xl" href="#blue"><b>Blue</b> Eigene Aufnahmen</a>
         </div>
       </article>
 
-      <div class="hop">
-        <div class="hop-box">
-          <p class="eyebrow">Daraus folgt</p>
-          <p>Musik machen heißt auch organisieren: Proben, Auftritte, Anfragen, Gagen. Das gleiche Prinzip wie bei den Plugins, nur für ein anderes Problem: ein Werkzeug, das im Alltag fehlt.</p>
-          <p class="from">Vox Clear → Bandzentrale</p>
-        </div>
-      </div>
+      <div class="hop"><div class="hop-box"><span class="from">5 → 6</span><p>Musik machen heißt auch organisieren.</p></div></div>
 
-      <!-- Station 6 -->
+      <!-- 6 -->
       <article class="station" id="bandzentrale">
         <span class="node" aria-hidden="true">6</span>
-        <p class="st-meta">Station 6 · Web-App · 2026</p>
+        <p class="st-meta">Web-App · 2026</p>
         <h2>Bandzentrale</h2>
-        <p class="st-lead">Die Organisations-App für eine Band: Termine, Musik, Chat und Büro an einem Ort, live für alle Mitglieder.</p>
+        <p class="st-lead">Organisations-App für eine Band: Termine, Setlists, Chat und Büro an einem Ort.</p>
         <div class="st-body">
           <div class="st-text">
             <div class="blk">
               <h3>Was sie kann</h3>
               <ul>
-                <li><b>Planer:</b> Kalender, Proben mit Zu- und Absage, Abwesenheiten, freie Tage, Gigs mit Statistik</li>
-                <li><b>Musik:</b> Setlists und Repertoire, mit großer Bühnenansicht</li>
-                <li><b>Chat</b> mit Kanälen für Orga, Musik und Fahrten</li>
-                <li><b>Büro:</b> Bewerbungen bei Veranstaltern, Serienbriefe mit Vorlagen, Anfragen, Angebote, Rechnungen und Finanzen</li>
-                <li><b>Social-Dashboard</b> für YouTube, TikTok, Instagram, Facebook und Spotify</li>
-                <li><b>KI-Assistent</b> liest Mails und Ausschreibungen aus und schreibt Antwortentwürfe</li>
+                <li>Kalender mit Probenzusagen und Gigs</li>
+                <li>Setlists, Repertoire und Chat</li>
+                <li>Büro: Anfragen, Angebote, Rechnungen</li>
+                <li>KI liest Mails aus und schreibt Entwürfe</li>
               </ul>
-            </div>
-            <div class="blk role">
-              <h3>Meine Rolle</h3>
-              <p>Anforderungen der Band gesammelt, Aufbau und Abläufe geplant, im echten Bandalltag getestet. Umgesetzt als Web-App mit KI-Unterstützung (Claude).</p>
             </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p>Eine App für mehrere Menschen planen, die Unterschiedliches brauchen. Datenschutz mitdenken: Rechnungen und Finanzen sind mit einem eigenen Passwort verschlüsselt. Und alles so bauen, dass es auf dem Handy funktioniert.</p>
+              <p>Für mehrere Menschen planen, Datenschutz mitdenken, fürs Handy bauen.</p>
             </div>
+            <dl class="spec">
+              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
+            </dl>
           </div>
           <div class="st-media">
             <figure>
-              <div class="duo wide-narrow">
-                <div class="shot"><img src="assets/img/bandzentrale.jpg" width="1440" height="923" alt="Startseite der Bandzentrale am Computer: Hinweis auf offene Probenzusage, Kacheln für nächste Probe, nächsten Gig, offene Bewerbungen und Chat, darunter die nächsten sieben Tage" loading="lazy"></div>
-                <div class="shot"><img src="assets/img/bandzentrale-mobil.jpg" width="600" height="1230" alt="Dieselbe Startseite auf dem Handy mit Tableiste unten" loading="lazy"></div>
+              <div class="duo">
+                <div class="shot"><img src="assets/img/bandzentrale.jpg" width="1440" height="923" alt="Startseite der Bandzentrale am Computer mit nächster Probe, nächstem Gig und den nächsten sieben Tagen" loading="lazy"></div>
+                <div class="shot"><img src="assets/img/bandzentrale-mobil.jpg" width="600" height="1230" alt="Startseite der Bandzentrale auf dem Handy" loading="lazy"></div>
               </div>
-              <figcaption>Startansicht mit Beispieldaten. Die echte App ist nur für Bandmitglieder zugänglich.</figcaption>
+              <figcaption>Mit Beispieldaten</figcaption>
             </figure>
-            <dl class="spec">
-              <dt>Nutzer</dt><dd>bis zu 7 Mitglieder mit eigenem Login</dd>
-              <dt>Daten</dt><dd>gemeinsame Datenbank, live synchronisiert</dd>
-              <dt>Bereiche</dt><dd>Start · Planer · Musik · Chat · Büro</dd>
-              <dt>Technik</dt><dd>HTML · CSS · JavaScript · Claude</dd>
-            </dl>
           </div>
         </div>
         <div class="xlinks">
           <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#bravourfinds"><b>Bravourfinds</b> Social Media und Kundenkontakt</a>
-          <a class="xl" href="#sparplan"><b>Sparplan</b> Zahlen im Blick</a>
+          <a class="xl" href="#bravourfinds"><b>Bravourfinds</b> Social Media</a>
+          <a class="xl" href="#sparplan"><b>Sparplan</b> Finanzen</a>
         </div>
       </article>
 
-      <div class="hop">
-        <div class="hop-box">
-          <p class="eyebrow">Daraus folgt</p>
-          <p>In der Bandzentrale stecken Gagen, Angebote und Rechnungen. Den Überblick über Geld zu behalten, ist auch außerhalb der Band ein Thema.</p>
-          <p class="from">Bandzentrale → Sparplan</p>
-        </div>
-      </div>
+      <div class="hop"><div class="hop-box"><span class="from">6 → 7</span><p>Gagen und Rechnungen: Geld im Blick behalten.</p></div></div>
 
-      <!-- Station 7 -->
+      <!-- 7 -->
       <article class="station" id="sparplan">
         <span class="node" aria-hidden="true">7</span>
-        <p class="st-meta">Station 7 · Web-App · <span class="todo">Jahr</span></p>
+        <p class="st-meta">Web-App · <span class="todo">Jahr</span></p>
         <h2>Sparplan</h2>
-        <p class="st-lead"><span class="todo">Ein Satz: Was macht die App und für wen ist sie?</span></p>
+        <p class="st-lead"><span class="todo">Ein Satz: Was macht die App?</span></p>
         <div class="st-body">
           <div class="st-text">
             <div class="blk">
-              <h3>Die Idee</h3>
-              <p><span class="todo">Welches Problem löst die App? Warum habe ich sie gebaut?</span></p>
-            </div>
-            <div class="blk">
               <h3>Was sie kann</h3>
-              <p><span class="todo">Zwei bis vier wichtigste Funktionen</span></p>
+              <p><span class="todo">2–3 Funktionen</span></p>
             </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p><span class="todo">Was ich dabei gelernt habe</span></p>
+              <p><span class="todo">ein Satz</span></p>
             </div>
           </div>
           <div class="st-media">
-            <dl class="spec">
-              <dt>Plattform</dt><dd>Web-App auf Cloudflare Workers</dd>
-              <dt>Zugang</dt><dd>passwortgeschützt</dd>
-              <dt>Technik</dt><dd><span class="todo">ergänzen</span></dd>
-            </dl>
-            <p class="note">Screenshot folgt. Die App selbst ist geschützt und nicht öffentlich erreichbar.</p>
+            <p class="note">Screenshot folgt</p>
           </div>
-        </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#bandzentrale"><b>Bandzentrale</b> Finanzen im Büro</a>
         </div>
       </article>
 
-      <div class="hop">
-        <div class="hop-box">
-          <p class="eyebrow">Daraus folgt</p>
-          <p>Alles hier habe ich mir selbst beigebracht. Als Nächstes möchte ich es richtig lernen: mit Menschen, die mehr wissen als ich.</p>
-          <p class="from">Sparplan → nächste Station</p>
-        </div>
-      </div>
+      <div class="hop"><div class="hop-box"><span class="from">7 → ?</span><p>Bisher selbst beigebracht. Als Nächstes richtig lernen.</p></div></div>
 
       <!-- Ziel -->
       <article class="station goal" id="naechste-station">
         <span class="node" aria-hidden="true">→</span>
-        <p class="st-meta">Nächste Station</p>
+        <p class="st-meta">Als Nächstes</p>
         <h2>Ausbildung oder Studium bei Ihnen</h2>
-        <p class="st-lead">Ich bringe Eigeninitiative mit, Erfahrung mit echten Projekten und die Gewohnheit, Dinge fertig zu machen. Ich freue mich darauf, von Ihnen zu lernen.</p>
-        <div class="links" style="margin-top:22px"><a class="btn" href="#kontakt">Kontakt aufnehmen</a></div>
+        <div class="links" style="margin-top:20px"><a class="btn" href="#kontakt">Kontakt aufnehmen</a></div>
       </article>
     </div>
   </section>
 
   <section class="section wrap" id="faehigkeiten" aria-labelledby="skills-title">
     <h2 id="skills-title" class="sec-title">Was sich durchzieht</h2>
-    <p style="color:var(--muted);max-width:60ch">Welche Fähigkeit in welchem Projekt steckt. Je mehr grüne Punkte in einer Zeile, desto öfter habe ich sie gebraucht.</p>
     <div class="matrix-wrap">
       <table class="matrix">
         <thead>
@@ -670,49 +547,34 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
         </thead>
         <tbody>
           <tr><th scope="row">Eigeninitiative</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
-          <tr><th scope="row">Gestaltung und Branding</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td></tr>
-          <tr><th scope="row">Software und KI-Werkzeuge</th><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+          <tr><th scope="row">Gestaltung</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td></tr>
+          <tr><th scope="row">Software und KI</th><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
           <tr><th scope="row">Musik und Audio</th><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td class="no"></td></tr>
-          <tr><th scope="row">Marketing und Community</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td class="no"></td></tr>
+          <tr><th scope="row">Marketing</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td class="no"></td></tr>
           <tr><th scope="row">Foto und Video</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td></tr>
-          <tr><th scope="row">Organisation und Teamarbeit</th><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td class="no"></td></tr>
-          <tr><th scope="row">Kundenkommunikation</th><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td class="no"></td></tr>
-          <tr><th scope="row">Zahlen und Finanzen</th><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
+          <tr><th scope="row">Teamarbeit</th><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td class="no"></td></tr>
+          <tr><th scope="row">Kundenkontakt</th><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td class="no"></td></tr>
+          <tr><th scope="row">Finanzen</th><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
         </tbody>
       </table>
     </div>
-  </section>
 
-  <section class="section wrap" id="arbeitsweise" aria-labelledby="work-title">
-    <h2 id="work-title" class="sec-title">So gehe ich vor</h2>
-    <p style="color:var(--muted);max-width:60ch">Bei allen Projekten bin ich nach demselben Muster vorgegangen.</p>
-    <ol class="steps">
-      <li><b>Problem bemerken</b><p>Im Alltag fällt mir auf, was fehlt: rauschende Aufnahmen, Bandtermine verteilt auf fünf Chats, eine Marke ohne Auftritt.</p></li>
-      <li><b>Genau beschreiben</b><p>Ich lege fest, was die Lösung können muss und woran ich merke, dass sie funktioniert.</p></li>
-      <li><b>Bauen</b><p>Mit dem passenden Werkzeug: Kamera, FL Studio, Canva oder KI beim Programmieren.</p></li>
-      <li><b>Testen und verbessern</b><p>Im echten Einsatz ausprobieren, Fehler finden und nachschärfen, bis es passt.</p></li>
+    <ol class="steps" aria-label="So gehe ich vor">
+      <li><b>Problem bemerken</b><p>Was fehlt mir im Alltag?</p></li>
+      <li><b>Genau beschreiben</b><p>Was muss die Lösung können?</p></li>
+      <li><b>Bauen</b><p>Mit Kamera, FL Studio, Canva oder KI.</p></li>
+      <li><b>Testen</b><p>Im echten Einsatz, bis es passt.</p></li>
     </ol>
-    <div class="ai">
-      <h3>Wie ich mit KI arbeite</h3>
-      <div>
-        <p>Bei den Plugins und Web-Apps schreibt eine KI (Claude) den Code nach meinen Vorgaben. Ich entscheide, was gebaut wird, prüfe jedes Ergebnis im echten Einsatz und beschreibe nach, bis es stimmt.</p>
-        <p>So konnte ich Projekte umsetzen, die ohne KI weit über meinem Programmierstand lägen, und habe dabei gelernt, wie Audio-Software und Web-Apps aufgebaut sind. In einer Ausbildung oder einem Studium möchte ich die Grundlagen dahinter von Grund auf lernen.</p>
-      </div>
-    </div>
+    <p class="ai-note">Plugins und Apps programmiere ich mit KI: Ich entscheide, was gebaut wird, teste und schärfe nach.</p>
   </section>
 
   <section class="section wrap" id="ueber-mich" aria-labelledby="about-title">
     <h2 id="about-title" class="sec-title">Über mich</h2>
     <div class="about">
-      <div>
-        <p>Ich bin <span class="todo">Alter</span> Jahre alt, wohne in <span class="todo">Ort</span> und mache gerade <span class="todo">Abschluss an Schule, voraussichtlich Jahr</span>.</p>
-        <p>Musik, Mode und Technik sind die Themen, die mich nicht loslassen. Am liebsten arbeite ich an Dingen, die ich selbst benutze und die anderen tatsächlich helfen.</p>
-      </div>
+      <p>Tjark Reichart, <span class="todo">Alter</span>, aus <span class="todo">Ort</span>. Aktuell: <span class="todo">Schule / Abschluss</span>. Musik, Mode und Technik.</p>
       <dl class="spec">
-        <dt>Abschluss</dt><dd><span class="todo">ergänzen</span></dd>
         <dt>Sprachen</dt><dd><span class="todo">Deutsch, Englisch …</span></dd>
-        <dt>Werkzeuge</dt><dd>FL Studio · Canva · GitHub · Claude · Instagram · TikTok · YouTube</dd>
-        <dt>Interessen</dt><dd>Musikproduktion · Mode · Events · <span class="todo">ergänzen</span></dd>
+        <dt>Werkzeuge</dt><dd>FL Studio · Canva · GitHub · Claude</dd>
       </dl>
     </div>
   </section>
@@ -720,16 +582,15 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
   <section class="section wrap" id="kontakt" aria-labelledby="contact-title">
     <h2 id="contact-title" class="sec-title">Kontakt</h2>
     <div class="contact">
-      <p style="max-width:56ch">Ich freue mich auf Ihre Nachricht, auch wenn Sie nur Fragen zu einem der Projekte haben.</p>
       <div class="mail">
         <span class="addr todo" id="mailAddr">name@beispiel.de</span>
-        <button class="btn" type="button" id="copyMail">Adresse kopieren</button>
+        <button class="btn" type="button" id="copyMail">Kopieren</button>
         <span class="note" id="copyMsg" role="status"></span>
       </div>
       <div class="links">
         <a class="btn" href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener">YouTube ↗</a>
-        <a class="btn" href="https://www.instagram.com/bravourfinds/" target="_blank" rel="noopener">Bravourfinds auf Instagram ↗</a>
-        <a class="btn" href="https://www.tiktok.com/@bravourfinds" target="_blank" rel="noopener">Bravourfinds auf TikTok ↗</a>
+        <a class="btn" href="https://www.instagram.com/bravourfinds/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a class="btn" href="https://www.tiktok.com/@bravourfinds" target="_blank" rel="noopener">TikTok ↗</a>
         <a class="btn" href="https://github.com/d8bn77pbr4-cmd" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
@@ -737,7 +598,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
 </main>
 
 <footer>
-  <div class="wrap"><p>Stand: Oktober 2026 · Diese Seite ist selbst ein Projekt: geplant von mir, gebaut mit KI, gepflegt über GitHub.</p></div>
+  <div class="wrap"><p>Tjark Reichart · Stand Oktober 2026</p></div>
 </footer>
 
 <script>
@@ -813,7 +674,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
     navigator.clipboard.writeText(addr).then(() => { msg.textContent = "Kopiert"; }, () => {
       const range = document.createRange(); range.selectNodeContents(document.getElementById("mailAddr"));
       const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
-      msg.textContent = "Adresse markiert, bitte mit Strg+C kopieren";
+      msg.textContent = "Markiert, mit Strg+C kopieren";
     });
   });
 })();

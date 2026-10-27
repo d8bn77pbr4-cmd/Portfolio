@@ -1,6 +1,7 @@
-# Portfolio – Hinweise für Änderungen
+# Portfolio Tjark Reichart – Hinweise für Änderungen
 
-Bewerbungsportfolio (Ausbildung oder Studium), auf Deutsch. Eine einzige statische Seite ohne Build-Werkzeuge.
+Bewerbungsportfolio von Tjark Reichart (Ausbildung oder Studium), auf Deutsch. Eine einzige statische Seite ohne Build-Werkzeuge.
+Titel der Seite: „Portfolio Tjark Reichart“.
 
 ## Aufbau
 
@@ -8,6 +9,7 @@ Bewerbungsportfolio (Ausbildung oder Studium), auf Deutsch. Eine einzige statisc
 |---|---|
 | `index.html` | **Die einzige Quelle.** Inhalt, CSS und JS in einer Datei. Alle Änderungen hier. |
 | `assets/img/*.jpg` | Bilder der Projekte (aus Plugin-Repos, Bravourfinds-PDF, Screenshot der Bandzentrale mit Beispieldaten) |
+| `assets/img/yt/vol1–7.jpg` | YouTube-Thumbnails (von `i.ytimg.com/vi/<id>/sddefault.jpg`, schwarze Balken auf 640×360 abgeschnitten) |
 | `assets/audio/blue.mp3` | Der Song „Blue“ |
 | `tools/build-artifact.sh` | Erzeugt `build/artifact.html` für das Claude-Artifact (entfernt nur die `<html>/<head>/<body>`-Rahmenzeilen) |
 
@@ -38,6 +40,8 @@ Schriften: Archivo (Überschriften, breit), Source Serif 4 (Text), JetBrains Mon
 
 ## Inhalt und Ton
 
+- **Wenig Text.** Tjark will keinen unnötigen Text: pro Station ein Satz Lead, 3–4 kurze Stichpunkte, „Gelernt“ in einem Satz,
+  Knoten zwischen Stationen in einem Satz. Lieber Bilder und Zahlen als Absätze.
 - Ich-Form für die eigene Person, „Sie“ für die Lesenden (Arbeitgeber, Hochschulen).
 - Nur belegbare Fakten. Quellen: READMEs von `d8bn77pbr4-cmd/Vox-Clear` und `d8bn77pbr4-cmd/Auric-Master`,
   das Bravourfinds-PDF, die YouTube-Kanalseite/RSS (`UC54sDwnKMb9eQxrsHTg5SPQ`).
@@ -49,8 +53,8 @@ Schriften: Archivo (Überschriften, breit), Source Serif 4 (Text), JetBrains Mon
 
 Alle offenen Stellen sind als `<span class="todo">…</span>` markiert (orange, gestrichelt). Suche: `class="todo"`.
 Stand Oktober 2026 fehlen:
-- Name (Kopfleiste, `<title>`), E-Mail-Adresse
-- Über mich: Alter, Ort, Schule/Abschluss, Sprachen, weitere Interessen
+- E-Mail-Adresse
+- Über mich: Alter, Ort, Schule/Abschluss, Sprachen
 - Bravourfinds: Gründungsjahr (2024 ist nur aus dem Sale-Datum „Fr, 29. Nov“ abgeleitet)
 - TSHIRTALSHOSE: Schnittprogramm
-- Sparplan: komplette Beschreibung, Jahr, Technik, Screenshot (die App liegt hinter Cloudflare Access und ist nicht öffentlich)
+- Sparplan: komplette Beschreibung, Jahr, Screenshot (die App liegt hinter Cloudflare Access und ist nicht öffentlich)
