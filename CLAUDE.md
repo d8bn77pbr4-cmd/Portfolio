@@ -49,12 +49,18 @@ Schriften: Archivo (Überschriften, breit), Source Serif 4 (Text), JetBrains Mon
   Idee, Anforderungen, Testen, Nachschärfen. Nie so formulieren, als sei der Code von Hand geschrieben.
 - Zahlen mit Stand angeben, wenn sie sich ändern (YouTube-Aufrufe, Follower).
 
+## Fakten zur Person (Stand Oktober 2026)
+
+Tjark Reichart, 19, 56479 Westernohe · Abitur März 2026 · Deutsch (Muttersprache), Englisch (gut, Leistungskurs) ·
+E-Mail tjarkreichart9@gmail.com · Videos geschnitten mit CapCut, teils DaVinci Resolve · Bravourfinds seit 2024.
+
+## Sparplan-Kompass (Station 7)
+
+Gebaut in der Claude-Sitzung „Trade Republic ETF-Analyse-Website“ (Oktober 2026). Live unter
+https://sparplan.bg65ykm46p.workers.dev, aber hinter Cloudflare Access (Login per E-Mail), daher nicht öffentlich.
+Vorschau-Artifact: https://claude.ai/artifact/JstZe8t5MEYfofb6DMbqc7 – daraus stammen die Screenshots
+(`sparplan-start.jpg`, `sparplan-prognose.jpg`, Broker „Andere Bank“, Beispieldepot). Keine Broker-Logos oder -Namen im Portfolio zeigen.
+
 ## Offene Platzhalter
 
-Alle offenen Stellen sind als `<span class="todo">…</span>` markiert (orange, gestrichelt). Suche: `class="todo"`.
-Stand Oktober 2026 fehlen:
-- E-Mail-Adresse
-- Über mich: Alter, Ort, Schule/Abschluss, Sprachen
-- Bravourfinds: Gründungsjahr (2024 ist nur aus dem Sale-Datum „Fr, 29. Nov“ abgeleitet)
-- TSHIRTALSHOSE: Schnittprogramm
-- Sparplan: komplette Beschreibung, Jahr, Screenshot (die App liegt hinter Cloudflare Access und ist nicht öffentlich)
+Keine. Neue offene Stellen als `<span class="todo">…</span>` markieren (orange, gestrichelt).

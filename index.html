@@ -201,7 +201,8 @@ figcaption{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-
 
 .contact{margin-top:20px;display:flex;flex-direction:column;gap:18px}
 .mail{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.mail .addr{font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:clamp(1.3rem,3.6vw,2.2rem);overflow-wrap:anywhere;user-select:all}
+.mail .addr{font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:clamp(1.3rem,3.6vw,2.2rem);overflow-wrap:anywhere;user-select:all;color:var(--ink);text-decoration:none}
+.mail .addr:hover{color:var(--blue-ink)}
 footer{margin-top:96px;border-top:1px solid var(--line);padding-block:24px 40px}
 footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
 </style>
@@ -235,7 +236,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
       <li><a href="#auric-master"><span class="knot">4</span><span class="txt"><span class="cat">Plugin</span><span class="ttl">Auric Master</span></span></a></li>
       <li><a href="#vox-clear"><span class="knot">5</span><span class="txt"><span class="cat">Plugin</span><span class="ttl">Vox Clear</span></span></a></li>
       <li><a href="#bandzentrale"><span class="knot">6</span><span class="txt"><span class="cat">Web-App</span><span class="ttl">Bandzentrale</span></span></a></li>
-      <li><a href="#sparplan"><span class="knot">7</span><span class="txt"><span class="cat">Web-App</span><span class="ttl">Sparplan</span></span></a></li>
+      <li><a href="#sparplan"><span class="knot">7</span><span class="txt"><span class="cat">Web-App</span><span class="ttl">Sparplan-Kompass</span></span></a></li>
       <li class="next"><a href="#naechste-station"><span class="knot">→</span><span class="txt"><span class="cat">Als Nächstes</span><span class="ttl">Bei Ihnen</span></span></a></li>
     </ol>
   </section>
@@ -247,7 +248,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
       <!-- 1 -->
       <article class="station" id="bravourfinds">
         <span class="node" aria-hidden="true">1</span>
-        <p class="st-meta">Modemarke · seit <span class="todo">2024</span></p>
+        <p class="st-meta">Modemarke · seit 2024</p>
         <h2>Bravourfinds</h2>
         <p class="st-lead">Mit Freunden gegründet: Vintage- und Designer-Mode für eine junge Zielgruppe.</p>
         <div class="st-body">
@@ -300,7 +301,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
               <h3>Was ich gemacht habe</h3>
               <ul>
                 <li>Gedreht auf Splash, in Berlin und auf einer Release-Party</li>
-                <li>Geschnitten mit <span class="todo">Programm</span></li>
+                <li>Geschnitten mit CapCut, teils DaVinci Resolve</li>
                 <li>Thumbnails im einheitlichen Serien-Look</li>
               </ul>
             </div>
@@ -488,32 +489,51 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
         <div class="xlinks">
           <span class="eyebrow">Verbindet sich mit</span>
           <a class="xl" href="#bravourfinds"><b>Bravourfinds</b> Social Media</a>
-          <a class="xl" href="#sparplan"><b>Sparplan</b> Finanzen</a>
+          <a class="xl" href="#sparplan"><b>Sparplan-Kompass</b> Finanzen</a>
         </div>
       </article>
 
-      <div class="hop"><div class="hop-box"><span class="from">6 → 7</span><p>Gagen und Rechnungen: Geld im Blick behalten.</p></div></div>
+      <div class="hop"><div class="hop-box"><span class="from">6 → 7</span><p>Nach der Bandkasse das eigene Geld: Sparen und Anlegen verstehen.</p></div></div>
 
       <!-- 7 -->
       <article class="station" id="sparplan">
         <span class="node" aria-hidden="true">7</span>
-        <p class="st-meta">Web-App · <span class="todo">Jahr</span></p>
-        <h2>Sparplan</h2>
-        <p class="st-lead"><span class="todo">Ein Satz: Was macht die App?</span></p>
+        <p class="st-meta">Web-App · Oktober 2026</p>
+        <h2>Sparplan-Kompass</h2>
+        <p class="st-lead">ETFs, Aktien und das eigene Depot verstehen, passend zur Broker-App, mit der man anlegt.</p>
         <div class="st-body">
           <div class="st-text">
             <div class="blk">
               <h3>Was sie kann</h3>
-              <p><span class="todo">2–3 Funktionen</span></p>
+              <ul>
+                <li>200 ETFs und 624 Aktien analysieren und vergleichen</li>
+                <li>Prognose aus 100.000 simulierten Verläufen, mit Krisen, Steuern und Inflation</li>
+                <li>Depot-Export aus der Broker-App auswerten, an 8 Broker und Banken angepasst</li>
+                <li>Core-Satellite-Baukasten, Entnahmeplan, Live-Kurse und Analystenmeinungen</li>
+              </ul>
             </div>
             <div class="blk learned">
               <h3>Gelernt</h3>
-              <p><span class="todo">ein Satz</span></p>
+              <p>Ein großes Projekt mit KI Schritt für Schritt steuern und Prognosen so rechnen, dass man sie nachprüfen kann.</p>
             </div>
+            <dl class="spec">
+              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
+              <dt>Technik</dt><dd>JavaScript · Cloudflare Workers · Login per E-Mail</dd>
+            </dl>
           </div>
           <div class="st-media">
-            <p class="note">Screenshot folgt</p>
+            <figure>
+              <div class="shot"><img src="assets/img/sparplan-prognose.jpg" width="1280" height="860" alt="Prognose-Ansicht des Sparplan-Kompass mit Eingaben für Sparrate, Anlagedauer und Inflation und der Zusammenfassung von 100.000 Verläufen" loading="lazy"></div>
+            </figure>
+            <figure>
+              <div class="shot"><img src="assets/img/sparplan-start.jpg" width="1280" height="860" alt="Startseite des Sparplan-Kompass mit Marktkursen und Karten für ETFs und Depot" loading="lazy"></div>
+              <figcaption>Prognose und Startseite, mit Beispieldepot</figcaption>
+            </figure>
           </div>
+        </div>
+        <div class="xlinks">
+          <span class="eyebrow">Verbindet sich mit</span>
+          <a class="xl" href="#bandzentrale"><b>Bandzentrale</b> Finanzen</a>
         </div>
       </article>
 
@@ -542,12 +562,12 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
             <th scope="col"><a href="#auric-master">Auric Master</a></th>
             <th scope="col"><a href="#vox-clear">Vox Clear</a></th>
             <th scope="col"><a href="#bandzentrale">Bandzentrale</a></th>
-            <th scope="col"><a href="#sparplan">Sparplan</a></th>
+            <th scope="col"><a href="#sparplan">Sparplan-Kompass</a></th>
           </tr>
         </thead>
         <tbody>
           <tr><th scope="row">Eigeninitiative</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
-          <tr><th scope="row">Gestaltung</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td></tr>
+          <tr><th scope="row">Gestaltung</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
           <tr><th scope="row">Software und KI</th><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td></tr>
           <tr><th scope="row">Musik und Audio</th><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td class="no"></td></tr>
           <tr><th scope="row">Marketing</th><td><span class="dot"></span></td><td><span class="dot"></span></td><td class="no"></td><td class="no"></td><td class="no"></td><td><span class="dot"></span></td><td class="no"></td></tr>
@@ -571,10 +591,11 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
   <section class="section wrap" id="ueber-mich" aria-labelledby="about-title">
     <h2 id="about-title" class="sec-title">Über mich</h2>
     <div class="about">
-      <p>Tjark Reichart, <span class="todo">Alter</span>, aus <span class="todo">Ort</span>. Aktuell: <span class="todo">Schule / Abschluss</span>. Musik, Mode und Technik.</p>
+      <p>Tjark Reichart, 19, aus 56479 Westernohe. Musik, Mode und Technik.</p>
       <dl class="spec">
-        <dt>Sprachen</dt><dd><span class="todo">Deutsch, Englisch …</span></dd>
-        <dt>Werkzeuge</dt><dd>FL Studio · Canva · GitHub · Claude</dd>
+        <dt>Abschluss</dt><dd>Abitur, März 2026</dd>
+        <dt>Sprachen</dt><dd>Deutsch (Muttersprache) · Englisch (gut, Leistungskurs)</dd>
+        <dt>Werkzeuge</dt><dd>FL Studio · CapCut · DaVinci Resolve · Canva · GitHub · Claude</dd>
       </dl>
     </div>
   </section>
@@ -583,7 +604,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
     <h2 id="contact-title" class="sec-title">Kontakt</h2>
     <div class="contact">
       <div class="mail">
-        <span class="addr todo" id="mailAddr">name@beispiel.de</span>
+        <a class="addr" id="mailAddr" href="mailto:tjarkreichart9@gmail.com">tjarkreichart9@gmail.com</a>
         <button class="btn" type="button" id="copyMail">Kopieren</button>
         <span class="note" id="copyMsg" role="status"></span>
       </div>
