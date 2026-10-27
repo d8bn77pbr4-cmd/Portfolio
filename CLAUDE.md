@@ -9,6 +9,7 @@ Titel der Seite: „Portfolio Tjark Reichart“.
 |---|---|
 | `index.html` | **Die einzige Quelle.** Inhalt, CSS und JS in einer Datei. Alle Änderungen hier. |
 | `assets/img/*.jpg` | Bilder der Projekte (aus Plugin-Repos, Bravourfinds-PDF, Screenshot der Bandzentrale mit Beispieldaten) |
+| `assets/img/tiles/*.jpg` | Quadratische Kacheln (300×300) für die Bildkarte oben; `blue.jpg` ist eine generierte Wellenform |
 | `assets/img/yt/vol1–7.jpg` | YouTube-Thumbnails (von `i.ytimg.com/vi/<id>/sddefault.jpg`, schwarze Balken auf 640×360 abgeschnitten) |
 | `assets/audio/blue.mp3` | Der Song „Blue“ |
 | `tools/build-artifact.sh` | Erzeugt `build/artifact.html` für das Claude-Artifact (entfernt nur die `<html>/<head>/<body>`-Rahmenzeilen) |
@@ -20,6 +21,8 @@ Titel der Seite: „Portfolio Tjark Reichart“.
    `build/artifact.html` veröffentlichen, mit `url` = obiger Link. Geänderte oder neue Bilder im `files`-Map mitgeben
    (veröffentlichter Pfad = Pfad im Repo, z. B. `assets/img/neu.jpg`).
 2. **GitHub Pages** (wenn aktiviert): Die Seite wird direkt aus dem Repo ausgeliefert, Push genügt.
+3. **Canva-Präsentation** (PDF für Bewerbungsportale): https://canva.link/1t3gww3ohbc36ia (Design `DAHZONjveac`).
+   Inhalt bei Textänderungen dort mit anpassen; Bilder fügt Tjark selbst ein.
 
 Beide Fassungen müssen gleich bleiben: Immer erst `index.html` ändern, dann beide aktualisieren.
 
@@ -35,7 +38,13 @@ Ein neues Projekt hinzufügen heißt immer:
 4. Spalte in der Tabelle `.matrix` unter „Was sich durchzieht“.
 5. Querverweise `.xlinks` („Verbindet sich mit“) in den betroffenen Stationen ergänzen.
 
-Farben nur über die Tokens in `:root` (hell) und die beiden Dark-Blöcke. Grün = der Faden und „Gelernt“, Blau = Akzent aus Bravourfinds/Plugins.
+Farben nur über die Tokens in `:root` (hell) und die beiden Dark-Blöcke. Grün = der Faden und „Gelernt“, Blau = Akzent aus Bravourfinds/Plugins,
+`--band` = tiefblaues Kontaktband am Ende. Projekte sind weiße Karten (`.station`), oben eine Bildkarte (`ol.map`) mit Kachel je Station.
+
+**Bewegung:** Alles muss ohne Animation sichtbar sein. Animationen verschieben/skalieren nur, nie `opacity:0`.
+Scroll-Einblendungen über `.reveal` (CSS `animation-timeline: view()`), Hover über die Einzel-Properties `scale`/`translate`/`rotate`,
+damit sie nicht mit den `transform`-Animationen kollidieren. Alles respektiert `prefers-reduced-motion`.
+Die Kopfleiste zeigt Lesefortschritt (`.prog`), aktiven Abschnitt und die aktuelle Station (`#here`, aus `data-label`).
 Schriften: Archivo (Überschriften, breit), Source Serif 4 (Text), JetBrains Mono (Daten, Labels).
 
 ## Inhalt und Ton
