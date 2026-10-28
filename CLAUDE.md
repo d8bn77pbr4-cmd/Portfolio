@@ -53,7 +53,7 @@ Grün = der Faden, Knoten, „Gelernt“ und Querverweise (überall gleich). Jed
 Sparplan-Kompass Marineblau), zugeordnet über die Projekt-IDs als `--acc`. `--acc` färbt nur: leichte Tönung oben in der Karte,
 Label mit Farbquadrat (`.st-meta`), Stichpunkt-Striche, Knöpfe in der Karte, Play-Knopf/Wellenform und die Kategorie in der Projektliste.
 Neue Projektfarbe: hell mit mindestens 4,5:1 Kontrast auf Weiß, dunkel hell genug auf `--surface`. Blau (`--blue`) bleibt allgemeiner Akzent,
-`--band` = tiefblaues Kontaktband am Ende. Einstieg = Deckblatt der PDF: Name, ein Satz, Projektliste `.toc` (in der PDF mit Seitenzahlen).
+`--band` = tiefblaues Kontaktband am Ende. Einstieg = Deckblatt der PDF: Name und Projektliste `.toc` (in der PDF mit Seitenzahlen), kein Spruch (hat Tjark entfernt).
 Projekte sind weiße Karten (`.station`). Bei TSHIRTALSHOSE ist die neueste Folge groß, die anderen chronologisch.
 Abschnitte danach: „So gehe ich vor“ (`#vorgehen`), Kontakt.
 

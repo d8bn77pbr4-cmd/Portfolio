@@ -91,7 +91,7 @@ p{margin:0}
 .avail i{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
 .hero h1{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:clamp(2.6rem,9.2vw,6.6rem);line-height:.96;letter-spacing:-.02em;margin-top:26px}
 .hero h1 span{display:block;font-size:.34em;letter-spacing:.01em;color:var(--green-ink);margin-bottom:.22em}
-.hero .lead{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5;max-width:46ch;margin-top:26px}
+.hero .toc-wrap{grid-column:1 / -1}
 .toc-wrap{margin-top:28px;min-width:0}
 .print-only{display:none}
 .online{font-family:var(--f-mono);font-size:.8rem;line-height:1.6;color:var(--muted);margin-top:22px}
@@ -231,9 +231,8 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
 
 /* Bewegung: alles ist ohne Animation sichtbar; Animationen verschieben nur */
 @media (prefers-reduced-motion:no-preference){
-  .hero h1,.hero .lead,.avail{animation:lift .8s var(--ease) both}
+  .hero h1,.avail{animation:lift .8s var(--ease) both}
   .hero h1{animation-delay:.05s}
-  .hero .lead{animation-delay:.15s}
   .avail i{animation:pulse 2.4s ease-out infinite}
   @supports (animation-timeline:view()){
     .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
@@ -255,6 +254,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
   .top,body::before{display:none}
   .hero{min-height:680px;padding-block:0;align-content:center;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .toc .pg{display:block}
+  .hero .toc-wrap{grid-column:2}
   .station{break-before:page}
   .station + .station{margin-top:0}
   .station{break-inside:avoid;box-shadow:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:repeat(5,auto) 1fr;column-gap:36px;align-content:start}
@@ -303,7 +303,6 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
     <p class="avail"><i aria-hidden="true"></i>7 eigene Projekte seit 2024</p>
     <h1><span>Portfolio</span>Tjark Reichart</h1>
     <div class="hero-text">
-      <p class="lead">Wenn mir ein Werkzeug fehlt, baue ich es selbst.</p>
       <p class="online print-only">Online mit Song und Videos<br><a href="https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx">claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx</a></p>
     </div>
     <nav class="toc-wrap" aria-label="Projekte">
