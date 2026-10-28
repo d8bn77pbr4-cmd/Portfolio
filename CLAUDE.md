@@ -32,13 +32,13 @@ Alle Fassungen müssen gleich bleiben: Immer erst `index.html` ändern, dann Art
 
 ## Der grüne Faden (Gestaltungsregel)
 
-Die Seite ist eine Route in zeitlicher Reihenfolge, die beim letzten fertigen Projekt endet (keine Zukunftspläne, kein „Als Nächstes“).
+Die Seite ist eine Route, nach Thema sortiert (Mode → Video → Musik → Plugins → Web-Apps; Tjarks Wahl, nicht nach Datum), die beim letzten fertigen Projekt endet (keine Zukunftspläne, kein „Als Nächstes“).
 Jedes Projekt ist eine **Station** (`<article class="station">`) mit Nummer auf der grünen Schiene links, die sich beim Scrollen füllt.
 Keine erklärenden Übergangs-Sätze zwischen den Projekten, keine Bildübersicht oben, keine Fähigkeiten-Tabelle (hat Tjark bewusst entfernt).
 Verbindungen zeigen nur die Querverweise `.xlinks` („Verbindet sich mit“) am Ende jeder Station.
 
 Ein neues Projekt hinzufügen heißt immer:
-1. Station an der zeitlich richtigen Stelle anlegen (Nummer im `.node`, `data-label`, `st-meta`, `h2`, `st-lead`,
+1. Station an der thematisch passenden Stelle anlegen (Nummer im `.node`, `data-label`, `st-meta`, `h2`, `st-lead`,
    Stichpunkte, „Gelernt“, Medien, `spec`) und die Nummern der folgenden Stationen anpassen.
 2. Querverweise `.xlinks` in den betroffenen Stationen ergänzen.
 3. Zahl im Hinweis oben („7 eigene Projekte seit 2024“) und die Projektliste `.toc` im Einstieg anpassen
