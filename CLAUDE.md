@@ -45,7 +45,12 @@ Ein neues Projekt hinzufügen heißt immer:
    (Seitenzahl `.pg` = Stationsnummer + 1, weil das Deckblatt Seite 1 ist).
 4. PDF neu erzeugen und prüfen, dass jede Station auf eine Seite passt.
 
-Farben nur über die Tokens in `:root` (hell) und die beiden Dark-Blöcke. Grün = der Faden und „Gelernt“, Blau = Akzent aus Bravourfinds/Plugins,
+Farben nur über die Tokens in `:root` (hell) und die beiden Dark-Blöcke. **Mischung aus durchgehend schlichtem Design und Farbe je Projekt:**
+Grün = der Faden, Knoten, „Gelernt“ und Querverweise (überall gleich). Jedes Projekt hat eine eigene Farbe `--c-*`
+(Bravourfinds Indigo, TSHIRTALSHOSE Rot, Blue Himmelblau, Auric Master Gold, Vox Clear Violett, Bandzentrale Orange,
+Sparplan-Kompass Marineblau), zugeordnet über die Projekt-IDs als `--acc`. `--acc` färbt nur: leichte Tönung oben in der Karte,
+Label mit Farbquadrat (`.st-meta`), Stichpunkt-Striche, Knöpfe in der Karte, Play-Knopf/Wellenform und die Kategorie in der Projektliste.
+Neue Projektfarbe: hell mit mindestens 4,5:1 Kontrast auf Weiß, dunkel hell genug auf `--surface`. Blau (`--blue`) bleibt allgemeiner Akzent,
 `--band` = tiefblaues Kontaktband am Ende. Einstieg = Deckblatt der PDF: Name, ein Satz, Projektliste `.toc` (in der PDF mit Seitenzahlen).
 Projekte sind weiße Karten (`.station`). Bei TSHIRTALSHOSE ist die neueste Folge groß, die anderen chronologisch.
 Abschnitte danach: „So gehe ich vor“ (`#vorgehen`), Kontakt.
