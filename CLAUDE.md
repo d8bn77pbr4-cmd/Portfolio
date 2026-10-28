@@ -10,14 +10,15 @@ Titel der Seite: „Portfolio Tjark Reichart“.
 |---|---|
 | `index.html` | **Die einzige Quelle.** Inhalt, CSS und JS in einer Datei. Alle Änderungen hier. |
 | `assets/img/*.jpg` | Bilder der Projekte (aus Plugin-Repos, Bravourfinds-PDF, Screenshot der Bandzentrale mit Beispieldaten) |
-| `assets/img/tiles/*.jpg` | Quadratische Kacheln (300×300) für die Bildkarte oben; `blue.jpg` ist eine generierte Wellenform |
 | `assets/img/yt/vol1–7.jpg` | YouTube-Thumbnails (von `i.ytimg.com/vi/<id>/sddefault.jpg`, schwarze Balken auf 640×360 abgeschnitten) |
 | `assets/audio/blue.mp3` | Der Song „Blue“ |
-| `tools/build-pdf.js` | Erzeugt `Portfolio-Tjark-Reichart.pdf` (A4 quer, eine Seite pro Station; verkleinert zu große Seiten automatisch über `zoom` + `--z`) |
-| `Portfolio-Tjark-Reichart.pdf` | PDF zum Anhängen, aus der Website erzeugt |
+| `tools/build-pdf.js` | Erzeugt `Portfolio-Tjark-Reichart.pdf` (A4 quer: Deckblatt, eine Seite pro Projekt, Vorgehen + Kontakt; verkleinert zu große Seiten automatisch über `zoom` + `--z`) |
+| `Portfolio-Tjark-Reichart.pdf` | **Die Fassung, die Tjark verschickt.** Aus der Website erzeugt |
 | `tools/build-artifact.sh` | Erzeugt `build/artifact.html` für das Claude-Artifact (entfernt nur die `<html>/<head>/<body>`-Rahmenzeilen) |
 
 ## Veröffentlichung
+
+Tjark verschickt **nur die PDF**. Website und Artifact sind Quelle und Vorschau.
 
 1. **Claude-Artifact:** https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx
    Nach jeder Änderung an `index.html`: `./tools/build-artifact.sh`, dann mit dem Artifact-Tool
@@ -31,18 +32,20 @@ Alle Fassungen müssen gleich bleiben: Immer erst `index.html` ändern, dann Art
 
 ## Der grüne Faden (Gestaltungsregel)
 
-Die Seite ist eine Route, die beim letzten fertigen Projekt endet (keine Zukunftspläne, kein „Als Nächstes“). Jedes Projekt ist eine **Station** (`<article class="station">`), dazwischen steht ein **Knoten**
-(`<div class="hop">`), der erklärt, wie das eine Projekt zum nächsten geführt hat. Die grüne Schiene links füllt sich beim Scrollen.
+Die Seite ist eine Route in zeitlicher Reihenfolge, die beim letzten fertigen Projekt endet (keine Zukunftspläne, kein „Als Nächstes“).
+Jedes Projekt ist eine **Station** (`<article class="station">`) mit Nummer auf der grünen Schiene links, die sich beim Scrollen füllt.
+Keine erklärenden Übergangs-Sätze zwischen den Projekten, keine Bildübersicht oben, keine Fähigkeiten-Tabelle (hat Tjark bewusst entfernt).
+Verbindungen zeigen nur die Querverweise `.xlinks` („Verbindet sich mit“) am Ende jeder Station.
 
 Ein neues Projekt hinzufügen heißt immer:
-1. Station anlegen (Nummer im `.node`, `st-meta`, `h2`, `st-lead`, Blöcke Idee / Umsetzung / Meine Rolle / Gelernt, Medien, `spec`).
-2. Knoten davor und danach anpassen, damit die Begründung „Daraus folgt“ logisch bleibt.
-3. Eintrag mit Kachel in der Karte `ol.map` oben; Spaltenzahl in `.map` (`repeat(7,…)`) und `left/right` von `.map::before` (`100%/(2·Anzahl)`) anpassen.
-4. Spalte in der Tabelle `.matrix` unter „Was sich durchzieht“.
-5. Querverweise `.xlinks` („Verbindet sich mit“) in den betroffenen Stationen ergänzen.
+1. Station an der zeitlich richtigen Stelle anlegen (Nummer im `.node`, `data-label`, `st-meta`, `h2`, `st-lead`,
+   Stichpunkte, „Gelernt“, Medien, `spec`) und die Nummern der folgenden Stationen anpassen.
+2. Querverweise `.xlinks` in den betroffenen Stationen ergänzen.
+3. Zahl im Hinweis oben („7 eigene Projekte seit 2024“) anpassen.
+4. PDF neu erzeugen und prüfen, dass jede Station auf eine Seite passt.
 
 Farben nur über die Tokens in `:root` (hell) und die beiden Dark-Blöcke. Grün = der Faden und „Gelernt“, Blau = Akzent aus Bravourfinds/Plugins,
-`--band` = tiefblaues Kontaktband am Ende. Projekte sind weiße Karten (`.station`), oben eine Bildkarte (`ol.map`) mit Kachel je Station.
+`--band` = tiefblaues Kontaktband am Ende. Projekte sind weiße Karten (`.station`). Abschnitte danach: „So gehe ich vor“ (`#vorgehen`), Kontakt.
 
 **Bewegung:** Alles muss ohne Animation sichtbar sein. Animationen verschieben/skalieren nur, nie `opacity:0`.
 Scroll-Einblendungen über `.reveal` (CSS `animation-timeline: view()`), Hover über die Einzel-Properties `scale`/`translate`/`rotate`,
@@ -53,7 +56,7 @@ Schriften: Archivo (Überschriften, breit), Source Serif 4 (Text), JetBrains Mon
 ## Inhalt und Ton
 
 - **Wenig Text.** Tjark will keinen unnötigen Text: pro Station ein Satz Lead, 3–4 kurze Stichpunkte, „Gelernt“ in einem Satz,
-  Knoten zwischen Stationen in einem Satz. Lieber Bilder und Zahlen als Absätze.
+  Lieber Bilder und Zahlen als Absätze.
 - Ich-Form für die eigene Person. Niemanden direkt ansprechen (kein „Sie“, kein „du“), keine Bewerbungsbezüge
   (Ausbildung, Studium, Stelle), damit die Seite für jeden passt. Nur bestehende Projekte zeigen.
 - Nur belegbare Fakten. Quellen: READMEs von `d8bn77pbr4-cmd/Vox-Clear` und `d8bn77pbr4-cmd/Auric-Master`,

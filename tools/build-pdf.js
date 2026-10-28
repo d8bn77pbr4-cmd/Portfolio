@@ -1,4 +1,4 @@
-// Erzeugt Portfolio-Tjark-Reichart.pdf aus index.html: A4 quer, Einstieg, je Station eine Seite, Fähigkeiten, Kontakt.
+// Erzeugt Portfolio-Tjark-Reichart.pdf aus index.html: A4 quer, Deckblatt, je Station eine Seite, Vorgehen, Kontakt.
 // Aufruf: node tools/build-pdf.js   (braucht Playwright mit Chromium)
 const { chromium } = require("playwright");
 const path = require("path");
@@ -21,12 +21,8 @@ const PAGE_W = Math.floor((277 / 25.4) * 96), PAGE_H = Math.floor((190 / 25.4) *
 
   // Jede Druckseite so verkleinern, dass sie auf eine Seite passt
   const zooms = await page.evaluate(pageH => {
-    const groups = [[document.querySelector(".hero"), document.querySelector(".mapsec")]];
-    for (const st of document.querySelectorAll(".station")) {
-      const prev = st.previousElementSibling;
-      groups.push(prev && prev.classList.contains("hop") ? [prev, st] : [st]);
-    }
-    groups.push([document.getElementById("faehigkeiten")], [document.getElementById("kontakt")]);
+    const groups = [[document.querySelector(".hero")], ...[...document.querySelectorAll(".station")].map(st => [st])];
+    groups.push([document.getElementById("vorgehen")], [document.getElementById("kontakt")]);
     const height = els => {
       const first = els[0].getBoundingClientRect(), last = els[els.length - 1].getBoundingClientRect();
       return last.bottom - first.top + 8;
