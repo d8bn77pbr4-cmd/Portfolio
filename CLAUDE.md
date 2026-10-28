@@ -18,7 +18,9 @@ Titel der Seite: „Portfolio Tjark Reichart“.
 
 ## Veröffentlichung
 
-Tjark verschickt **nur die PDF**. Website und Artifact sind Quelle und Vorschau.
+Tjark verschickt die **PDF**. Auf deren Deckblatt und im Kontaktbereich steht der Link zum Claude-Artifact
+(„Online mit Song und Videos“, Elemente `.print-only`, nur im Druck sichtbar). Das Artifact muss dafür über Teilen →
+„Jeder mit dem Link“ freigegeben sein; das macht Tjark selbst.
 
 1. **Claude-Artifact:** https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx
    Nach jeder Änderung an `index.html`: `./tools/build-artifact.sh`, dann mit dem Artifact-Tool

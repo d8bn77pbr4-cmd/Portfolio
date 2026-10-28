@@ -93,6 +93,11 @@ p{margin:0}
 .hero h1 span{display:block;font-size:.34em;letter-spacing:.01em;color:var(--green-ink);margin-bottom:.22em}
 .hero .lead{font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.5;max-width:46ch;margin-top:26px}
 .toc-wrap{margin-top:28px;min-width:0}
+.print-only{display:none}
+.online{font-family:var(--f-mono);font-size:.8rem;line-height:1.6;color:var(--muted);margin-top:22px}
+.online a{color:var(--blue-ink);text-decoration:none;border-bottom:1.5px solid var(--green)}
+.band .online{color:var(--band-muted);margin-top:16px}
+.band .online a{color:var(--band-ink)}
 .toc-wrap .eyebrow{margin-bottom:10px}
 .toc{list-style:none;margin:0;padding:0;position:relative}
 .toc::before{content:"";position:absolute;left:13px;top:20px;bottom:20px;width:3px;border-radius:2px;background:var(--green)}
@@ -271,6 +276,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
   #kontakt{break-before:auto;margin-top:56px}
   footer{display:none}
   #copyMail,#copyMsg{display:none}
+  .print-only{display:block}
   .play,.wave input{display:none}
   .player{grid-template-columns:minmax(0,1fr)}
   .shot:hover img,.yt a:hover .th img{scale:none}
@@ -296,7 +302,10 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
   <section class="hero wrap">
     <p class="avail"><i aria-hidden="true"></i>7 eigene Projekte seit 2024</p>
     <h1><span>Portfolio</span>Tjark Reichart</h1>
-    <p class="lead">Wenn mir ein Werkzeug fehlt, baue ich es selbst.</p>
+    <div class="hero-text">
+      <p class="lead">Wenn mir ein Werkzeug fehlt, baue ich es selbst.</p>
+      <p class="online print-only">Online mit Song und Videos<br><a href="https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx">claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx</a></p>
+    </div>
     <nav class="toc-wrap" aria-label="Projekte">
       <p class="eyebrow">Projekte</p>
       <ol class="toc">
@@ -600,6 +609,7 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
       <p class="eyebrow">Ende des grünen Fadens</p>
       <h2 id="contact-title">Kontakt</h2>
       <a class="addr" id="mailAddr" href="mailto:tjarkreichart9@gmail.com">tjarkreichart9@gmail.com</a>
+      <p class="online print-only">Online ansehen: <a href="https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx">claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx</a></p>
       <div class="row">
         <button class="btn" type="button" id="copyMail">Adresse kopieren</button>
         <span class="note" id="copyMsg" role="status"></span>
