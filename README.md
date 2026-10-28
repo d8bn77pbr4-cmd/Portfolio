@@ -1,6 +1,8 @@
 # Portfolio Tjark Reichart
 
-Mein Bewerbungsportfolio: sieben Projekte von der Modemarke bis zum Audio-Plugin, verbunden durch einen grünen Faden.
+Mein Portfolio: sieben eigene Projekte von der Modemarke bis zum Audio-Plugin, verbunden durch einen grünen Faden.
+
+- **PDF zum Anhängen:** `Portfolio-Tjark-Reichart.pdf` (neu erzeugen mit `node tools/build-pdf.js`)
 
 - **Ansehen:** `index.html` im Browser öffnen, oder die veröffentlichte Fassung unter
   https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx
