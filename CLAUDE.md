@@ -41,11 +41,14 @@ Ein neues Projekt hinzufügen heißt immer:
 1. Station an der zeitlich richtigen Stelle anlegen (Nummer im `.node`, `data-label`, `st-meta`, `h2`, `st-lead`,
    Stichpunkte, „Gelernt“, Medien, `spec`) und die Nummern der folgenden Stationen anpassen.
 2. Querverweise `.xlinks` in den betroffenen Stationen ergänzen.
-3. Zahl im Hinweis oben („7 eigene Projekte seit 2024“) anpassen.
+3. Zahl im Hinweis oben („7 eigene Projekte seit 2024“) und die Projektliste `.toc` im Einstieg anpassen
+   (Seitenzahl `.pg` = Stationsnummer + 1, weil das Deckblatt Seite 1 ist).
 4. PDF neu erzeugen und prüfen, dass jede Station auf eine Seite passt.
 
 Farben nur über die Tokens in `:root` (hell) und die beiden Dark-Blöcke. Grün = der Faden und „Gelernt“, Blau = Akzent aus Bravourfinds/Plugins,
-`--band` = tiefblaues Kontaktband am Ende. Projekte sind weiße Karten (`.station`). Abschnitte danach: „So gehe ich vor“ (`#vorgehen`), Kontakt.
+`--band` = tiefblaues Kontaktband am Ende. Einstieg = Deckblatt der PDF: Name, ein Satz, Projektliste `.toc` (in der PDF mit Seitenzahlen).
+Projekte sind weiße Karten (`.station`). Bei TSHIRTALSHOSE ist die neueste Folge groß, die anderen chronologisch.
+Abschnitte danach: „So gehe ich vor“ (`#vorgehen`), Kontakt.
 
 **Bewegung:** Alles muss ohne Animation sichtbar sein. Animationen verschieben/skalieren nur, nie `opacity:0`.
 Scroll-Einblendungen über `.reveal` (CSS `animation-timeline: view()`), Hover über die Einzel-Properties `scale`/`translate`/`rotate`,
@@ -55,15 +58,17 @@ Schriften: Archivo (Überschriften, breit), Source Serif 4 (Text), JetBrains Mon
 
 ## Inhalt und Ton
 
-- **Wenig Text.** Tjark will keinen unnötigen Text: pro Station ein Satz Lead, 3–4 kurze Stichpunkte, „Gelernt“ in einem Satz,
-  Lieber Bilder und Zahlen als Absätze.
+- **Wenig Text.** Tjark will keinen unnötigen Text: pro Station ein Satz Lead, 3–4 kurze Stichpunkte, „Gelernt“ in einem Satz.
+  Lieber Bilder als Absätze.
+- **Keine Reichweiten-Zahlen** (Follower, Likes, Aufrufe, Abonnenten) – hat Tjark bewusst entfernt. Technische Angaben
+  (CPU, Latenz, Anzahl ETFs) sind in Ordnung.
+- „Blue“ ist in der PDF nur als Wellenform zu sehen, ohne Link zum Anhören (Tjarks Entscheidung).
 - Ich-Form für die eigene Person. Niemanden direkt ansprechen (kein „Sie“, kein „du“), keine Bewerbungsbezüge
   (Ausbildung, Studium, Stelle), damit die Seite für jeden passt. Nur bestehende Projekte zeigen.
 - Nur belegbare Fakten. Quellen: READMEs von `d8bn77pbr4-cmd/Vox-Clear` und `d8bn77pbr4-cmd/Auric-Master`,
   das Bravourfinds-PDF, die YouTube-Kanalseite/RSS (`UC54sDwnKMb9eQxrsHTg5SPQ`).
 - **KI-Nutzung offen nennen.** Plugins und Web-Apps wurden mit KI (Claude) programmiert. Die Rolle der Person ist
   Idee, Anforderungen, Testen, Nachschärfen. Nie so formulieren, als sei der Code von Hand geschrieben.
-- Zahlen mit Stand angeben, wenn sie sich ändern (YouTube-Aufrufe, Follower).
 
 ## Fakten zur Person (Stand Oktober 2026)
 
