@@ -8,26 +8,31 @@ Titel der Seite: „Portfolio Tjark Reichart“.
 
 | Datei | Zweck |
 |---|---|
-| `index.html` | **Die einzige Quelle.** Inhalt, CSS und JS in einer Datei. Alle Änderungen hier. |
+| `index.html` | **Die einzige Quelle** (Fassung mit YouTube). Inhalt, CSS und JS in einer Datei. Alle Änderungen hier. |
+| `ohne-youtube.html` | Fassung ohne YouTube, **automatisch erzeugt** von `tools/variant.py`, nie von Hand ändern |
+| `tools/variant.py` | Entfernt alles zwischen `<!-- nur-mit-youtube -->` und `<!-- /nur-mit-youtube -->`, nummeriert neu, setzt den eigenen Online-Link |
+| `tools/build-all.sh` | **Nach jeder Änderung ausführen:** Variante, beide Artifact-Dateien, beide PDFs |
 | `assets/img/*.jpg` | Bilder der Projekte (aus Plugin-Repos, Bravourfinds-PDF, Screenshot der Bandzentrale mit Beispieldaten) |
 | `assets/img/yt/vol1–7.jpg` | YouTube-Thumbnails (von `i.ytimg.com/vi/<id>/sddefault.jpg`, schwarze Balken auf 640×360 abgeschnitten) |
 | `assets/audio/blue.mp3` | Der Song „Blue“ |
-| `tools/build-pdf.js` | Erzeugt `Portfolio-Tjark-Reichart.pdf` (A4 quer: Deckblatt, eine Seite pro Projekt, Vorgehen + Kontakt; verkleinert zu große Seiten automatisch über `zoom` + `--z`) |
-| `Portfolio-Tjark-Reichart.pdf` | **Die Fassung, die Tjark verschickt.** Aus der Website erzeugt |
-| `tools/build-artifact.sh` | Erzeugt `build/artifact.html` für das Claude-Artifact (entfernt nur die `<html>/<head>/<body>`-Rahmenzeilen) |
+| `tools/build-pdf.js` | Erzeugt beide PDFs (A4 quer: Deckblatt, eine Seite pro Projekt, Vorgehen + Kontakt gemeinsam auf der letzten Seite; verkleinert zu große Seiten automatisch über `zoom` + `--z`) |
+| `Portfolio-Tjark-Reichart.pdf` | PDF mit YouTube (9 Seiten) |
+| `Portfolio-Tjark-Reichart-ohne-YouTube.pdf` | PDF ohne YouTube (8 Seiten) |
+| `tools/build-artifact.sh` | Erzeugt `build/artifact.html` und `build/artifact-ohne-youtube.html` (entfernt nur die `<html>/<head>/<body>`-Rahmenzeilen) |
 
 ## Veröffentlichung
 
-Tjark verschickt die **PDF**. Auf deren Deckblatt und im Kontaktbereich steht der Link zum Claude-Artifact
-(„Online mit Song und Videos“, Elemente `.print-only`, nur im Druck sichtbar). Das Artifact muss dafür über Teilen →
-„Jeder mit dem Link“ freigegeben sein; das macht Tjark selbst.
+Es gibt **zwei Fassungen: mit und ohne YouTube** (TSHIRTALSHOSE). Tjark verschickt die passende **PDF**. Auf Deckblatt und im
+Kontaktbereich steht der Link zur jeweils passenden Online-Fassung (Elemente `.print-only`, nur im Druck sichtbar).
+Beide Artifacts müssen über Teilen → „Jeder mit dem Link“ freigegeben sein; das macht Tjark selbst.
+YouTube-Inhalte in `index.html` immer in `<!-- nur-mit-youtube -->…<!-- /nur-mit-youtube -->` einschließen.
 
-1. **Claude-Artifact:** https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx
-   Nach jeder Änderung an `index.html`: `./tools/build-artifact.sh`, dann mit dem Artifact-Tool
-   `build/artifact.html` veröffentlichen, mit `url` = obiger Link. Geänderte oder neue Bilder im `files`-Map mitgeben
+1. **Claude-Artifacts:** mit YouTube https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx (`build/artifact.html`),
+   ohne YouTube https://claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ (`build/artifact-ohne-youtube.html`).
+   Nach jeder Änderung `./tools/build-all.sh`, dann beide Dateien mit dem Artifact-Tool veröffentlichen, jeweils mit `url` = Link. Geänderte oder neue Bilder im `files`-Map mitgeben
    (veröffentlichter Pfad = Pfad im Repo, z. B. `assets/img/neu.jpg`).
 2. **GitHub Pages** (wenn aktiviert): Die Seite wird direkt aus dem Repo ausgeliefert, Push genügt.
-3. **PDF:** `node tools/build-pdf.js` nach jeder Änderung, die PDF mit committen. Druckregeln stehen im `@media print`-Block.
+3. **PDFs:** entstehen mit `./tools/build-all.sh`, beide mit committen. Druckregeln stehen im `@media print`-Block.
 4. Canva-Präsentation https://canva.link/1t3gww3ohbc36ia ist veraltet und wird nicht mehr gepflegt (Tjark hat sich für die PDF aus der Website entschieden).
 
 Alle Fassungen müssen gleich bleiben: Immer erst `index.html` ändern, dann Artifact, PDF und GitHub aktualisieren.

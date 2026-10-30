@@ -1,17 +1,21 @@
-// Erzeugt Portfolio-Tjark-Reichart.pdf aus index.html: A4 quer, Deckblatt, je Station eine Seite, Vorgehen, Kontakt.
+// Erzeugt beide PDFs: Portfolio-Tjark-Reichart.pdf (aus index.html) und Portfolio-Tjark-Reichart-ohne-YouTube.pdf
+// (aus ohne-youtube.html, vorher python3 tools/variant.py). A4 quer: Deckblatt, je Station eine Seite, Vorgehen, Kontakt.
 // Aufruf: node tools/build-pdf.js   (braucht Playwright mit Chromium)
 const { chromium } = require("playwright");
 const path = require("path");
 
 const root = path.resolve(__dirname, "..");
-const out = path.join(root, "Portfolio-Tjark-Reichart.pdf");
+const VARIANTS = [
+  ["index.html", "Portfolio-Tjark-Reichart.pdf"],
+  ["ohne-youtube.html", "Portfolio-Tjark-Reichart-ohne-YouTube.pdf"],
+];
 // A4 quer minus 10 mm Rand rundum, in CSS-Pixeln (96 dpi)
 const PAGE_W = Math.floor((277 / 25.4) * 96), PAGE_H = Math.floor((190 / 25.4) * 96);
 
-(async () => {
-  const browser = await chromium.launch();
+async function buildPdf(browser, input, output) {
+  const out = path.join(root, output);
   const page = await browser.newPage({ viewport: { width: PAGE_W, height: PAGE_H }, colorScheme: "light", reducedMotion: "reduce" });
-  await page.goto("file://" + path.join(root, "index.html"), { waitUntil: "networkidle" });
+  await page.goto("file://" + path.join(root, input), { waitUntil: "networkidle" });
   await page.evaluate(async () => {
     document.querySelectorAll("img").forEach(i => { i.loading = "eager"; });
     await Promise.all([...document.images].map(i => i.complete ? 0 : new Promise(r => { i.onload = i.onerror = r; })));
@@ -22,7 +26,8 @@ const PAGE_W = Math.floor((277 / 25.4) * 96), PAGE_H = Math.floor((190 / 25.4) *
   // Jede Druckseite so verkleinern, dass sie auf eine Seite passt
   const zooms = await page.evaluate(pageH => {
     const groups = [[document.querySelector(".hero")], ...[...document.querySelectorAll(".station")].map(st => [st])];
-    groups.push([document.getElementById("vorgehen")], [document.getElementById("kontakt")]);
+    // Vorgehen und Kontakt teilen sich die letzte Seite
+    groups.push([document.getElementById("vorgehen"), document.getElementById("kontakt")]);
     const height = els => {
       const first = els[0].getBoundingClientRect(), last = els[els.length - 1].getBoundingClientRect();
       return last.bottom - first.top + 8;
@@ -41,6 +46,12 @@ const PAGE_W = Math.floor((277 / 25.4) * 96), PAGE_H = Math.floor((190 / 25.4) *
   }, PAGE_H);
 
   await page.pdf({ path: out, format: "A4", landscape: true, printBackground: true, preferCSSPageSize: true });
+  await page.close();
+  console.log(output, "Verkleinerung je Seite:", zooms.join(" "));
+}
+
+(async () => {
+  const browser = await chromium.launch();
+  for (const [input, output] of VARIANTS) await buildPdf(browser, input, output);
   await browser.close();
-  console.log(out, "Verkleinerung je Seite:", zooms.join(" "));
 })();

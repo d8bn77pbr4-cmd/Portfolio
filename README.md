@@ -2,8 +2,15 @@
 
 Mein Portfolio: sieben eigene Projekte von der Modemarke bis zum Audio-Plugin, verbunden durch einen grünen Faden.
 
-- **PDF zum Verschicken:** `Portfolio-Tjark-Reichart.pdf` (neu erzeugen mit `node tools/build-pdf.js`)
-- **Online-Fassung mit Song und Videos:** https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx (steht auch in der PDF)
+Es gibt zwei Fassungen, mit und ohne die YouTube-Reihe:
+
+| | PDF zum Verschicken | Online-Fassung (steht auch in der PDF) |
+|---|---|---|
+| mit YouTube | `Portfolio-Tjark-Reichart.pdf` | https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx |
+| ohne YouTube | `Portfolio-Tjark-Reichart-ohne-YouTube.pdf` | https://claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ |
+
+Nach Änderungen an `index.html` alles neu bauen: `./tools/build-all.sh`
+
 - **Ansehen:** `index.html` im Browser öffnen, oder die veröffentlichte Fassung unter
   https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx
 - **Ändern:** Alles steht in `index.html`. Hinweise zum Aufbau stehen in `CLAUDE.md`.
