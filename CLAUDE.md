@@ -12,7 +12,7 @@ Titel der Seite: „Portfolio Tjark Reichart“. Es gibt **zwei Fassungen: mit u
 | `ohne-youtube.html` | Fassung ohne YouTube, **automatisch erzeugt** von `tools/variant.py`, nie von Hand ändern |
 | `tools/variant.py` | Entfernt `<!-- nur-mit-youtube -->…<!-- /nur-mit-youtube -->` (auch inline) und CSS `/* nur-mit-youtube */…/* /nur-mit-youtube */`, macht `<!--ohne-youtube:…-->` sichtbar, zählt die Seitenzahlen `S. n` neu, passt „7 eigene Projekte“ an, setzt den eigenen Online-Link und prüft Sprungziele und YouTube-Reste |
 | `tools/build-all.sh` | **Nach jeder Änderung ausführen:** Variante, beide Artifact-Dateien, beide PDFs |
-| `tools/build-pdf.js` | Erzeugt beide PDFs (A4 quer, dunkel, jede Ansicht eine Seite; zu hohe Seiten werden über `zoom` auf `.fit` verkleinert) |
+| `tools/build-pdf.js` | Erzeugt beide PDFs (A4 quer, dunkel, jede Ansicht eine Seite; zu hohe Seiten werden über `zoom` auf `.fit` verkleinert). **Beide PDFs sollen unter 2 MB bleiben** (Tjark verschickt sie, teils mit 2-MB-Grenze): Bilder werden beim Bau auf ca. 200 ppi der gedruckten Größe verkleinert, und `.p-hero-img` hat im Druck keinen `filter`/`transform` (sonst wird es ein riesiges Rasterbild). Stand: ca. 1,5 MB mit YouTube, 1,3 MB ohne. Nach größeren Bildern die Größe mit `ls -la *.pdf` prüfen |
 | `tools/build-artifact.sh` | Erzeugt `build/artifact.html` und `build/artifact-ohne-youtube.html` (entfernt nur die `<html>/<head>/<body>`-Rahmenzeilen) |
 | `Portfolio-Tjark-Reichart.pdf` | PDF mit YouTube (10 Seiten) |
 | `Portfolio-Tjark-Reichart-ohne-YouTube.pdf` | PDF ohne YouTube (9 Seiten) |

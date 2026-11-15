@@ -261,6 +261,9 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
   .tile .t-label{font-size:1.5rem}
   /* Projekt */
   .p-hero{height:170px;min-height:0;margin-bottom:24px}
+  /* ohne Unschärfe/Filter bleibt das Bild ein JPEG in der PDF (mit Filter würde es als riesiges Rasterbild gespeichert, mehrere MB) */
+  .p-hero-img{filter:none;transform:none}
+  .p-hero-shade{background:rgba(0,0,0,.62)}
   .p-title{font-size:60px;justify-content:flex-start;padding:0 24px}
   .p-hero-meta{bottom:14px;padding:0 24px}
   .p-body{padding-block:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
