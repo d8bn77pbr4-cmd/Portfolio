@@ -5,421 +5,506 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Portfolio Tjark Reichart</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Portfolio von Tjark Reichart: Modemarke, Video-Reihe, Song, Audio-Plugins und Web-Apps, verbunden durch einen grünen Faden.">
+<meta name="description" content="Portfolio von Tjark Reichart: Modemarke, Video-Reihe, Song, Audio-Plugins und Web-Apps, alles selbst gemacht.">
+<script>document.documentElement.classList.add("js")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap">
 <style>
-/* Layout: eine Route. Oben eine Bildkarte aller Stationen, darunter läuft der grüne Faden als Schiene links
-   durch Projektkarten; zwischen zwei Karten erklärt ein Knoten in einem Satz, wie das eine zum nächsten geführt hat.
-   Am Ende mündet der Faden in ein tiefblaues Kontaktband. */
+/* Layout nach dem Lovable-Template „Dark Creative Portfolio“: Startseite mit Bildraster hinter dem Namen, Projektliste mit
+   Hover-Bild, Projektseiten mit Vollbild-Kopf, scharfe Kanten, ein Akzent. Dunkel ist Standard, hell über den Schalter.
+   Seiten sind Ansichten in einer Datei, gewechselt über #hash (Startseite, projekte, <projekt>, ueber-mich, kontakt). */
 :root{
-  --paper:#F1F2F7; --surface:#FFFFFF; --ink:#12152C; --muted:#585E78; --line:#DCDFEB;
-  --blue:#3442F0; --blue-ink:#2733D6; --blue-soft:rgba(52,66,240,.08);
-  --green:#12A866; --green-ink:#0A7A49; --green-soft:rgba(18,168,102,.10); --green-faint:rgba(18,168,102,.26);
-  --band:#161C5C; --band-ink:#FFFFFF; --band-muted:rgba(255,255,255,.72); --band-line:rgba(255,255,255,.28);
-  --shadow:0 1px 2px rgba(18,21,44,.05),0 18px 40px -22px rgba(18,21,44,.22);
-  --shadow-lift:0 2px 4px rgba(18,21,44,.06),0 26px 50px -24px rgba(18,21,44,.32);
-  --todo:#A9520A; --todo-soft:rgba(232,140,40,.16);
-  /* Projektfarben, je eine aus dem Look des Projekts */
-  --c-bravour:#3543F7; --c-video:#D4252B; --c-blue:#08739A; --c-auric:#8F6400; --c-vox:#7C3AED; --c-band:#B9520A; --c-spar:#1F3A8A;
-  --f-display:"Archivo","Arial Black",system-ui,sans-serif;
-  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
-  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --ease:cubic-bezier(.2,.7,.2,1);
-  --rail-x:20px; --route-pad:64px;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --paper:#0B0E1E; --surface:#13172C; --ink:#E7E9F5; --muted:#9BA1BE; --line:#272C4A;
-  --blue:#7B86FF; --blue-ink:#A3ABFF; --blue-soft:rgba(123,134,255,.12);
-  --green:#3DDC92; --green-ink:#6BEBB0; --green-soft:rgba(61,220,146,.10); --green-faint:rgba(61,220,146,.24);
-  --band:#1A2160; --band-ink:#FFFFFF; --band-muted:rgba(255,255,255,.72); --band-line:rgba(255,255,255,.26);
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 18px 40px -22px rgba(0,0,0,.7);
-  --shadow-lift:0 2px 4px rgba(0,0,0,.4),0 26px 50px -24px rgba(0,0,0,.85);
-  --todo:#F2A65A; --todo-soft:rgba(242,166,90,.15);
-  --c-bravour:#8C95FF; --c-video:#FF7B7F; --c-blue:#4CC3EC; --c-auric:#E9B949; --c-vox:#B79BFF; --c-band:#FFA552; --c-spar:#93A8F0;
-  color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --paper:#0B0E1E; --surface:#13172C; --ink:#E7E9F5; --muted:#9BA1BE; --line:#272C4A;
-  --blue:#7B86FF; --blue-ink:#A3ABFF; --blue-soft:rgba(123,134,255,.12);
-  --green:#3DDC92; --green-ink:#6BEBB0; --green-soft:rgba(61,220,146,.10); --green-faint:rgba(61,220,146,.24);
-  --band:#1A2160; --band-ink:#FFFFFF; --band-muted:rgba(255,255,255,.72); --band-line:rgba(255,255,255,.26);
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 18px 40px -22px rgba(0,0,0,.7);
-  --shadow-lift:0 2px 4px rgba(0,0,0,.4),0 26px 50px -24px rgba(0,0,0,.85);
-  --todo:#F2A65A; --todo-soft:rgba(242,166,90,.15);
-  --c-bravour:#8C95FF; --c-video:#FF7B7F; --c-blue:#4CC3EC; --c-auric:#E9B949; --c-vox:#B79BFF; --c-band:#FFA552; --c-spar:#93A8F0;
+  --bg:#000; --fg:#fff; --card:#0d0d0d; --muted-fg:#a6a6a6; --border:#333; --sep:#262626; --hover-bg:#141414;
+  --accent:#e6ff00; --accent-fg:#000; --accent-text:#e6ff00;
+  --f-display:"Syne","Arial Black",system-ui,sans-serif;
+  --f-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --gut:24px; --ease:cubic-bezier(.2,.7,.2,1);
   color-scheme:dark;
 }
-@media (max-width:640px){:root{--rail-x:12px; --route-pad:36px}}
+:root[data-theme="light"]{
+  --bg:#fafafa; --fg:#0d0d0d; --card:#fff; --muted-fg:#666; --border:#d9d9d9; --sep:#e0e0e0; --hover-bg:#f2f2f2;
+  --accent:#e6ff00; --accent-fg:#0d0d0d; --accent-text:#4d5500;
+  color-scheme:light;
+}
+@media (min-width:768px){:root{--gut:48px}}
+@media (min-width:1024px){:root{--gut:80px}}
+@media (min-width:1280px){:root{--gut:128px}}
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
-img{max-width:100%;height:auto;display:block}
-a{color:var(--blue-ink);text-underline-offset:.18em}
-:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
-h1,h2,h3{margin:0;text-wrap:balance}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-sans);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+h1,h2,h3{margin:0;font-family:var(--f-display);font-weight:700;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
 p{margin:0}
-.wrap{max-width:1140px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.todo{background:var(--todo-soft);color:var(--todo);border-bottom:1px dashed currentColor;padding:0 .2em;border-radius:3px}
-
-/* Kopfleiste mit Fortschrittsfaden */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
-@supports (backdrop-filter:blur(1px)){.top{background:color-mix(in srgb,var(--paper) 78%,transparent);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px)}}
-.top .wrap{display:flex;align-items:center;gap:16px;min-height:60px}
-.top .prog{position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--green);transform-origin:left;transform:scaleX(var(--sp,0));border-radius:0 2px 2px 0}
-.brand{font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:1rem;color:var(--ink);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
-.brand i{width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
-.here{font-family:var(--f-mono);font-size:.74rem;color:var(--green-ink);background:var(--green-soft);border:1px solid var(--green-faint);border-radius:999px;padding:4px 10px;white-space:nowrap;transition:opacity .3s var(--ease)}
-@media (max-width:760px){.here{display:none}}
-.top nav{margin-left:auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;min-width:0}
-.top nav::-webkit-scrollbar{display:none}
-.top nav a{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;white-space:nowrap;transition:color .2s,background .2s}
-.top nav a:hover{color:var(--ink);background:var(--blue-soft)}
-.top nav a[aria-current="true"]{color:var(--ink);background:var(--green-soft)}
-@media (max-width:480px){.top nav a.opt{display:none}}
-
-/* Einstieg */
-.hero{padding-block:clamp(52px,9vw,112px) 24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 56px;align-items:start}
-.hero > .avail,.hero > h1{grid-column:1 / -1}
-.hero > .avail{justify-self:start}
-@media (max-width:820px){.hero{grid-template-columns:minmax(0,1fr)}}
-.avail{display:inline-flex;align-items:center;gap:9px;font-family:var(--f-mono);font-size:.78rem;color:var(--green-ink);background:var(--green-soft);border:1px solid var(--green-faint);border-radius:999px;padding:6px 14px 6px 12px}
-.avail i{width:8px;height:8px;border-radius:50%;background:var(--green);flex:none}
-.hero h1{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:clamp(2.6rem,9.2vw,6.6rem);line-height:.96;letter-spacing:-.02em;margin-top:26px}
-.hero h1 span{display:block;font-size:.34em;letter-spacing:.01em;color:var(--green-ink);margin-bottom:.22em}
-.hero .toc-wrap{grid-column:1 / -1}
-.toc-wrap{margin-top:28px;min-width:0}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--accent-text);outline-offset:3px}
+button{font:inherit;color:inherit}
+.wide{max-width:1600px;margin-inline:auto;padding-left:max(var(--gut),env(safe-area-inset-left,0px));padding-right:max(var(--gut),env(safe-area-inset-right,0px))}
+.label{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-fg);font-family:var(--f-sans);font-weight:400}
+.chip{display:inline-block;font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 12px;border:1px solid var(--sep);color:var(--muted-fg);line-height:1.5;transition:background .3s,color .3s,border-color .3s}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:12px 20px;border:1px solid var(--fg);background:transparent;cursor:pointer;line-height:1.2;transition:background .3s,color .3s,border-color .3s}
+.btn:hover,.btn:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.note{font-size:.75rem;letter-spacing:.06em;color:var(--muted-fg)}
 .print-only{display:none}
-.online{font-family:var(--f-mono);font-size:.8rem;line-height:1.6;color:var(--muted);margin-top:22px}
-.online a{color:var(--blue-ink);text-decoration:none;border-bottom:1.5px solid var(--green)}
-.band .online{color:var(--band-muted);margin-top:16px}
-.band .online a{color:var(--band-ink)}
-.toc-wrap .eyebrow{margin-bottom:10px}
-.toc{list-style:none;margin:0;padding:0;position:relative}
-.toc::before{content:"";position:absolute;left:13px;top:20px;bottom:20px;width:3px;border-radius:2px;background:var(--green)}
-.toc a{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:14px;align-items:center;padding:6px 0;text-decoration:none;color:var(--ink)}
-.toc .n{width:30px;height:30px;border-radius:50%;background:var(--surface);border:2.5px solid var(--green);display:grid;place-items:center;font-family:var(--f-mono);font-size:.72rem;font-weight:600;color:var(--green-ink);position:relative;transition:background .25s,color .25s}
-.toc .t{font-family:var(--f-display);font-weight:750;font-stretch:105%;font-size:1.08rem;line-height:1.2;min-width:0}
-.toc .c{font-family:var(--f-mono);font-weight:400;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acc,var(--muted));margin-left:10px;white-space:nowrap}
-.toc .pg{display:none;font-family:var(--f-mono);font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.toc a:hover .n,.toc a:focus-visible .n{background:var(--green);color:var(--surface)}
-.toc a:hover .t{color:var(--acc,var(--green-ink))}
 
-/* Route mit Schiene */
-.route{position:relative;padding-left:var(--route-pad);padding-top:8px}
-.rail{position:absolute;left:calc(var(--rail-x) - 2px);top:8px;bottom:40px;width:4px;border-radius:2px;background:var(--green-faint);overflow:hidden}
-.rail i{position:absolute;inset:0;background:var(--green);transform-origin:top;transform:scaleY(var(--p,0))}
-.sec-title{font-family:var(--f-display);font-weight:800;font-stretch:120%;font-size:clamp(1.7rem,3.6vw,2.5rem);line-height:1.1;margin-bottom:10px}
+/* Ansichten */
+html.js .view{display:none}
+html.js .view.on{display:block;animation:rise .6s var(--ease) both}
+.view.plain{padding-top:80px}
+@media (min-width:768px){.view.plain{padding-top:96px}}
+.page-title{font-size:clamp(3.75rem,9vw,8rem);padding-block:clamp(64px,8vw,96px) clamp(48px,6vw,80px);letter-spacing:-.025em}
 
-#bravourfinds,.toc a[href="#bravourfinds"]{--acc:var(--c-bravour)}
-#tshirtalshose,.toc a[href="#tshirtalshose"]{--acc:var(--c-video)}
-#blue,.toc a[href="#blue"]{--acc:var(--c-blue)}
-#auric-master,.toc a[href="#auric-master"]{--acc:var(--c-auric)}
-#vox-clear,.toc a[href="#vox-clear"]{--acc:var(--c-vox)}
-#bandzentrale,.toc a[href="#bandzentrale"]{--acc:var(--c-band)}
-#sparplan,.toc a[href="#sparplan"]{--acc:var(--c-spar)}
-.station{--pad:clamp(20px,3.6vw,44px);--acc:var(--blue);position:relative;scroll-margin-top:88px;background:var(--surface);background-image:linear-gradient(180deg,color-mix(in srgb,var(--acc) 9%,transparent),transparent 260px);border:1px solid var(--line);border-radius:24px;padding:var(--pad);box-shadow:var(--shadow)}
-.node{position:absolute;left:calc(var(--rail-x) - var(--route-pad) - 18px);top:calc(var(--pad) + 2px);width:34px;height:34px;border-radius:50%;background:var(--surface);border:3px solid var(--green);display:grid;place-items:center;font-family:var(--f-mono);font-size:.78rem;font-weight:600;color:var(--green-ink);transition:background .35s var(--ease),color .35s var(--ease),box-shadow .35s var(--ease)}
-.station.on .node{background:var(--green);color:var(--surface);box-shadow:0 0 0 6px var(--green-soft)}
-.station + .station{margin-top:clamp(36px,6vw,64px)}
-@media (max-width:640px){.node{width:26px;height:26px;left:calc(var(--rail-x) - var(--route-pad) - 14px);font-size:.66rem;border-width:2.5px}}
-.st-meta{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);padding-top:6px}
-.st-meta::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--acc);margin-right:10px}
-.station h2{font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:clamp(1.9rem,4.8vw,3.3rem);line-height:1.02;letter-spacing:-.015em;margin-top:8px;overflow-wrap:anywhere}
-@media (max-width:640px){.station h2{font-stretch:100%}}
-.st-lead{font-size:clamp(1.12rem,1.8vw,1.3rem);line-height:1.5;max-width:50ch;margin-top:12px;color:var(--ink)}
-.st-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px 44px;margin-top:30px;align-items:start}
-@media (max-width:900px){.st-body{grid-template-columns:minmax(0,1fr)}}
-.st-text{display:flex;flex-direction:column;gap:22px;min-width:0}
-.blk h3{font-family:var(--f-display);font-weight:700;font-stretch:110%;font-size:.95rem;letter-spacing:.02em;margin-bottom:8px}
-.blk p,.blk li{font-size:1.05rem}
-.blk ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
-.blk li{position:relative;padding-left:20px}
-.blk li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:2px;border-radius:1px;background:var(--acc,var(--blue))}
-.blk.learned{background:var(--green-soft);border:1px solid var(--green-faint);border-radius:14px;padding:14px 16px}
-.blk.learned h3{color:var(--green-ink);display:flex;align-items:center;gap:8px;margin-bottom:4px}
-.blk.learned h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--green);flex:none}
-.st-media{display:flex;flex-direction:column;gap:14px;min-width:0}
-figure{margin:0}
-.shot{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper)}
-.shot img{transition:scale .7s var(--ease)}
-.shot:hover img{scale:1.03}
-figcaption{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-top:8px;line-height:1.5}
-.duo{display:grid;grid-template-columns:minmax(0,2.4fr) minmax(0,1fr);gap:12px;align-items:start}
+/* Kopfleiste */
+.site-header{color:var(--fg);position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:transform .5s var(--ease),opacity .5s var(--ease)}
+/* Im hellen Design bleibt der Projekt-Kopf dunkel; die Kopfleiste darüber ist weiß, bis die Seite scrollt */
+:root[data-theme="light"] body[data-view="project"] .site-header:not(.solid){--fg:#fff}
+.site-header.solid{background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--sep)}
+.site-header.is-hidden:not(:focus-within){transform:translateY(-100%);opacity:0;pointer-events:none}
+.bar{position:relative;display:flex;align-items:center;justify-content:space-between;height:80px}
+@media (min-width:768px){.bar{height:96px}}
+.brand{font-family:var(--f-display);font-weight:600;font-size:1.125rem;letter-spacing:-.01em;text-decoration:none;transition:opacity .3s}
+.brand:hover{opacity:.7}
+.site-nav{display:none}
+@media (min-width:768px){.site-nav{display:flex;gap:40px;position:absolute;left:50%;transform:translateX(-50%)}}
+.site-nav a{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:color-mix(in srgb,var(--fg) 80%,transparent);transition:letter-spacing .3s,color .3s}
+.site-nav a:hover,.site-nav a:focus-visible{letter-spacing:.2em;color:var(--fg)}
+.site-nav a[aria-current="page"]{color:var(--fg)}
+.tools{display:flex;align-items:center;gap:8px}
+.icon-btn{display:grid;place-items:center;width:40px;height:40px;background:none;border:0;cursor:pointer;color:color-mix(in srgb,var(--fg) 60%,transparent);transition:color .3s}
+.icon-btn:hover{color:var(--fg)}
+.icon-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.icon-sun{display:block}.icon-moon{display:none}
+:root[data-theme="light"] .icon-sun{display:none}:root[data-theme="light"] .icon-moon{display:block}
+.menu-btn{color:var(--fg)}
+@media (min-width:768px){.menu-btn{display:none}}
+.menu{position:fixed;inset:80px 0 0;background:var(--bg);z-index:45;padding:48px max(var(--gut),env(safe-area-inset-left,0px));display:none;flex-direction:column;gap:32px}
+.menu.open{display:flex;animation:rise .4s var(--ease) both}
+.menu a{font-family:var(--f-display);font-size:2.25rem;text-decoration:none;line-height:1.2}
 
-.spec{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);margin:0;border-top:1px solid var(--line);font-family:var(--f-mono);font-size:.82rem}
-.spec dt,.spec dd{padding:9px 0;border-bottom:1px solid var(--line);margin:0}
-.spec dt{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;padding-right:18px;padding-top:11px}
-.spec dd{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+/* Startseite */
+.hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden}
+.hero-grid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .7s var(--ease)}
+.hero-grid > div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:48px;width:100%;max-width:80rem}
+@media (min-width:768px){.hero-grid > div{grid-template-columns:repeat(4,minmax(0,1fr));gap:40px;padding:64px}}
+.hero-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;opacity:.6}
+.hero-shade{position:absolute;inset:0;background:color-mix(in srgb,var(--bg) 30%,transparent)}
+.hero-title{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:0 16px;text-align:center;pointer-events:none}
+.hero-title h1{font-size:clamp(2.75rem,10.2vw,8rem);font-weight:700;letter-spacing:-.025em;color:var(--fg)}
+.hero-bio{position:absolute;z-index:2;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:32px;max-width:24rem;font-size:.9375rem;line-height:1.7;color:color-mix(in srgb,var(--fg) 80%,transparent)}
+@media (min-width:768px){.hero-bio{bottom:48px}}
 
-.st-body.solo{grid-template-columns:minmax(0,1fr)}
-.st-body.solo .st-text{max-width:640px}
+/* Projektliste */
+.rows{padding-bottom:96px}
+.row{display:block;position:relative;border-bottom:1px solid var(--sep);text-decoration:none;color:var(--fg);transition:background .3s,color .3s}
+.row:first-child{border-top:1px solid var(--sep)}
+.row-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.row h3{flex:1;min-width:0;font-family:var(--f-sans);font-weight:400;font-size:clamp(1.125rem,2vw,1.5rem);text-transform:uppercase;letter-spacing:.025em;line-height:1.25}
+.row .chips{display:none;flex-wrap:nowrap}
+@media (min-width:640px){.row .chips{display:flex}}
+.row .year{font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-fg);transition:color .3s;min-width:3.5rem;text-align:right}
+.row .pg{display:none}
+.row:hover,.row:focus-visible{background:var(--accent);color:var(--accent-fg)}
+.row:hover .chip,.row:focus-visible .chip{border-color:var(--accent-fg);color:var(--accent-fg)}
+.row:hover .year,.row:focus-visible .year{color:var(--accent-fg)}
+.row .float{position:fixed;right:clamp(32px,8vw,128px);top:50%;width:clamp(256px,22vw,320px);aspect-ratio:3/4;pointer-events:none;z-index:40;opacity:0;transform:translate(16px,-50%);transition:opacity .3s,transform .3s var(--ease)}
+.row .float img{width:100%;height:100%;object-fit:cover}
+.row:hover .float,.row:focus-visible .float{opacity:1;transform:translate(0,-50%)}
+@media (hover:none),(max-width:767px){.row .float{display:none}}
 
-.links{display:flex;gap:10px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.82rem;font-weight:600;text-decoration:none;color:var(--blue-ink);border:1.5px solid var(--blue);border-radius:999px;padding:10px 18px;background:transparent;cursor:pointer;line-height:1.2;transition:background .25s var(--ease),color .25s var(--ease),translate .25s var(--ease)}
-.btn:hover{background:var(--blue);color:var(--surface);translate:0 -2px}
-.btn.solid{background:var(--blue);color:var(--surface)}
-.station .btn{color:var(--acc);border-color:var(--acc)}
-.station .btn:hover{background:var(--acc);color:var(--surface)}
-.btn.solid:hover{filter:brightness(1.08)}
-.note{font-family:var(--f-mono);font-size:.76rem;color:var(--muted);line-height:1.5}
+/* Projektseiten */
+.p-hero{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden}
+.p-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(3px) brightness(.55) saturate(1.1);transform:scale(1.04)}
+.p-hero-shade{position:absolute;inset:0;background:rgba(0,0,0,.4)}
+.p-title{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:0 16px;text-align:center;font-size:clamp(2.75rem,9vw,8rem);letter-spacing:-.025em;color:#fff;overflow-wrap:anywhere}
+.p-hero-meta{position:absolute;left:0;right:0;bottom:32px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.p-hero-meta .label{color:#ddd}
+.p-hero-meta .chip{border-color:rgba(255,255,255,.35);color:#eee}
+.p-body{padding-block:clamp(64px,8vw,96px)}
+.info{display:grid;grid-template-columns:minmax(0,1fr);gap:48px}
+@media (min-width:768px){.info{grid-template-columns:repeat(3,minmax(0,1fr));gap:80px}}
+.details{margin:0;display:grid;gap:32px;align-content:start}
+.details dt{margin-bottom:8px}
+.details dd{margin:0}
+.details .chip{color:var(--fg);border-color:var(--sep);font-size:.8125rem;letter-spacing:.04em;text-transform:none;padding:4px 16px}
+@media (min-width:768px){.desc{grid-column:span 2}}
+.desc .lead{font-size:clamp(1.25rem,2.2vw,1.5rem);line-height:1.5;color:var(--muted-fg);max-width:40ch}
+.desc h2.label{margin-top:40px;margin-bottom:12px}
+.bul{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-width:52ch}
+.bul li{position:relative;padding-left:22px;color:color-mix(in srgb,var(--fg) 85%,transparent)}
+.bul li::before{content:"";position:absolute;left:0;top:.8em;width:10px;height:1px;background:var(--accent-text)}
+.learned{margin-top:40px;padding-left:20px;border-left:2px solid var(--accent);max-width:52ch}
+.learned .label{color:var(--accent-text);margin-bottom:6px}
+.desc .links{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.gallery{margin-top:clamp(64px,8vw,96px)}
+.gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px}
+.gal figure{grid-column:span 12;margin:0;min-width:0}
+@media (min-width:768px){.gal .s4{grid-column:span 4}.gal .s5{grid-column:span 5}.gal .s7{grid-column:span 7}.gal .s8{grid-column:span 8}.gal .s9{grid-column:span 9}.gal .s3{grid-column:span 3}}
+.gal .stack{grid-column:span 12;display:grid;gap:24px;align-content:start}
+@media (min-width:768px){.gal .stack.s5{grid-column:span 5}}
+.shot{overflow:hidden;background:var(--card)}
+.shot img{width:100%;transition:transform .7s var(--ease)}
+.shot:hover img{transform:scale(1.05)}
+.gal figcaption{margin-top:10px;font-size:.75rem;letter-spacing:.06em;color:var(--muted-fg)}
+.gal .shot{animation:rise .7s var(--ease) both}
+.gal figure:nth-child(2) .shot{animation-delay:.1s}.gal figure:nth-child(3) .shot{animation-delay:.2s}
+.xl{margin-top:clamp(48px,6vw,72px);display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.xl .label{margin-right:8px}
+.xl a.chip{color:var(--fg);border-color:var(--fg);text-decoration:none;font-size:.75rem;padding:6px 16px}
+.xl a.chip i{font-style:normal;color:var(--muted-fg);margin-left:8px;transition:color .3s}
+.xl a.chip:hover,.xl a.chip:focus-visible{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.xl a.chip:hover i,.xl a.chip:focus-visible i{color:var(--accent-fg)}
+.pn{margin-top:clamp(48px,6vw,72px);padding-block:32px 96px;border-top:1px solid var(--sep);display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.pn a{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:var(--muted-fg);transition:color .3s}
+.pn a:hover,.pn a:focus-visible{color:var(--accent-text)}
+.pn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;transition:transform .3s}
+.pn a:hover .arr-l{transform:translateX(-4px)}.pn a:hover .arr-r{transform:translateX(4px)}
 
-.xlinks{margin-top:26px;padding-top:20px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:8px}
-.xlinks .eyebrow{margin-right:4px}
-.xl{display:inline-flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink);border:1.5px solid var(--green);border-radius:999px;padding:6px 14px;font-size:.92rem;line-height:1.3;transition:background .25s var(--ease),translate .25s var(--ease)}
-.xl b{font-family:var(--f-display);font-weight:700;font-stretch:105%;color:var(--green-ink);white-space:nowrap}
-.xl:hover{background:var(--green-soft);translate:0 -2px}
+/* nur-mit-youtube */
+/* YouTube-Raster */
+.yt{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.yt .feat{grid-column:1 / -1}
+@media (min-width:768px){.yt{grid-template-columns:repeat(4,minmax(0,1fr))}.yt .feat{grid-column:span 2;grid-row:span 2}}
+.yt a{display:block;text-decoration:none;min-width:0}
+.yt .th{position:relative;display:block;overflow:hidden;background:var(--card)}
+.yt .th img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .7s var(--ease)}
+.yt a:hover .th img,.yt a:focus-visible .th img{transform:scale(1.05)}
+.yt .th::after{content:"";position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%23000'/%3E%3C/svg%3E") center/24px no-repeat;opacity:0;transform:scale(.8);transition:opacity .3s,transform .3s var(--ease)}
+.yt a:hover .th::after,.yt a:focus-visible .th::after{opacity:1;transform:none}
+.yt .cap{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:.75rem;letter-spacing:.06em;color:var(--muted-fg)}
+.yt .cap b{font-weight:500;color:var(--fg)}
+.yt .more .th{display:grid;place-items:center;aspect-ratio:16/9;border:1px dashed var(--border);text-align:center;padding:12px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);transition:background .3s,color .3s,border-color .3s}
+.yt .more .th::after{display:none}
+.yt .more a:hover .th,.yt .more a:focus-visible .th{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
 
-/* YouTube-Thumbnails */
-.yt{display:grid;grid-template-columns:minmax(0,2.3fr) repeat(3,minmax(0,1fr));gap:12px;margin-top:30px;align-items:start}
-.yt .feat{grid-row:span 2}
-@media (max-width:760px){.yt{grid-template-columns:repeat(2,minmax(0,1fr))}.yt .feat{grid-column:1/-1;grid-row:auto}}
-.yt a{display:block;text-decoration:none;color:var(--ink);min-width:0}
-.yt .th{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);transition:translate .35s var(--ease),box-shadow .35s var(--ease)}
-.yt .th img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:scale .6s var(--ease)}
-.yt .th::after{content:"";position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:rgba(255,255,255,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 6.5v11l9-5.5z' fill='%2312152C'/%3E%3C/svg%3E") center/24px no-repeat;opacity:0;scale:.7;transition:opacity .3s var(--ease),scale .3s var(--ease)}
-.yt a:hover .th,.yt a:focus-visible .th{translate:0 -4px;box-shadow:var(--shadow-lift)}
-.yt a:hover .th img{scale:1.05}
-.yt a:hover .th::after,.yt a:focus-visible .th::after{opacity:1;scale:1}
-.yt .cap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 8px;font-family:var(--f-mono);font-size:.72rem;color:var(--muted);margin-top:7px;font-variant-numeric:tabular-nums}
-.yt .cap b{color:var(--ink);font-weight:600}
-.yt .feat .cap{font-size:.8rem}
+/* /nur-mit-youtube */
 
 /* Player */
-.player{border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:20px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 18px;align-items:center}
-.play{width:60px;height:60px;border-radius:50%;border:0;background:var(--acc,var(--blue));color:var(--surface);display:grid;place-items:center;cursor:pointer;flex:none;box-shadow:0 0 0 0 var(--blue-soft);transition:box-shadow .3s var(--ease),scale .2s var(--ease)}
-.play:hover{box-shadow:0 0 0 10px var(--blue-soft)}
-.play:active{scale:.94}
-.play svg{width:24px;height:24px;fill:currentColor}
-.wave{position:relative;height:72px;min-width:0}
+.player{border:1px solid var(--sep);background:var(--card);padding:clamp(20px,3vw,32px);display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px 24px;align-items:center}
+.play{display:grid;place-items:center;width:64px;height:64px;border:0;background:var(--accent);color:var(--accent-fg);cursor:pointer;transition:transform .2s var(--ease)}
+.play:hover{transform:scale(1.06)}.play:active{transform:scale(.96)}
+.play svg{width:26px;height:26px;fill:currentColor}
+.wave{position:relative;height:80px;min-width:0}
 .wave canvas{width:100%;height:100%;display:block}
 .wave input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;margin:0}
-.wave:has(input:focus-visible){outline:3px solid var(--green);outline-offset:4px;border-radius:4px}
-.ptime{grid-column:1/-1;display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.76rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.wave:has(input:focus-visible){outline:2px solid var(--accent-text);outline-offset:4px}
+.ptime{grid-column:1 / -1;display:flex;justify-content:space-between;font-size:.75rem;letter-spacing:.06em;color:var(--muted-fg);font-variant-numeric:tabular-nums}
 
-/* Folgeabschnitte */
-.section{padding-block:104px 0}
-.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:s}
-@media (max-width:900px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
-.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px;min-width:0;position:relative;overflow:hidden}
-.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--f-mono);font-size:.76rem;color:var(--green-ink)}
-.steps li::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--green)}
-.steps b{display:block;font-family:var(--f-display);font-weight:750;font-stretch:110%;font-size:1.1rem;margin:6px 0 4px}
-.steps p{font-size:1rem;color:var(--muted)}
-.ai-note{margin-top:18px;max-width:62ch;font-size:1.05rem;color:var(--muted)}
+/* Über mich, Kontakt */
+.about .intro{font-size:clamp(1.25rem,2.4vw,1.75rem);line-height:1.5;color:var(--muted-fg);max-width:34ch}
+.about .intro span{color:var(--fg)}
+.about h2.label{margin:56px 0 20px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:0;counter-reset:s;border-top:1px solid var(--sep)}
+@media (min-width:768px){.steps{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.steps li{counter-increment:s;padding:20px 24px 24px 0;border-bottom:1px solid var(--sep)}
+.steps li::before{content:counter(s,decimal-leading-zero);display:block;font-size:.75rem;letter-spacing:.14em;color:var(--accent-text);margin-bottom:8px}
+.steps b{display:block;font-family:var(--f-display);font-weight:600;font-size:1.25rem;letter-spacing:-.01em;margin-bottom:4px}
+.steps p{color:var(--muted-fg);font-size:.9375rem}
+.about .chip{color:var(--fg);border-color:var(--border);font-size:.8125rem;letter-spacing:.04em;text-transform:none;padding:8px 18px}
+.about{padding-bottom:96px}
+.contact{display:grid;grid-template-columns:minmax(0,1fr);gap:48px;padding-bottom:96px;align-items:center}
+@media (min-width:1024px){.contact{grid-template-columns:repeat(2,minmax(0,1fr));gap:80px}}
+.contact .page-title{padding-bottom:48px}
+.c-list{list-style:none;margin:0;padding:0;display:grid;gap:24px}
+.c-link{display:flex;align-items:center;gap:16px;font-size:1.125rem;text-decoration:none;transition:color .3s;overflow-wrap:anywhere}
+.c-link svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--muted-fg);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.c-link:hover,.c-link:focus-visible{color:var(--accent-text)}.c-link:hover svg{stroke:var(--accent-text)}
+.c-link small{color:var(--muted-fg);font-size:.875rem}
+.c-mail{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.c-img{display:none}
+@media (min-width:1024px){.c-img{display:block}}
+.c-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.online{font-size:.8125rem;line-height:1.6;color:var(--muted-fg);margin-top:28px}
+.online a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--accent)}
 
-.tools{margin-top:14px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;font-family:var(--f-mono);font-size:.84rem}
+/* Footer */
+.site-footer{border-top:1px solid var(--sep)}
+.site-footer[hidden]{display:none}
+.foot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;padding-block:48px}
+@media (min-width:768px){.foot{grid-template-columns:repeat(4,minmax(0,1fr));gap:48px;padding-block:64px}}
+.foot .label{margin-bottom:12px}
+.foot a,.foot p{display:block;font-size:.875rem;text-decoration:none;overflow-wrap:anywhere}
+.foot a{transition:color .3s}.foot a:hover,.foot a:focus-visible{color:var(--accent-text)}
+.foot .muted{color:var(--muted-fg)}
+.marquee-wrap{border-top:1px solid var(--sep);overflow:hidden;padding-block:24px}
+@media (min-width:768px){.marquee-wrap{padding-block:32px}}
+.marquee{display:flex;width:max-content;animation:marquee 30s linear infinite}
+.marquee span{flex:none;margin-inline:48px;font-family:var(--f-display);font-weight:700;font-size:clamp(3.75rem,8vw,10rem);line-height:1.1;white-space:nowrap}
 
-/* Kontaktband */
-.band{background:var(--band);color:var(--band-ink);border-radius:28px;padding:clamp(28px,6vw,64px);position:relative;overflow:hidden}
-.band::before{content:"";position:absolute;left:0;right:0;top:clamp(28px,6vw,64px);height:4px;background:var(--green);transform-origin:left;opacity:.9}
-.band .eyebrow{color:var(--band-muted);margin-top:22px}
-.band h2{font-family:var(--f-display);font-weight:800;font-stretch:120%;font-size:clamp(1.8rem,4.4vw,3rem);line-height:1.05;margin-top:8px}
-.band .addr{display:inline-block;margin-top:22px;font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:clamp(1.3rem,4vw,2.4rem);color:var(--band-ink);text-decoration:none;overflow-wrap:anywhere;background:linear-gradient(var(--green),var(--green)) 0 100%/0 3px no-repeat;transition:background-size .4s var(--ease)}
-.band .addr:hover{background-size:100% 3px}
-.band .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:18px}
-.band .btn{color:var(--band-ink);border-color:var(--band-line)}
-.band .btn:hover{background:var(--band-ink);color:var(--band);border-color:var(--band-ink)}
-.band .note{color:var(--band-muted)}
-footer{padding-block:28px 44px}
-footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
-
-/* Bewegung: alles ist ohne Animation sichtbar; Animationen verschieben nur */
-@media (prefers-reduced-motion:no-preference){
-  .hero h1,.avail{animation:lift .8s var(--ease) both}
-  .hero h1{animation-delay:.05s}
-  .avail i{animation:pulse 2.4s ease-out infinite}
-  @supports (animation-timeline:view()){
-    .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
-    .reveal .shot img,.reveal .th img{animation:settle linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
-  }
+@keyframes rise{from{transform:translateY(20px)}to{transform:none}}
+@keyframes marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important}}
-@keyframes lift{from{transform:translateY(18px)}}
-@keyframes rise{from{transform:translateY(48px) scale(.98)}to{transform:none}}
-@keyframes settle{from{transform:scale(1.1)}to{transform:none}}
-@keyframes pulse{0%{box-shadow:0 0 0 0 var(--green-faint)}70%{box-shadow:0 0 0 8px rgba(0,0,0,0)}100%{box-shadow:0 0 0 0 rgba(0,0,0,0)}}
 
-/* Druck und PDF (tools/build-pdf.js): A4 quer, Einstieg, je Station eine Seite, Fähigkeiten, Kontakt.
-   --z setzt das PDF-Skript, wenn eine Seite verkleinert werden muss; Knoten bleiben so auf der Schiene. */
-@page{size:A4 landscape;margin:10mm}
+/* Druck und PDF (tools/build-pdf.js): A4 quer, dunkel, je Ansicht eine Seite. build-pdf.js verkleinert zu große Seiten über zoom auf .fit */
+@page{size:A4 landscape;margin:0}
 @media print{
-  html{font-size:13.5px}
   *,*::before,*::after{animation:none!important;transition:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .top,body::before{display:none}
-  .hero{min-height:680px;padding-block:0;align-content:center;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-  .toc .pg{display:block}
-  .hero .toc-wrap{grid-column:2}
-  .station{break-before:page}
-  .station + .station{margin-top:0}
-  .station{break-inside:avoid;box-shadow:none;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:repeat(5,auto) 1fr;column-gap:36px;align-content:start}
-  .station > *{grid-column:1}
-  .station > .node{grid-column:auto}
-  .st-body{display:contents}
-  .st-text{margin-top:24px}
-  .station h2{font-size:2.7rem;overflow-wrap:normal}
-  .st-lead{font-size:1.2rem}
-  .st-media{grid-column:2;grid-row:1 / span 6;align-self:start}
-  .station > .yt{grid-column:2;grid-row:1 / span 6;margin-top:0;grid-template-columns:repeat(3,minmax(0,1fr))}
-  .station > .yt .feat{grid-column:1 / -1;grid-row:auto}
-  .st-media > .shot img,.st-media > figure > .shot img{max-height:400px;width:auto}
-  .st-media > .shot,.st-media > figure > .shot{width:fit-content;max-width:100%}
-  .node{left:calc((var(--rail-x) - var(--route-pad)) / var(--z,1) - 17px);background:var(--green);color:var(--surface)}
-  .rail{bottom:0}
-  .rail i{transform:none}
-  .section{padding-block:0;break-before:page}
-  #kontakt{break-before:auto;margin-top:56px}
-  .band{break-inside:avoid}
-  footer{display:none}
-  #copyMail,#copyMsg{display:none}
-  .print-only{display:block}
-  .play,.wave input{display:none}
-  .player{grid-template-columns:minmax(0,1fr)}
-  .shot:hover img,.yt a:hover .th img{scale:none}
+  html,body{background:var(--bg)}
+  body::before,.site-header,.menu,.site-footer,.pn,.play,#copyMail,#copyMsg,.row .float,.wave input{display:none!important}
+  .print-only{display:block!important}
+  html.js .view,.view{display:block!important;width:100%;height:790px;overflow:hidden;padding:38px;break-after:page;break-inside:avoid;animation:none!important}
+  .view:last-of-type{break-after:auto}
+  .fit{width:1046px}
+  .wide{max-width:none;padding-inline:0}
+  .view.plain{padding-top:38px}
+  .page-title{font-size:72px;padding-block:8px 28px}
+  /* Deckblatt */
+  #start .fit,#start .hero{height:714px}
+  .hero{min-height:0}
+  .hero-bio{left:0;bottom:8px;max-width:30rem}
+  .hero-title h1{font-size:104px}
+  /* Projektliste */
+  .rows{padding-bottom:0}
+  .row-in{padding-block:14px}
+  .row .pg{display:block;min-width:3rem;text-align:right;font-size:.8125rem;letter-spacing:.14em;color:var(--muted-fg)}
+  .row .year{display:none}
+  .row .chips{display:flex}
+  /* Projekt */
+  .p-hero{height:170px;min-height:0;margin-bottom:24px}
+  .p-title{font-size:60px;justify-content:flex-start;padding:0 24px}
+  .p-hero-meta{bottom:14px;padding:0 24px}
+  .p-body{padding-block:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:32px;align-items:start}
+  .info{display:block}
+  .details{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 20px;margin-bottom:20px}
+  .details dt{margin-bottom:2px}
+  .details dd{font-size:.875rem}
+  .desc .lead{font-size:1.2rem}
+  .desc h2.label{margin-top:20px;margin-bottom:8px}
+  .learned{margin-top:20px}
+  .desc .links{margin-top:20px}
+  .gallery{margin-top:0}
+  .gal{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-content:start}
+  .gal figure,.gal .s3,.gal .s4,.gal .s5,.gal .s7,.gal .s8,.gal .s9{grid-column:span 1}
+  .gal figure.one{grid-column:1 / -1}
+  .gal .stack,.gal .stack.s5{grid-column:span 1;gap:12px}
+  .shot img{max-height:300px;object-fit:cover}
+  .gal figure.one .shot img{max-height:360px}
+  /* nur-mit-youtube */
+  .yt{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+  .yt .feat{grid-column:span 2;grid-row:span 2}
+  .yt .cap{font-size:.625rem}
+  /* /nur-mit-youtube */
+  .xl{margin-top:20px;grid-column:1 / -1}
+  /* Über mich / Kontakt */
+  .about{padding-bottom:0}
+  .about h2.label{margin:32px 0 14px}
+  .contact{grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:56px;padding-bottom:0}
+  .c-img{display:block}
+  .c-img img{max-height:560px}
+  .marquee{animation:none}
 }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="#start"><i aria-hidden="true"></i>Tjark Reichart</a>
-    <span class="here" id="here" aria-hidden="true" hidden></span>
-    <nav aria-label="Abschnitte">
-      <a href="#faden">Projekte</a>
-      <a class="opt" href="#vorgehen">Vorgehen</a>
-      <a href="#kontakt">Kontakt</a>
+<header class="site-header" id="header">
+  <div class="wide bar">
+    <a class="brand" href="#start">Tjark Reichart</a>
+    <nav class="site-nav" aria-label="Seiten">
+      <a href="#projekte" data-nav="projekte">Projekte</a>
+      <a href="#ueber-mich" data-nav="ueber-mich">Über mich</a>
+      <a href="#kontakt" data-nav="kontakt">Kontakt</a>
     </nav>
-  </div>
-  <span class="prog" aria-hidden="true"></span>
-</header>
-
-<main id="start">
-  <section class="hero wrap">
-    <p class="avail"><i aria-hidden="true"></i>7 eigene Projekte seit 2024</p>
-    <h1><span>Portfolio</span>Tjark Reichart</h1>
-    <div class="hero-text">
-      <p class="online print-only">Online mit Song und Videos<br><a href="https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx">claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx</a></p>
+    <div class="tools">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Zwischen dunklem und hellem Design wechseln">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path id="menuIcon" d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
-    <nav class="toc-wrap" aria-label="Projekte">
-      <p class="eyebrow">Projekte</p>
-      <ol class="toc">
-        <li><a href="#bravourfinds"><span class="n">1</span><span class="t">Bravourfinds<span class="c">Modemarke</span></span><span class="pg">S. 2</span></a></li>
-        <!-- nur-mit-youtube -->
-        <li><a href="#tshirtalshose"><span class="n">2</span><span class="t">TSHIRTALSHOSE<span class="c">Video</span></span><span class="pg">S. 3</span></a></li>
-        <!-- /nur-mit-youtube -->
-        <li><a href="#blue"><span class="n">3</span><span class="t">Blue<span class="c">Song</span></span><span class="pg">S. 4</span></a></li>
-        <li><a href="#auric-master"><span class="n">4</span><span class="t">Auric Master<span class="c">Plugin</span></span><span class="pg">S. 5</span></a></li>
-        <li><a href="#vox-clear"><span class="n">5</span><span class="t">Vox Clear<span class="c">Plugin</span></span><span class="pg">S. 6</span></a></li>
-        <li><a href="#bandzentrale"><span class="n">6</span><span class="t">Bandzentrale<span class="c">Web-App</span></span><span class="pg">S. 7</span></a></li>
-        <li><a href="#sparplan"><span class="n">7</span><span class="t">Sparplan-Kompass<span class="c">Web-App</span></span><span class="pg">S. 8</span></a></li>
-      </ol>
-    </nav>
+  </div>
+</header>
+<nav class="menu" id="menu" aria-label="Menü">
+  <a href="#projekte">Projekte</a>
+  <a href="#ueber-mich">Über mich</a>
+  <a href="#kontakt">Kontakt</a>
+</nav>
+
+<main>
+
+  <!-- Startseite -->
+  <section class="view on" id="start" data-title="">
+    <div class="fit">
+      <div class="hero" id="hero">
+        <div class="hero-grid" id="heroGrid">
+          <div>
+            <img src="assets/img/covers/bravourfinds.jpg" width="600" height="800" alt="">
+            <!-- nur-mit-youtube -->
+            <img src="assets/img/covers/tshirtalshose.jpg" width="600" height="800" alt="">
+            <!-- /nur-mit-youtube -->
+            <!--ohne-youtube:<img src="assets/img/covers/extra-prognose.jpg" width="600" height="800" alt="">-->
+            <img src="assets/img/covers/blue.jpg" width="600" height="800" alt="">
+            <img src="assets/img/covers/auric-master.jpg" width="600" height="800" alt="">
+            <img src="assets/img/covers/vox-clear.jpg" width="600" height="800" alt="">
+            <img src="assets/img/covers/bandzentrale.jpg" width="600" height="800" alt="">
+            <img src="assets/img/covers/sparplan.jpg" width="600" height="800" alt="">
+            <img src="assets/img/covers/extra-shop.jpg" width="600" height="800" alt="">
+          </div>
+        </div>
+        <div class="hero-shade"></div>
+        <div class="hero-title">
+          <span class="label">Portfolio</span>
+          <h1>Tjark Reichart</h1>
+        </div>
+        <div class="hero-bio">
+          <p>7 eigene Projekte seit 2024: Modemarke, <!-- nur-mit-youtube -->Video-Reihe, <!-- /nur-mit-youtube -->Song, zwei Audio-Plugins und zwei Web-Apps.</p>
+          <p class="online print-only">Online mit Song und Videos<br><a href="https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx">claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx</a></p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="wrap" id="faden" aria-label="Projekte">
-    <div class="route">
-      <div class="rail" aria-hidden="true"><i></i></div>
+  <!-- Projektliste -->
+  <section class="view plain" id="projekte" data-title="Projekte">
+    <div class="fit">
+      <div class="wide"><h1 class="page-title">Projekte</h1></div>
+      <div class="rows">
+        <a class="row" href="#bravourfinds"><div class="wide row-in"><h3>Bravourfinds</h3><span class="chips"><span class="chip">Mode</span><span class="chip">Social Media</span><span class="chip">Branding</span></span><span class="year">2024</span><span class="pg">S. 3</span><span class="float"><img src="assets/img/covers/bravourfinds.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
+        <!-- nur-mit-youtube -->
+        <a class="row" href="#tshirtalshose"><div class="wide row-in"><h3>TSHIRTALSHOSE</h3><span class="chips"><span class="chip">Video</span><span class="chip">Vlog</span><span class="chip">YouTube</span></span><span class="year">2026</span><span class="pg">S. 4</span><span class="float"><img src="assets/img/covers/tshirtalshose.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
+        <!-- /nur-mit-youtube -->
+        <a class="row" href="#blue"><div class="wide row-in"><h3>Blue</h3><span class="chips"><span class="chip">Musik</span><span class="chip">Produktion</span><span class="chip">FL Studio</span></span><span class="year">2026</span><span class="pg">S. 5</span><span class="float"><img src="assets/img/covers/blue.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
+        <a class="row" href="#auric-master"><div class="wide row-in"><h3>Auric Master</h3><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span><span class="year">2026</span><span class="pg">S. 6</span><span class="float"><img src="assets/img/covers/auric-master.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
+        <a class="row" href="#vox-clear"><div class="wide row-in"><h3>Vox Clear</h3><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span><span class="year">2026</span><span class="pg">S. 7</span><span class="float"><img src="assets/img/covers/vox-clear.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
+        <a class="row" href="#bandzentrale"><div class="wide row-in"><h3>Bandzentrale</h3><span class="chips"><span class="chip">Web-App</span><span class="chip">Organisation</span><span class="chip">KI</span></span><span class="year">2026</span><span class="pg">S. 8</span><span class="float"><img src="assets/img/covers/bandzentrale.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
+        <a class="row" href="#sparplan"><div class="wide row-in"><h3>Sparplan-Kompass</h3><span class="chips"><span class="chip">Web-App</span><span class="chip">Finanzen</span><span class="chip">Prognose</span></span><span class="year">2026</span><span class="pg">S. 9</span><span class="float"><img src="assets/img/covers/sparplan.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
+      </div>
+    </div>
+  </section>
 
-      <!-- 1 -->
-      <article class="station reveal" id="bravourfinds" data-label="1 · Bravourfinds">
-        <span class="node" aria-hidden="true">1</span>
-        <p class="st-meta">Modemarke · seit 2024</p>
-        <h2>Bravourfinds</h2>
-        <p class="st-lead">Mit Freunden gegründet: Vintage- und Designer-Mode für eine junge Zielgruppe.</p>
-        <div class="st-body">
-          <div class="st-text">
-            <div class="blk">
-              <h3>Was ich gemacht habe</h3>
-              <ul>
-                <li>Instagram-Auftritt und Branding</li>
-                <li>Produktfotos und Content</li>
-                <li>Kundenkontakt und Listings</li>
-                <li>Sale-Aktionen und Influencer-Kooperationen</li>
-              </ul>
-            </div>
-            <div class="blk learned">
-              <h3>Gelernt</h3>
-              <p>Reichweite aufbauen, eine Community pflegen und Produkte so präsentieren, dass sie sich verkaufen.</p>
-            </div>
-          </div>
-          <div class="st-media">
-            <div class="shot"><img src="assets/img/bravourfinds-drop.jpg" width="1000" height="1000" alt="Sale-Post von Bravourfinds: fünf Vintage-Jacken und Hosen von Nike und Adidas mit alten und neuen Preisen" loading="lazy"></div>
-            <div class="duo">
-              <div class="shot"><img src="assets/img/bravourfinds-shop.jpg" width="646" height="433" alt="Startseite des Bravourfinds-Onlineshops" loading="lazy"></div>
-              <div class="shot"><img src="assets/img/bravourfinds-logo.jpg" width="400" height="400" alt="Logo von Bravourfinds" loading="lazy"></div>
-            </div>
+  <!-- 1 Bravourfinds -->
+  <section class="view project" id="bravourfinds" data-title="Bravourfinds">
+    <div class="fit">
+      <div class="p-hero">
+        <img class="p-hero-img" src="assets/img/bravourfinds-drop.jpg" width="1000" height="1000" alt="">
+        <div class="p-hero-shade"></div>
+        <h1 class="p-title">Bravourfinds</h1>
+        <div class="wide p-hero-meta"><span class="label">seit 2024</span><span class="chips"><span class="chip">Mode</span><span class="chip">Social Media</span><span class="chip">Branding</span></span></div>
+      </div>
+      <div class="wide p-body">
+        <div class="info">
+          <dl class="details">
+            <div><dt class="label">Art</dt><dd>Modemarke</dd></div>
+            <div><dt class="label">Jahr</dt><dd>seit 2024</dd></div>
+            <div><dt class="label">Umsetzung</dt><dd>Mit Freunden gegründet</dd></div>
+            <div><dt class="label">Kategorien</dt><dd class="chips"><span class="chip">Mode</span><span class="chip">Social Media</span><span class="chip">Branding</span></dd></div>
+          </dl>
+          <div class="desc">
+            <p class="lead">Mit Freunden gegründet: Vintage- und Designer-Mode für eine junge Zielgruppe.</p>
+            <h2 class="label">Was ich gemacht habe</h2>
+            <ul class="bul">
+              <li>Instagram-Auftritt und Branding</li>
+              <li>Produktfotos und Content</li>
+              <li>Kundenkontakt und Listings</li>
+              <li>Sale-Aktionen und Influencer-Kooperationen</li>
+            </ul>
+            <div class="learned"><h2 class="label">Gelernt</h2><p>Reichweite aufbauen, eine Community pflegen und Produkte so präsentieren, dass sie sich verkaufen.</p></div>
           </div>
         </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <!-- nur-mit-youtube -->
-          <a class="xl" href="#tshirtalshose"><b>TSHIRTALSHOSE</b> Content</a>
-          <!-- /nur-mit-youtube -->
-          <a class="xl" href="#bandzentrale"><b>Bandzentrale</b> Social Media</a>
+        <div class="gallery gal">
+          <figure class="s7"><div class="shot"><img src="assets/img/bravourfinds-drop.jpg" width="1000" height="1000" alt="Sale-Post von Bravourfinds: fünf Vintage-Jacken und Hosen von Nike und Adidas mit alten und neuen Preisen" loading="lazy"></div></figure>
+          <div class="s5 stack">
+            <figure><div class="shot"><img src="assets/img/bravourfinds-shop.jpg" width="646" height="433" alt="Startseite des Bravourfinds-Onlineshops" loading="lazy"></div></figure>
+            <figure><div class="shot" style="max-width:240px"><img src="assets/img/bravourfinds-logo.jpg" width="400" height="400" alt="Logo von Bravourfinds" loading="lazy"></div></figure>
+          </div>
         </div>
-      </article>
+      </div>
+      <div class="wide xl">
+        <span class="label">Verbindet sich mit</span>
+        <!-- nur-mit-youtube -->
+        <a class="chip" href="#tshirtalshose">TSHIRTALSHOSE<i>Content</i></a>
+        <!-- /nur-mit-youtube -->
+        <a class="chip" href="#bandzentrale">Bandzentrale<i>Social Media</i></a>
+      </div>
+      <div class="wide pn" data-pn></div>
+    </div>
+  </section>
 
-      <!-- nur-mit-youtube -->
-      <!-- 2 -->
-      <article class="station reveal" id="tshirtalshose" data-label="2 · TSHIRTALSHOSE">
-        <span class="node" aria-hidden="true">2</span>
-        <p class="st-meta">Video-Reihe auf YouTube · Mai bis Juli 2026</p>
-        <h2>TSHIRTALSHOSE</h2>
-        <p class="st-lead">Vlogs von Festivals und Konzerten: sieben Folgen in elf Wochen.</p>
-        <div class="st-body solo">
-          <div class="st-text">
-            <div class="blk">
-              <h3>Was ich gemacht habe</h3>
-              <ul>
-                <li>Gedreht auf Splash, in Berlin und auf einer Release-Party</li>
-                <li>Geschnitten mit CapCut, teils DaVinci Resolve</li>
-                <li>Thumbnails im einheitlichen Serien-Look</li>
-              </ul>
-            </div>
-            <div class="blk learned">
-              <h3>Gelernt</h3>
-              <p>Aus Stunden Material wenige gute Minuten machen und regelmäßig liefern.</p>
-            </div>
-            <div class="links"><a class="btn" href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener">Kanal ansehen ↗</a></div>
+  <!-- nur-mit-youtube -->
+  <!-- 2 TSHIRTALSHOSE -->
+  <section class="view project" id="tshirtalshose" data-title="TSHIRTALSHOSE">
+    <div class="fit">
+      <div class="p-hero">
+        <img class="p-hero-img" src="assets/img/yt/vol8.jpg" width="640" height="360" alt="">
+        <div class="p-hero-shade"></div>
+        <h1 class="p-title">TSHIRTALSHOSE</h1>
+        <div class="wide p-hero-meta"><span class="label">seit Mai 2026</span><span class="chips"><span class="chip">Video</span><span class="chip">Vlog</span><span class="chip">YouTube</span></span></div>
+      </div>
+      <div class="wide p-body">
+        <div class="info">
+          <dl class="details">
+            <div><dt class="label">Art</dt><dd>Video-Reihe auf YouTube</dd></div>
+            <div><dt class="label">Jahr</dt><dd>seit Mai 2026</dd></div>
+            <div><dt class="label">Umsetzung</dt><dd>Gedreht, geschnitten und hochgeladen: alles selbst</dd></div>
+            <div><dt class="label">Kategorien</dt><dd class="chips"><span class="chip">Video</span><span class="chip">Vlog</span><span class="chip">YouTube</span></dd></div>
+          </dl>
+          <div class="desc">
+            <p class="lead">Vlogs von Festivals und Konzerten: bisher acht Folgen.</p>
+            <h2 class="label">Was ich gemacht habe</h2>
+            <ul class="bul">
+              <li>Gedreht auf Splash, in Berlin und auf einer Release-Party</li>
+              <li>Geschnitten mit CapCut, teils DaVinci Resolve</li>
+              <li>Thumbnails im einheitlichen Serien-Look</li>
+            </ul>
+            <div class="learned"><h2 class="label">Gelernt</h2><p>Aus Stunden Material wenige gute Minuten machen und regelmäßig liefern.</p></div>
+            <p class="links"><a class="btn" href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener">Kanal ansehen ↗</a></p>
           </div>
         </div>
-        <div class="yt">
-          <a class="feat reveal" href="https://www.youtube.com/watch?v=Unb8eGIrgA0" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol7.jpg" width="640" height="360" alt="Thumbnail VOL.7: Splash 26, Auftritt mit Pyrotechnik" loading="lazy"></span><span class="cap"><b>VOL.7 · Splash 26</b>neueste Folge</span></a>
-          <a class="reveal" href="https://www.youtube.com/watch?v=SIi5gJ0dY_I" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol1.jpg" width="640" height="360" alt="Thumbnail VOL.1: BLN 26, Menschenmenge im Park" loading="lazy"></span><span class="cap"><b>VOL.1</b>BLN 26</span></a>
-          <a class="reveal" href="https://www.youtube.com/watch?v=zr_Oki3ew4A" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol2.jpg" width="640" height="360" alt="Thumbnail VOL.2: BLN 26, Menschenmenge auf der Straße bei Nacht" loading="lazy"></span><span class="cap"><b>VOL.2</b>BLN 26</span></a>
-          <a class="reveal" href="https://www.youtube.com/watch?v=V2yvMHzrUYk" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol3.jpg" width="640" height="360" alt="Thumbnail VOL.3: BLN 26, Straße in Berlin" loading="lazy"></span><span class="cap"><b>VOL.3</b>BLN 26</span></a>
-          <a class="reveal" href="https://www.youtube.com/watch?v=ucZMgwc5NVI" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol4.jpg" width="640" height="360" alt="Thumbnail VOL.4: Release-Party im Club" loading="lazy"></span><span class="cap"><b>VOL.4</b>Release-Party</span></a>
-          <a class="reveal" href="https://www.youtube.com/watch?v=YW6sw-Am-YA" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol5.jpg" width="640" height="360" alt="Thumbnail VOL.5: Splash 26, Künstler auf der Bühne" loading="lazy"></span><span class="cap"><b>VOL.5</b>Splash 26</span></a>
-          <a class="reveal" href="https://www.youtube.com/watch?v=EJxmt8n8CJw" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol6.jpg" width="640" height="360" alt="Thumbnail VOL.6: Splash 26, Bühne mit Publikum" loading="lazy"></span><span class="cap"><b>VOL.6</b>Splash 26</span></a>
+        <div class="gallery">
+          <div class="yt">
+            <a class="feat" href="https://www.youtube.com/watch?v=EVAyt8hHdUg" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol8.jpg" width="640" height="360" alt="Thumbnail VOL.8: Konzertbühne mit Künstler im Nebel" loading="lazy"></span><span class="cap"><b>VOL.8</b>neueste Folge</span></a>
+            <a href="https://www.youtube.com/watch?v=SIi5gJ0dY_I" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol1.jpg" width="640" height="360" alt="Thumbnail VOL.1: BLN 26, Menschenmenge im Park" loading="lazy"></span><span class="cap"><b>VOL.1</b>BLN 26</span></a>
+            <a href="https://www.youtube.com/watch?v=zr_Oki3ew4A" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol2.jpg" width="640" height="360" alt="Thumbnail VOL.2: BLN 26, Menschenmenge auf der Straße bei Nacht" loading="lazy"></span><span class="cap"><b>VOL.2</b>BLN 26</span></a>
+            <a href="https://www.youtube.com/watch?v=V2yvMHzrUYk" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol3.jpg" width="640" height="360" alt="Thumbnail VOL.3: BLN 26, Straße in Berlin" loading="lazy"></span><span class="cap"><b>VOL.3</b>BLN 26</span></a>
+            <a href="https://www.youtube.com/watch?v=ucZMgwc5NVI" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol4.jpg" width="640" height="360" alt="Thumbnail VOL.4: Release-Party im Club" loading="lazy"></span><span class="cap"><b>VOL.4</b>Release-Party</span></a>
+            <a href="https://www.youtube.com/watch?v=YW6sw-Am-YA" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol5.jpg" width="640" height="360" alt="Thumbnail VOL.5: Splash 26, Künstler auf der Bühne" loading="lazy"></span><span class="cap"><b>VOL.5</b>Splash 26</span></a>
+            <a href="https://www.youtube.com/watch?v=EJxmt8n8CJw" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol6.jpg" width="640" height="360" alt="Thumbnail VOL.6: Splash 26, Bühne mit Publikum" loading="lazy"></span><span class="cap"><b>VOL.6</b>Splash 26</span></a>
+            <a href="https://www.youtube.com/watch?v=Unb8eGIrgA0" target="_blank" rel="noopener"><span class="th"><img src="assets/img/yt/vol7.jpg" width="640" height="360" alt="Thumbnail VOL.7: Splash 26, Auftritt mit Pyrotechnik" loading="lazy"></span><span class="cap"><b>VOL.7</b>Splash 26</span></a>
+            <div class="more"><a href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener"><span class="th">Alle Folgen<br>auf YouTube ↗</span><span class="cap"><b>@TSHIRTALSHOSE</b></span></a></div>
+          </div>
         </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#bravourfinds"><b>Bravourfinds</b> Content</a>
-          <a class="xl" href="#blue"><b>Blue</b> Musik</a>
-        </div>
-      </article>
+      </div>
+      <div class="wide xl">
+        <span class="label">Verbindet sich mit</span>
+        <a class="chip" href="#bravourfinds">Bravourfinds<i>Content</i></a>
+        <a class="chip" href="#blue">Blue<i>Musik</i></a>
+      </div>
+      <div class="wide pn" data-pn></div>
+    </div>
+  </section>
+  <!-- /nur-mit-youtube -->
 
-      <!-- /nur-mit-youtube -->
-      <!-- 3 -->
-      <article class="station reveal" id="blue" data-label="3 · Blue">
-        <span class="node" aria-hidden="true">3</span>
-        <p class="st-meta">Song · 2026</p>
-        <h2>Blue</h2>
-        <p class="st-lead">Mein eigener Song: Idee, Beat, Arrangement, Mix und Master, alles allein in FL Studio.</p>
-        <div class="st-body">
-          <div class="st-text">
-            <div class="blk learned">
-              <h3>Gelernt</h3>
-              <p>Einen Song wirklich fertig machen und hören, woran es im Mix hakt.</p>
-            </div>
+  <!-- 3 Blue -->
+  <section class="view project" id="blue" data-title="Blue">
+    <div class="fit">
+      <div class="p-hero">
+        <img class="p-hero-img" src="assets/img/blue-hero.jpg" width="1600" height="900" alt="">
+        <div class="p-hero-shade"></div>
+        <h1 class="p-title">Blue</h1>
+        <div class="wide p-hero-meta"><span class="label">2026</span><span class="chips"><span class="chip">Musik</span><span class="chip">Produktion</span><span class="chip">FL Studio</span></span></div>
+      </div>
+      <div class="wide p-body">
+        <div class="info">
+          <dl class="details">
+            <div><dt class="label">Art</dt><dd>Song</dd></div>
+            <div><dt class="label">Jahr</dt><dd>2026</dd></div>
+            <div><dt class="label">Umsetzung</dt><dd>Alles allein: Idee, Beat, Arrangement, Mix und Master</dd></div>
+            <div><dt class="label">Kategorien</dt><dd class="chips"><span class="chip">Musik</span><span class="chip">Produktion</span><span class="chip">FL Studio</span></dd></div>
+          </dl>
+          <div class="desc">
+            <p class="lead">Mein eigener Song: Idee, Beat, Arrangement, Mix und Master, alles allein in FL Studio.</p>
+            <div class="learned"><h2 class="label">Gelernt</h2><p>Einen Song wirklich fertig machen und hören, woran es im Mix hakt.</p></div>
           </div>
-          <div class="st-media">
+        </div>
+        <div class="gallery gal">
+          <figure class="s9 one">
             <div class="player" id="player">
               <button class="play" id="playBtn" type="button" aria-label="Blue abspielen">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path id="playIcon" d="M7 4.5v15l13-7.5z"/></svg>
@@ -431,267 +516,336 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
               <div class="ptime"><span id="cur">0:00</span><span id="dur">3:00</span></div>
               <audio id="audio" src="assets/audio/blue.mp3" preload="metadata"></audio>
             </div>
-          </div>
+          </figure>
         </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#auric-master"><b>Auric Master</b> Master</a>
-          <a class="xl" href="#vox-clear"><b>Vox Clear</b> Aufnahme</a>
-        </div>
-      </article>
-
-      <!-- 4 -->
-      <article class="station reveal" id="auric-master" data-label="4 · Auric Master">
-        <span class="node" aria-hidden="true">4</span>
-        <p class="st-meta">Audio-Plugin · Oktober 2026</p>
-        <h2>Auric Master</h2>
-        <p class="st-lead">Mastering-Plugin für FL Studio: vom Mix zum fertigen Song in einem Fenster.</p>
-        <div class="st-body">
-          <div class="st-text">
-            <div class="blk">
-              <h3>Was es kann</h3>
-              <ul>
-                <li>Komplette Kette von EQ über Kompressor bis Limiter</li>
-                <li>Auto-Match erkennt störende Resonanzen per Genre-Vergleich</li>
-                <li>Läuft auf Windows und macOS</li>
-              </ul>
-            </div>
-            <div class="blk learned">
-              <h3>Gelernt</h3>
-              <p>Wie Mastering technisch funktioniert: Spektrum, Kompression, Limiter, Latenz.</p>
-            </div>
-            <dl class="spec">
-              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
-              <dt>Technik</dt><dd>C++ · JUCE · VST3/AU</dd>
-            </dl>
-            <div class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Auric-Master" target="_blank" rel="noopener">GitHub ↗</a></div>
-          </div>
-          <div class="st-media">
-            <div class="shot"><img src="assets/img/auric-master.jpg" width="1000" height="700" alt="Oberfläche von Auric Master: Frequenzspektrum mit sechs Bändern und laufender Auto-Match-Analyse" loading="lazy"></div>
-          </div>
-        </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#vox-clear"><b>Vox Clear</b> Gleiche Technik</a>
-        </div>
-      </article>
-
-      <!-- 5 -->
-      <article class="station reveal" id="vox-clear" data-label="5 · Vox Clear">
-        <span class="node" aria-hidden="true">5</span>
-        <p class="st-meta">Audio-Plugin · Oktober 2026</p>
-        <h2>Vox Clear</h2>
-        <p class="st-lead">Vocal-Plugin für Aufnahmen im eigenen Zimmer: sauber und präsent.</p>
-        <div class="st-body">
-          <div class="st-text">
-            <div class="blk">
-              <h3>Was es kann</h3>
-              <ul>
-                <li>Entfernt Rauschen, Schmatzer, Brummen und Plopp-Laute</li>
-                <li>Stellt sich per Auto Clean selbst ein</li>
-                <li>Lässt günstige Mikrofone besser klingen</li>
-                <li>12 Presets von Rap bis Podcast</li>
-              </ul>
-            </div>
-            <div class="blk learned">
-              <h3>Gelernt</h3>
-              <p>Ein Gefühl wie „klingt nach Zimmer“ in messbare Werte übersetzen.</p>
-            </div>
-            <dl class="spec">
-              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
-              <dt>Leistung</dt><dd>ca. 4 % CPU · 51 ms Latenz</dd>
-            </dl>
-            <div class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Vox-Clear" target="_blank" rel="noopener">GitHub ↗</a></div>
-          </div>
-          <div class="st-media">
-            <div class="shot"><img src="assets/img/vox-clear.jpg" width="936" height="655" alt="Oberfläche von Vox Clear mit den Bereichen Clean, Mikrofon und Vocal Push" loading="lazy"></div>
-          </div>
-        </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#blue"><b>Blue</b> Eigene Aufnahmen</a>
-        </div>
-      </article>
-
-      <!-- 6 -->
-      <article class="station reveal" id="bandzentrale" data-label="6 · Bandzentrale">
-        <span class="node" aria-hidden="true">6</span>
-        <p class="st-meta">Web-App · 2026</p>
-        <h2>Bandzentrale</h2>
-        <p class="st-lead">Organisations-App für eine Band: Termine, Setlists, Chat und Büro an einem Ort.</p>
-        <div class="st-body">
-          <div class="st-text">
-            <div class="blk">
-              <h3>Was sie kann</h3>
-              <ul>
-                <li>Kalender mit Probenzusagen und Gigs</li>
-                <li>Setlists, Repertoire und Chat</li>
-                <li>Büro: Anfragen, Angebote, Rechnungen</li>
-                <li>KI liest Mails aus und schreibt Entwürfe</li>
-              </ul>
-            </div>
-            <div class="blk learned">
-              <h3>Gelernt</h3>
-              <p>Für mehrere Menschen planen, Datenschutz mitdenken, fürs Handy bauen.</p>
-            </div>
-            <dl class="spec">
-              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
-            </dl>
-          </div>
-          <div class="st-media">
-            <figure>
-              <div class="duo">
-                <div class="shot"><img src="assets/img/bandzentrale.jpg" width="1440" height="923" alt="Startseite der Bandzentrale am Computer mit nächster Probe, nächstem Gig und den nächsten sieben Tagen" loading="lazy"></div>
-                <div class="shot"><img src="assets/img/bandzentrale-mobil.jpg" width="600" height="1230" alt="Startseite der Bandzentrale auf dem Handy" loading="lazy"></div>
-              </div>
-              <figcaption>Mit Beispieldaten</figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#bravourfinds"><b>Bravourfinds</b> Social Media</a>
-          <a class="xl" href="#sparplan"><b>Sparplan-Kompass</b> Finanzen</a>
-        </div>
-      </article>
-
-      <!-- 7 -->
-      <article class="station reveal" id="sparplan" data-label="7 · Sparplan-Kompass">
-        <span class="node" aria-hidden="true">7</span>
-        <p class="st-meta">Web-App · Oktober 2026</p>
-        <h2>Sparplan-Kompass</h2>
-        <p class="st-lead">ETFs, Aktien und das eigene Depot verstehen, passend zur Broker-App, mit der man anlegt.</p>
-        <div class="st-body">
-          <div class="st-text">
-            <div class="blk">
-              <h3>Was sie kann</h3>
-              <ul>
-                <li>200 ETFs und 624 Aktien analysieren und vergleichen</li>
-                <li>Prognose aus 100.000 simulierten Verläufen, mit Krisen, Steuern und Inflation</li>
-                <li>Depot-Export aus der Broker-App auswerten, an 8 Broker und Banken angepasst</li>
-                <li>Core-Satellite-Baukasten, Entnahmeplan, Live-Kurse und Analystenmeinungen</li>
-              </ul>
-            </div>
-            <div class="blk learned">
-              <h3>Gelernt</h3>
-              <p>Ein großes Projekt mit KI Schritt für Schritt steuern und Prognosen so rechnen, dass man sie nachprüfen kann.</p>
-            </div>
-            <dl class="spec">
-              <dt>Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd>
-              <dt>Technik</dt><dd>JavaScript · Cloudflare Workers · Login per E-Mail</dd>
-            </dl>
-          </div>
-          <div class="st-media">
-            <div class="shot"><img src="assets/img/sparplan-prognose.jpg" width="1280" height="860" alt="Prognose-Ansicht des Sparplan-Kompass mit Eingaben für Sparrate, Anlagedauer und Inflation und der Zusammenfassung von 100.000 Verläufen" loading="lazy"></div>
-            <figure>
-              <div class="shot"><img src="assets/img/sparplan-start.jpg" width="1280" height="860" alt="Startseite des Sparplan-Kompass mit Marktkursen und Karten für ETFs und Depot" loading="lazy"></div>
-              <figcaption>Prognose und Startseite, mit Beispieldepot</figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="xlinks">
-          <span class="eyebrow">Verbindet sich mit</span>
-          <a class="xl" href="#bandzentrale"><b>Bandzentrale</b> Finanzen</a>
-        </div>
-      </article>
-
+      </div>
+      <div class="wide xl">
+        <span class="label">Verbindet sich mit</span>
+        <a class="chip" href="#auric-master">Auric Master<i>Master</i></a>
+        <a class="chip" href="#vox-clear">Vox Clear<i>Aufnahme</i></a>
+      </div>
+      <div class="wide pn" data-pn></div>
     </div>
   </section>
 
-  <section class="section wrap" id="vorgehen" aria-labelledby="work-title">
-    <h2 id="work-title" class="sec-title">So gehe ich vor</h2>
-    <ol class="steps">
-      <li class="reveal"><b>Problem bemerken</b><p>Was fehlt mir im Alltag?</p></li>
-      <li class="reveal"><b>Genau beschreiben</b><p>Was muss die Lösung können?</p></li>
-      <li class="reveal"><b>Bauen</b><p>Mit Kamera, FL Studio, Canva oder KI.</p></li>
-      <li class="reveal"><b>Testen</b><p>Im echten Einsatz, bis es passt.</p></li>
-    </ol>
-    <p class="ai-note">Plugins und Apps programmiere ich mit KI: Ich entscheide, was gebaut wird, teste und schärfe nach.</p>
-    <p class="tools"><span class="eyebrow">Werkzeuge</span>FL Studio · <!-- nur-mit-youtube -->CapCut · DaVinci Resolve · <!-- /nur-mit-youtube -->Canva · GitHub · Claude</p>
+  <!-- 4 Auric Master -->
+  <section class="view project" id="auric-master" data-title="Auric Master">
+    <div class="fit">
+      <div class="p-hero">
+        <img class="p-hero-img" src="assets/img/auric-master.jpg" width="1000" height="700" alt="">
+        <div class="p-hero-shade"></div>
+        <h1 class="p-title">Auric Master</h1>
+        <div class="wide p-hero-meta"><span class="label">Oktober 2026</span><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span></div>
+      </div>
+      <div class="wide p-body">
+        <div class="info">
+          <dl class="details">
+            <div><dt class="label">Art</dt><dd>Audio-Plugin</dd></div>
+            <div><dt class="label">Jahr</dt><dd>Oktober 2026</dd></div>
+            <div><dt class="label">Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd></div>
+            <div><dt class="label">Technik</dt><dd>C++ · JUCE · VST3/AU</dd></div>
+            <div><dt class="label">Kategorien</dt><dd class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></dd></div>
+          </dl>
+          <div class="desc">
+            <p class="lead">Mastering-Plugin für FL Studio: vom Mix zum fertigen Song in einem Fenster.</p>
+            <h2 class="label">Was es kann</h2>
+            <ul class="bul">
+              <li>Komplette Kette von EQ über Kompressor bis Limiter</li>
+              <li>Auto-Match erkennt störende Resonanzen per Genre-Vergleich</li>
+              <li>Läuft auf Windows und macOS</li>
+            </ul>
+            <div class="learned"><h2 class="label">Gelernt</h2><p>Wie Mastering technisch funktioniert: Spektrum, Kompression, Limiter, Latenz.</p></div>
+            <p class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Auric-Master" target="_blank" rel="noopener">GitHub ↗</a></p>
+          </div>
+        </div>
+        <div class="gallery gal">
+          <figure class="s8 one"><div class="shot"><img src="assets/img/auric-master.jpg" width="1000" height="700" alt="Oberfläche von Auric Master: Frequenzspektrum mit sechs Bändern und laufender Auto-Match-Analyse" loading="lazy"></div></figure>
+        </div>
+      </div>
+      <div class="wide xl">
+        <span class="label">Verbindet sich mit</span>
+        <a class="chip" href="#vox-clear">Vox Clear<i>Gleiche Technik</i></a>
+      </div>
+      <div class="wide pn" data-pn></div>
+    </div>
   </section>
 
-  <section class="section wrap" id="kontakt" aria-labelledby="contact-title">
-    <div class="band reveal">
-      <p class="eyebrow">Ende des grünen Fadens</p>
-      <h2 id="contact-title">Kontakt</h2>
-      <a class="addr" id="mailAddr" href="mailto:tjarkreichart9@gmail.com">tjarkreichart9@gmail.com</a>
-      <p class="online print-only">Online ansehen: <a href="https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx">claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx</a></p>
-      <div class="row">
-        <button class="btn" type="button" id="copyMail">Adresse kopieren</button>
-        <span class="note" id="copyMsg" role="status"></span>
+  <!-- 5 Vox Clear -->
+  <section class="view project" id="vox-clear" data-title="Vox Clear">
+    <div class="fit">
+      <div class="p-hero">
+        <img class="p-hero-img" src="assets/img/vox-clear.jpg" width="936" height="655" alt="">
+        <div class="p-hero-shade"></div>
+        <h1 class="p-title">Vox Clear</h1>
+        <div class="wide p-hero-meta"><span class="label">Oktober 2026</span><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span></div>
       </div>
-      <div class="row">
-        <!-- nur-mit-youtube -->
-        <a class="btn" href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener">YouTube ↗</a>
-        <!-- /nur-mit-youtube -->
-        <a class="btn" href="https://www.instagram.com/bravourfinds/" target="_blank" rel="noopener">Instagram ↗</a>
-        <a class="btn" href="https://www.tiktok.com/@bravourfinds" target="_blank" rel="noopener">TikTok ↗</a>
-        <a class="btn" href="https://github.com/d8bn77pbr4-cmd" target="_blank" rel="noopener">GitHub ↗</a>
+      <div class="wide p-body">
+        <div class="info">
+          <dl class="details">
+            <div><dt class="label">Art</dt><dd>Audio-Plugin</dd></div>
+            <div><dt class="label">Jahr</dt><dd>Oktober 2026</dd></div>
+            <div><dt class="label">Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd></div>
+            <div><dt class="label">Leistung</dt><dd>ca. 4 % CPU · 51 ms Latenz</dd></div>
+            <div><dt class="label">Kategorien</dt><dd class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></dd></div>
+          </dl>
+          <div class="desc">
+            <p class="lead">Vocal-Plugin für Aufnahmen im eigenen Zimmer: sauber und präsent.</p>
+            <h2 class="label">Was es kann</h2>
+            <ul class="bul">
+              <li>Entfernt Rauschen, Schmatzer, Brummen und Plopp-Laute</li>
+              <li>Stellt sich per Auto Clean selbst ein</li>
+              <li>Lässt günstige Mikrofone besser klingen</li>
+              <li>12 Presets von Rap bis Podcast</li>
+            </ul>
+            <div class="learned"><h2 class="label">Gelernt</h2><p>Ein Gefühl wie „klingt nach Zimmer“ in messbare Werte übersetzen.</p></div>
+            <p class="links"><a class="btn" href="https://github.com/d8bn77pbr4-cmd/Vox-Clear" target="_blank" rel="noopener">GitHub ↗</a></p>
+          </div>
+        </div>
+        <div class="gallery gal">
+          <figure class="s8 one"><div class="shot"><img src="assets/img/vox-clear.jpg" width="936" height="655" alt="Oberfläche von Vox Clear mit den Bereichen Clean, Mikrofon und Vocal Push" loading="lazy"></div></figure>
+        </div>
+      </div>
+      <div class="wide xl">
+        <span class="label">Verbindet sich mit</span>
+        <a class="chip" href="#blue">Blue<i>Eigene Aufnahmen</i></a>
+      </div>
+      <div class="wide pn" data-pn></div>
+    </div>
+  </section>
+
+  <!-- 6 Bandzentrale -->
+  <section class="view project" id="bandzentrale" data-title="Bandzentrale">
+    <div class="fit">
+      <div class="p-hero">
+        <img class="p-hero-img" src="assets/img/bandzentrale.jpg" width="1440" height="923" alt="">
+        <div class="p-hero-shade"></div>
+        <h1 class="p-title">Bandzentrale</h1>
+        <div class="wide p-hero-meta"><span class="label">2026</span><span class="chips"><span class="chip">Web-App</span><span class="chip">Organisation</span><span class="chip">KI</span></span></div>
+      </div>
+      <div class="wide p-body">
+        <div class="info">
+          <dl class="details">
+            <div><dt class="label">Art</dt><dd>Web-App</dd></div>
+            <div><dt class="label">Jahr</dt><dd>2026</dd></div>
+            <div><dt class="label">Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd></div>
+            <div><dt class="label">Kategorien</dt><dd class="chips"><span class="chip">Web-App</span><span class="chip">Organisation</span><span class="chip">KI</span></dd></div>
+          </dl>
+          <div class="desc">
+            <p class="lead">Organisations-App für eine Band: Termine, Setlists, Chat und Büro an einem Ort.</p>
+            <h2 class="label">Was sie kann</h2>
+            <ul class="bul">
+              <li>Kalender mit Probenzusagen und Gigs</li>
+              <li>Setlists, Repertoire und Chat</li>
+              <li>Büro: Anfragen, Angebote, Rechnungen</li>
+              <li>KI liest Mails aus und schreibt Entwürfe</li>
+            </ul>
+            <div class="learned"><h2 class="label">Gelernt</h2><p>Für mehrere Menschen planen, Datenschutz mitdenken, fürs Handy bauen.</p></div>
+          </div>
+        </div>
+        <div class="gallery gal">
+          <figure class="s9"><div class="shot"><img src="assets/img/bandzentrale.jpg" width="1440" height="923" alt="Startseite der Bandzentrale am Computer mit nächster Probe, nächstem Gig und den nächsten sieben Tagen" loading="lazy"></div><figcaption>Mit Beispieldaten</figcaption></figure>
+          <figure class="s3"><div class="shot"><img src="assets/img/bandzentrale-mobil.jpg" width="600" height="1230" alt="Startseite der Bandzentrale auf dem Handy" loading="lazy"></div></figure>
+        </div>
+      </div>
+      <div class="wide xl">
+        <span class="label">Verbindet sich mit</span>
+        <a class="chip" href="#bravourfinds">Bravourfinds<i>Social Media</i></a>
+        <a class="chip" href="#sparplan">Sparplan-Kompass<i>Finanzen</i></a>
+      </div>
+      <div class="wide pn" data-pn></div>
+    </div>
+  </section>
+
+  <!-- 7 Sparplan-Kompass -->
+  <section class="view project" id="sparplan" data-title="Sparplan-Kompass">
+    <div class="fit">
+      <div class="p-hero">
+        <img class="p-hero-img" src="assets/img/sparplan-prognose.jpg" width="1280" height="860" alt="">
+        <div class="p-hero-shade"></div>
+        <h1 class="p-title">Sparplan-Kompass</h1>
+        <div class="wide p-hero-meta"><span class="label">Oktober 2026</span><span class="chips"><span class="chip">Web-App</span><span class="chip">Finanzen</span><span class="chip">Prognose</span></span></div>
+      </div>
+      <div class="wide p-body">
+        <div class="info">
+          <dl class="details">
+            <div><dt class="label">Art</dt><dd>Web-App</dd></div>
+            <div><dt class="label">Jahr</dt><dd>Oktober 2026</dd></div>
+            <div><dt class="label">Umsetzung</dt><dd>Konzept und Tests: ich · Code: mit KI (Claude)</dd></div>
+            <div><dt class="label">Technik</dt><dd>JavaScript · Cloudflare Workers · Login per E-Mail</dd></div>
+            <div><dt class="label">Kategorien</dt><dd class="chips"><span class="chip">Web-App</span><span class="chip">Finanzen</span><span class="chip">Prognose</span></dd></div>
+          </dl>
+          <div class="desc">
+            <p class="lead">ETFs, Aktien und das eigene Depot verstehen, passend zur Broker-App, mit der man anlegt.</p>
+            <h2 class="label">Was sie kann</h2>
+            <ul class="bul">
+              <li>200 ETFs und 624 Aktien analysieren und vergleichen</li>
+              <li>Prognose aus 100.000 simulierten Verläufen, mit Krisen, Steuern und Inflation</li>
+              <li>Depot-Export aus der Broker-App auswerten, an 8 Broker und Banken angepasst</li>
+              <li>Core-Satellite-Baukasten, Entnahmeplan, Live-Kurse und Analystenmeinungen</li>
+            </ul>
+            <div class="learned"><h2 class="label">Gelernt</h2><p>Ein großes Projekt mit KI Schritt für Schritt steuern und Prognosen so rechnen, dass man sie nachprüfen kann.</p></div>
+          </div>
+        </div>
+        <div class="gallery gal">
+          <figure class="s9"><div class="shot"><img src="assets/img/sparplan-prognose.jpg" width="1280" height="860" alt="Prognose-Ansicht des Sparplan-Kompass mit Eingaben für Sparrate, Anlagedauer und Inflation und der Zusammenfassung von 100.000 Verläufen" loading="lazy"></div></figure>
+          <figure class="s9"><div class="shot"><img src="assets/img/sparplan-start.jpg" width="1280" height="860" alt="Startseite des Sparplan-Kompass mit Marktkursen und Karten für ETFs und Depot" loading="lazy"></div><figcaption>Prognose und Startseite, mit Beispieldepot</figcaption></figure>
+        </div>
+      </div>
+      <div class="wide xl">
+        <span class="label">Verbindet sich mit</span>
+        <a class="chip" href="#bandzentrale">Bandzentrale<i>Finanzen</i></a>
+      </div>
+      <div class="wide pn" data-pn></div>
+    </div>
+  </section>
+
+  <!-- Über mich -->
+  <section class="view plain" id="ueber-mich" data-title="Über mich">
+    <div class="fit">
+      <div class="wide about">
+        <h1 class="page-title">Über mich</h1>
+        <p class="intro">Ich baue eigene Projekte: von der Modemarke über <!-- nur-mit-youtube -->Videos und <!-- /nur-mit-youtube -->Musik bis zu Audio-Plugins und Web-Apps. Plugins und Apps programmiere ich mit KI: <span>Ich entscheide, was gebaut wird, teste und schärfe nach.</span></p>
+        <h2 class="label">So gehe ich vor</h2>
+        <ol class="steps">
+          <li><b>Problem bemerken</b><p>Was fehlt mir im Alltag?</p></li>
+          <li><b>Genau beschreiben</b><p>Was muss die Lösung können?</p></li>
+          <li><b>Bauen</b><p>Mit Kamera, FL Studio, Canva oder KI.</p></li>
+          <li><b>Testen</b><p>Im echten Einsatz, bis es passt.</p></li>
+        </ol>
+        <h2 class="label">Werkzeuge</h2>
+        <div class="chips"><span class="chip">FL Studio</span><!-- nur-mit-youtube --><span class="chip">CapCut</span><span class="chip">DaVinci Resolve</span><!-- /nur-mit-youtube --><span class="chip">Canva</span><span class="chip">GitHub</span><span class="chip">Claude</span></div>
       </div>
     </div>
   </section>
+
+  <!-- Kontakt -->
+  <section class="view plain" id="kontakt" data-title="Kontakt">
+    <div class="fit">
+      <div class="wide contact">
+        <div>
+          <h1 class="page-title">Kontakt</h1>
+          <ul class="c-list">
+            <li class="c-mail">
+              <a class="c-link" href="mailto:tjarkreichart9@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg><span id="mailAddr">tjarkreichart9@gmail.com</span></a>
+              <button class="btn" type="button" id="copyMail">Kopieren</button><span class="note" id="copyMsg" role="status"></span>
+            </li>
+            <li><a class="c-link" href="https://www.instagram.com/bravourfinds/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg><span>Instagram <small>@bravourfinds</small></span></a></li>
+            <li><a class="c-link" href="https://www.tiktok.com/@bravourfinds" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg><span>TikTok <small>@bravourfinds</small></span></a></li>
+            <!-- nur-mit-youtube -->
+            <li><a class="c-link" href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg><span>YouTube <small>@TSHIRTALSHOSE</small></span></a></li>
+            <!-- /nur-mit-youtube -->
+            <li><a class="c-link" href="https://github.com/d8bn77pbr4-cmd" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg><span>GitHub <small>d8bn77pbr4-cmd</small></span></a></li>
+          </ul>
+          <p class="online print-only">Online ansehen: <a href="https://claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx">claude.ai/artifact/Jn33i7LNbS8sLHWa1Dg8Mx</a></p>
+        </div>
+        <div class="c-img"><img src="assets/img/covers/kontakt.jpg" width="800" height="1000" alt="Sale-Post von Bravourfinds" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer>
-  <div class="wrap"><p>Tjark Reichart · Stand Oktober 2026</p></div>
+<footer class="site-footer" id="footer" hidden>
+  <div class="wide foot">
+    <div><p class="label">Seiten</p><a href="#projekte">Projekte</a><a href="#ueber-mich">Über mich</a><a href="#kontakt">Kontakt</a></div>
+    <div><p class="label">Kontakt</p><a href="mailto:tjarkreichart9@gmail.com">tjarkreichart9@gmail.com</a></div>
+    <div><p class="label">Online</p><a href="https://www.instagram.com/bravourfinds/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.tiktok.com/@bravourfinds" target="_blank" rel="noopener">TikTok ↗</a><!-- nur-mit-youtube --><a href="https://www.youtube.com/@tshirtalshose" target="_blank" rel="noopener">YouTube ↗</a><!-- /nur-mit-youtube --><a href="https://github.com/d8bn77pbr4-cmd" target="_blank" rel="noopener">GitHub ↗</a></div>
+    <div><p class="label">Stand</p><p class="muted">Tjark Reichart · November 2026</p></div>
+  </div>
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee"><span>TJARK REICHART</span><span>TJARK REICHART</span><span>TJARK REICHART</span><span>TJARK REICHART</span><span>TJARK REICHART</span><span>TJARK REICHART</span><span>TJARK REICHART</span><span>TJARK REICHART</span></div>
+  </div>
 </footer>
 
 <script>
 "use strict";
 (() => {
-  /* Grüner Faden: Schiene, erreichte Stationen, Fortschritt in der Kopfleiste, aktiver Abschnitt */
-  const route = document.querySelector(".route");
-  const fill = route && route.querySelector(".rail i");
-  const stations = [...document.querySelectorAll(".station")];
-  const top = document.querySelector(".top");
-  const here = document.getElementById("here");
-  const navLinks = [...document.querySelectorAll(".top nav a")];
-  const sections = navLinks.map(a => document.getElementById(a.hash.slice(1))).filter(Boolean);
-  let ticking = false;
-  function update() {
-    ticking = false;
-    const mark = innerHeight * 0.6;
-    const doc = document.documentElement;
-    const max = doc.scrollHeight - innerHeight;
-    top.style.setProperty("--sp", max > 0 ? Math.min(1, scrollY / max).toFixed(4) : 0);
-    if (route) {
-      const r = route.getBoundingClientRect();
-      fill.style.setProperty("--p", Math.min(1, Math.max(0, (mark - r.top) / r.height)).toFixed(4));
-    }
-    let current = null;
-    for (const s of stations) {
-      const reached = s.getBoundingClientRect().top < mark;
-      s.classList.toggle("on", reached);
-      if (reached) current = s;
-    }
-    let sec = null;
-    for (const s of sections) if (s.getBoundingClientRect().top < innerHeight * 0.35) sec = s.id;
-    for (const a of navLinks) a.hash === "#" + sec ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current");
-    const showHere = current && sec === "faden";
-    here.hidden = !showHere;
-    if (showHere && here.textContent !== current.dataset.label) here.textContent = current.dataset.label;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const root = document.documentElement;
+  const BASE = "Portfolio Tjark Reichart";
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const canHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* Design: dunkel ist Standard, der Schalter merkt sich die Wahl (falls der Browser es erlaubt) */
+  try { const t = localStorage.getItem("pf-theme"); if (t === "light" || t === "dark") root.dataset.theme = t; } catch (e) {}
+  $$(".theme-toggle").forEach(b => b.addEventListener("click", () => {
+    const next = root.dataset.theme === "light" ? "dark" : "light";
+    root.dataset.theme = next;
+    try { localStorage.setItem("pf-theme", next); } catch (e) {}
+  }));
+
+  /* Ansichten über #hash */
+  const views = new Map($$(".view").map(v => [v.id, v]));
+  const projects = $$(".view.project");
+  const header = $("#header"), footer = $("#footer"), menu = $("#menu"), menuBtn = $("#menuBtn"), menuIcon = $("#menuIcon");
+  let current = "start", mouseTop = false;
+
+  const arrowL = '<svg class="arr-l" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>';
+  const arrowR = '<svg class="arr-r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  $$("[data-pn]").forEach(el => {
+    const idx = projects.indexOf(el.closest(".view"));
+    const next = projects[(idx + 1) % projects.length];
+    el.innerHTML = `<a href="#projekte">${arrowL}<span>Zurück zu den Projekten</span></a><a href="#${next.id}"><span>Nächstes Projekt: ${next.dataset.title}</span>${arrowR}</a>`;
+  });
+
+  function setMenu(open) {
+    menu.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+    menuIcon.setAttribute("d", open ? "M6 6l12 12M18 6L6 18" : "M4 7h16M4 12h16M4 17h16");
   }
-  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
-  addEventListener("scroll", onScroll, { passive: true });
-  addEventListener("resize", onScroll);
-  update();
+  menuBtn.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+
+  function updateHeader() {
+    const reveal = current !== "start" && views.get(current).classList.contains("project") && canHover;
+    const show = !reveal || mouseTop || scrollY > innerHeight * .6 || menu.classList.contains("open");
+    header.classList.toggle("is-hidden", !show);
+    header.classList.toggle("solid", scrollY > 24);
+  }
+  addEventListener("mousemove", e => { const t = e.clientY < 100; if (t !== mouseTop) { mouseTop = t; updateHeader(); } }, { passive: true });
+  addEventListener("scroll", updateHeader, { passive: true });
+
+  function show(id, first) {
+    if (!views.has(id)) id = "start";
+    current = id;
+    for (const [k, v] of views) v.classList.toggle("on", k === id);
+    const v = views.get(id);
+    footer.hidden = id === "start";
+    document.body.dataset.view = id === "start" ? "home" : v.classList.contains("project") ? "project" : id;
+    document.title = v.dataset.title ? `${v.dataset.title} · ${BASE}` : BASE;
+    $$("[data-nav]").forEach(a => {
+      const on = a.dataset.nav === id || (a.dataset.nav === "projekte" && v.classList.contains("project"));
+      on ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current");
+    });
+    setMenu(false);
+    if (!first) scrollTo({ top: 0, behavior: "instant" });
+    updateHeader();
+  }
+  const route = first => show(decodeURIComponent(location.hash.slice(1)), first);
+  addEventListener("hashchange", () => route(false));
+  route(true);
+
+  /* Startseite: Bildraster folgt der Maus */
+  const hero = $("#hero"), grid = $("#heroGrid");
+  if (hero && canHover && !reduce) {
+    hero.addEventListener("mousemove", e => {
+      const r = hero.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) / (r.width / 2), y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+      grid.style.transform = `translate(${-x * 40}px, ${-y * 40}px)`;
+    });
+  }
 
   /* Player für „Blue“ */
   const PEAKS = [.72,.64,.54,.30,.47,.47,.40,.43,.48,.80,.76,.82,.80,.87,.88,.76,.61,.85,.74,.80,.76,.75,.83,.70,.84,.76,.78,.72,.80,.79,.73,.81,.83,.78,.54,.86,.79,.68,.83,.91,.87,.86,.89,.85,.91,.86,.94,1,.90,.87,.95,.79,.64,.72,.85,.83,.92,.88,.88,.81,.91,.76,.85,.74,.88,.92,.80,.90,.86,.76,.58,.65,.75,.80,.77,.81,.76,.75,.82,.78,.87,.84,.81,.93,.85,.89,.98,.92,.81,.91,.86,.89,.95,.94,.80,.99,.87,.83,.80,.91,.92,.78,.83,.93,.90,.77,.77,.87,.76,.92,.74,.70,.82,.77,.84,.80,.56,.11,.09,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08];
-  const audio = document.getElementById("audio");
-  const canvas = document.getElementById("wave");
-  const seek = document.getElementById("seek");
-  const btn = document.getElementById("playBtn");
-  const icon = document.getElementById("playIcon");
-  const cur = document.getElementById("cur");
-  const durEl = document.getElementById("dur");
+  const audio = $("#audio"), canvas = $("#wave"), seek = $("#seek"), btn = $("#playBtn"), icon = $("#playIcon"), cur = $("#cur"), durEl = $("#dur");
   if (audio && canvas) {
     const fmt = t => { t = Math.max(0, Math.round(t || 0)); return Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0"); };
     const total = () => (isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 180);
     let shown = 0, raf = 0;
     function draw() {
       const css = getComputedStyle(canvas);
-      const played = css.getPropertyValue("--green").trim(), rest = css.getPropertyValue("--acc").trim() || css.getPropertyValue("--blue").trim();
+      const played = css.getPropertyValue("--accent-text").trim(), rest = css.getPropertyValue("--muted-fg").trim();
       const dpr = devicePixelRatio || 1, w = canvas.clientWidth, h = canvas.clientHeight;
       if (!w || !h) return;
       if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) { canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
@@ -703,15 +857,11 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
         const on = (i + .5) / n <= prog;
         const bh = Math.max(2, PEAKS[i] * (h - 4));
         ctx.fillStyle = on ? played : rest;
-        ctx.globalAlpha = on ? 1 : .5;
-        const x = i * (bw + gap), y = (h - bh) / 2, r = Math.min(bw / 2, 2);
-        ctx.beginPath();
-        ctx.roundRect ? ctx.roundRect(x, y, Math.max(1, bw), bh, r) : ctx.rect(x, y, Math.max(1, bw), bh);
-        ctx.fill();
+        ctx.globalAlpha = on ? 1 : .55;
+        ctx.fillRect(i * (bw + gap), (h - bh) / 2, Math.max(1, bw), bh);
       }
       ctx.globalAlpha = 1;
     }
-    /* Weiche Wiedergabeanzeige: zwischen den timeupdate-Ereignissen pro Frame nachführen */
     function tick() {
       shown = audio.currentTime;
       cur.textContent = fmt(shown);
@@ -729,17 +879,16 @@ footer p{font-family:var(--f-mono);font-size:.74rem;color:var(--muted)}
     audio.addEventListener("seeked", tick);
     seek.addEventListener("input", () => { audio.currentTime = +seek.value; shown = +seek.value; cur.textContent = fmt(shown); draw(); });
     if ("ResizeObserver" in window) new ResizeObserver(draw).observe(canvas); else addEventListener("resize", draw);
-    matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", draw);
-    new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    new MutationObserver(draw).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
     draw();
   }
 
   /* E-Mail kopieren */
-  const copyBtn = document.getElementById("copyMail"), msg = document.getElementById("copyMsg");
+  const copyBtn = $("#copyMail"), msg = $("#copyMsg");
   copyBtn && copyBtn.addEventListener("click", () => {
-    const addr = document.getElementById("mailAddr").textContent.trim();
+    const addr = $("#mailAddr").textContent.trim();
     navigator.clipboard.writeText(addr).then(() => { msg.textContent = "Kopiert"; }, () => {
-      const range = document.createRange(); range.selectNodeContents(document.getElementById("mailAddr"));
+      const range = document.createRange(); range.selectNodeContents($("#mailAddr"));
       const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
       msg.textContent = "Markiert, mit Strg+C kopieren";
     });
