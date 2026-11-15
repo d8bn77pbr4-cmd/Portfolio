@@ -85,35 +85,43 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
 .menu.open{display:flex;animation:rise .4s var(--ease) both}
 .menu a{font-family:var(--f-display);font-size:2.25rem;text-decoration:none;line-height:1.2}
 
-/* Startseite */
-.hero{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden}
-.hero-grid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;transition:transform .7s var(--ease)}
-.hero-grid > div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;padding:48px;width:100%;max-width:80rem}
-@media (min-width:768px){.hero-grid > div{grid-template-columns:repeat(4,minmax(0,1fr));gap:40px;padding:64px}}
-.hero-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;opacity:.6}
-.hero-shade{position:absolute;inset:0;background:color-mix(in srgb,var(--bg) 30%,transparent)}
-.hero-title{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:0 16px;text-align:center;pointer-events:none}
-.hero-title h1{font-size:clamp(2.75rem,10.2vw,8rem);font-weight:700;letter-spacing:-.025em;color:var(--fg)}
-.hero-bio{position:absolute;z-index:2;left:max(var(--gut),env(safe-area-inset-left,0px));bottom:32px;max-width:24rem;font-size:.9375rem;line-height:1.7;color:color-mix(in srgb,var(--fg) 80%,transparent)}
-@media (min-width:768px){.hero-bio{bottom:48px}}
-
-/* Projektliste */
-.rows{padding-bottom:96px}
-.row{display:block;position:relative;border-bottom:1px solid var(--sep);text-decoration:none;color:var(--fg);transition:background .3s,color .3s}
-.row:first-child{border-top:1px solid var(--sep)}
-.row-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
-.row h3{flex:1;min-width:0;font-family:var(--f-sans);font-weight:400;font-size:clamp(1.125rem,2vw,1.5rem);text-transform:uppercase;letter-spacing:.025em;line-height:1.25}
-.row .chips{display:none;flex-wrap:nowrap}
-@media (min-width:640px){.row .chips{display:flex}}
-.row .year{font-size:.8125rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-fg);transition:color .3s;min-width:3.5rem;text-align:right}
-.row .pg{display:none}
-.row:hover,.row:focus-visible{background:var(--accent);color:var(--accent-fg)}
-.row:hover .chip,.row:focus-visible .chip{border-color:var(--accent-fg);color:var(--accent-fg)}
-.row:hover .year,.row:focus-visible .year{color:var(--accent-fg)}
-.row .float{position:fixed;right:clamp(32px,8vw,128px);top:50%;width:clamp(256px,22vw,320px);aspect-ratio:3/4;pointer-events:none;z-index:40;opacity:0;transform:translate(16px,-50%);transition:opacity .3s,transform .3s var(--ease)}
-.row .float img{width:100%;height:100%;object-fit:cover}
-.row:hover .float,.row:focus-visible .float{opacity:1;transform:translate(0,-50%)}
-@media (hover:none),(max-width:767px){.row .float{display:none}}
+/* Startseite: Name, darunter alle Projekte als Karten zum Scrollen */
+.intro{min-height:62vh;min-height:62svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:120px;padding-bottom:clamp(40px,6vw,72px)}
+.intro .label{margin-bottom:16px}
+.intro h1{font-size:clamp(2.75rem,8.4vw,8.5rem);letter-spacing:-.03em;line-height:.95}
+.intro-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:32px}
+.bio{max-width:28rem;color:var(--muted-fg);font-size:1.0625rem;line-height:1.6}
+.down{display:inline-flex;align-items:center;gap:12px;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--fg);transition:color .3s,border-color .3s}
+.down svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.6;transition:transform .3s var(--ease)}
+.down:hover,.down:focus-visible{color:var(--accent-text);border-color:var(--accent-text)}
+.down:hover svg{transform:translateY(4px)}
+.grid-sec{scroll-margin-top:96px;padding-bottom:96px}
+.grid-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:1px solid var(--sep);padding-block:20px 28px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 16px;counter-reset:card}
+@media (min-width:768px){.cards{gap:40px 24px}}
+@media (min-width:1024px){.cards{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.card{display:block;text-decoration:none;color:var(--fg);min-width:0}
+.card:not(.tile){counter-increment:card}
+.c-img{display:block;overflow:hidden;aspect-ratio:4/3;background:var(--card)}
+.c-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.c-meta{display:block;padding:12px 12px 14px;border:1px solid var(--sep);border-top:0;transition:background .3s,color .3s,border-color .3s}
+.c-top{display:flex;justify-content:space-between;gap:8px;font-size:.6875rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-fg);transition:color .3s}
+.c-no::before{content:counter(card,decimal-leading-zero)}
+.tile .c-no{display:none}
+.card .pg{display:none}
+.card h3{font-family:var(--f-sans);font-weight:400;font-size:clamp(.9375rem,1.4vw,1.25rem);text-transform:uppercase;letter-spacing:.025em;line-height:1.25;margin:6px 0 0;overflow-wrap:anywhere}
+.card .chips{display:none;margin-top:10px;gap:6px}
+@media (min-width:768px){.card .chips{display:flex}}
+.card:hover .c-img img,.card:focus-visible .c-img img{transform:scale(1.05)}
+.card:hover .c-meta,.card:focus-visible .c-meta{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.card:hover .c-top,.card:focus-visible .c-top{color:var(--accent-fg)}
+.card:hover .chip,.card:focus-visible .chip{border-color:var(--accent-fg);color:var(--accent-fg)}
+.card:focus-visible{outline-offset:6px}
+.tile .c-img{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:1px dashed var(--border);background:transparent;transition:background .3s,color .3s,border-color .3s;text-align:center;padding:12px}
+.tile .t-label{font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,2.6vw,2.25rem);letter-spacing:-.02em;line-height:1.05}
+.tile .t-arrow{font-size:1.25rem;transition:transform .3s var(--ease)}
+.tile:hover .c-img,.tile:focus-visible .c-img{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.tile:hover .t-arrow{transform:translateX(6px)}
 
 /* Projektseiten */
 .p-hero{position:relative;height:100vh;height:100svh;min-height:520px;overflow:hidden}
@@ -204,7 +212,6 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
 
 /* Footer */
 .site-footer{border-top:1px solid var(--sep)}
-.site-footer[hidden]{display:none}
 .foot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;padding-block:48px}
 @media (min-width:768px){.foot{grid-template-columns:repeat(4,minmax(0,1fr));gap:48px;padding-block:64px}}
 .foot .label{margin-bottom:12px}
@@ -228,7 +235,7 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
 @media print{
   *,*::before,*::after{animation:none!important;transition:none!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   html,body{background:var(--bg)}
-  body::before,.site-header,.menu,.site-footer,.pn,.play,#copyMail,#copyMsg,.row .float,.wave input{display:none!important}
+  body::before,.site-header,.menu,.site-footer,.pn,.play,#copyMail,#copyMsg,.wave input,.down,.screen-only{display:none!important}
   .print-only{display:block!important}
   html.js .view,.view{display:block!important;width:100%;height:790px;overflow:hidden;padding:38px;break-after:page;break-inside:avoid;animation:none!important}
   .view:last-of-type{break-after:auto}
@@ -236,17 +243,22 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
   .wide{max-width:none;padding-inline:0}
   .view.plain{padding-top:38px}
   .page-title{font-size:72px;padding-block:8px 28px}
-  /* Deckblatt */
-  #start .fit,#start .hero{height:714px}
-  .hero{min-height:0}
-  .hero-bio{left:0;bottom:8px;max-width:30rem}
-  .hero-title h1{font-size:104px}
-  /* Projektliste */
-  .rows{padding-bottom:0}
-  .row-in{padding-block:14px}
-  .row .pg{display:block;min-width:3rem;text-align:right;font-size:.8125rem;letter-spacing:.14em;color:var(--muted-fg)}
-  .row .year{display:none}
-  .row .chips{display:flex}
+  /* Startseite = Deckblatt mit allen Projekten */
+  .intro{min-height:0;padding:0 0 16px}
+  .intro h1{font-size:76px}
+  .intro .label{margin-bottom:8px}
+  .intro-row{margin-top:12px}
+  .bio{font-size:.9375rem;max-width:34rem}
+  .down{display:none}
+  .grid-sec{padding-bottom:0}
+  .grid-head{padding-block:10px 14px}
+  .cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px 14px}
+  .card .pg{display:block}
+  .card .chips{display:none}
+  .c-img{aspect-ratio:16/10}
+  .c-meta{padding:8px 10px 10px}
+  .card h3{font-size:.875rem;margin-top:3px}
+  .tile .t-label{font-size:1.5rem}
   /* Projekt */
   .p-hero{height:170px;min-height:0;margin-bottom:24px}
   .p-title{font-size:60px;justify-content:flex-start;padding:0 24px}
@@ -307,47 +319,33 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
 
 <main>
 
-  <!-- Startseite -->
+  <!-- Startseite: Name und alle Projekte -->
   <section class="view on" id="start" data-title="">
     <div class="fit">
-      <div class="hero" id="hero">
-        <div class="hero-grid" id="heroGrid">
+      <div class="wide intro">
+        <p class="label">Portfolio</p>
+        <h1>Tjark Reichart</h1>
+        <div class="intro-row">
           <div>
-            <img src="assets/img/covers/bravourfinds.jpg" width="600" height="800" alt="">
-            <img src="assets/img/covers/extra-prognose.jpg" width="600" height="800" alt="">
-            <img src="assets/img/covers/blue.jpg" width="600" height="800" alt="">
-            <img src="assets/img/covers/auric-master.jpg" width="600" height="800" alt="">
-            <img src="assets/img/covers/vox-clear.jpg" width="600" height="800" alt="">
-            <img src="assets/img/covers/bandzentrale.jpg" width="600" height="800" alt="">
-            <img src="assets/img/covers/sparplan.jpg" width="600" height="800" alt="">
-            <img src="assets/img/covers/extra-shop.jpg" width="600" height="800" alt="">
+            <p class="bio">6 eigene Projekte seit 2024: Modemarke, Song, zwei Audio-Plugins und zwei Web-Apps.</p>
+            <p class="online print-only">Online mit Song<br><a href="https://claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ">claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ</a></p>
           </div>
-        </div>
-        <div class="hero-shade"></div>
-        <div class="hero-title">
-          <span class="label">Portfolio</span>
-          <h1>Tjark Reichart</h1>
-        </div>
-        <div class="hero-bio">
-          <p>6 eigene Projekte seit 2024: Modemarke, Song, zwei Audio-Plugins und zwei Web-Apps.</p>
-          <p class="online print-only">Online mit Song<br><a href="https://claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ">claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ</a></p>
+          <a class="down" href="#projekte">Projekte<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Projektliste -->
-  <section class="view plain" id="projekte" data-title="Projekte">
-    <div class="fit">
-      <div class="wide"><h1 class="page-title">Projekte</h1></div>
-      <div class="rows">
-        <a class="row" href="#bravourfinds"><div class="wide row-in"><h3>Bravourfinds</h3><span class="chips"><span class="chip">Mode</span><span class="chip">Social Media</span><span class="chip">Branding</span></span><span class="year">2024</span><span class="pg">S. 3</span><span class="float"><img src="assets/img/covers/bravourfinds.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
-        <a class="row" href="#blue"><div class="wide row-in"><h3>Blue</h3><span class="chips"><span class="chip">Musik</span><span class="chip">Produktion</span><span class="chip">FL Studio</span></span><span class="year">2026</span><span class="pg">S. 4</span><span class="float"><img src="assets/img/covers/blue.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
-        <a class="row" href="#auric-master"><div class="wide row-in"><h3>Auric Master</h3><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span><span class="year">2026</span><span class="pg">S. 5</span><span class="float"><img src="assets/img/covers/auric-master.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
-        <a class="row" href="#vox-clear"><div class="wide row-in"><h3>Vox Clear</h3><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span><span class="year">2026</span><span class="pg">S. 6</span><span class="float"><img src="assets/img/covers/vox-clear.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
-        <a class="row" href="#bandzentrale"><div class="wide row-in"><h3>Bandzentrale</h3><span class="chips"><span class="chip">Web-App</span><span class="chip">Organisation</span><span class="chip">KI</span></span><span class="year">2026</span><span class="pg">S. 7</span><span class="float"><img src="assets/img/covers/bandzentrale.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
-        <a class="row" href="#sparplan"><div class="wide row-in"><h3>Sparplan-Kompass</h3><span class="chips"><span class="chip">Web-App</span><span class="chip">Finanzen</span><span class="chip">Prognose</span></span><span class="year">2026</span><span class="pg">S. 8</span><span class="float"><img src="assets/img/covers/sparplan.jpg" width="600" height="800" alt="" loading="lazy"></span></div></a>
-      </div>
+      <section class="wide grid-sec" id="projekte" aria-label="Projekte">
+        <div class="grid-head"><h2 class="label">Projekte</h2><span class="label screen-only">Klicken zum Öffnen</span></div>
+        <div class="cards">
+          <a class="card" href="#bravourfinds"><span class="c-img"><img src="assets/img/covers/bravourfinds.jpg" width="800" height="600" alt="" loading="lazy"></span><span class="c-meta"><span class="c-top"><span class="c-no"></span><span>2024</span><span class="pg">S. 2</span></span><h3>Bravourfinds</h3><span class="chips"><span class="chip">Mode</span><span class="chip">Social Media</span><span class="chip">Branding</span></span></span></a>
+          <a class="card" href="#blue"><span class="c-img"><img src="assets/img/covers/blue.jpg" width="800" height="600" alt="" loading="lazy"></span><span class="c-meta"><span class="c-top"><span class="c-no"></span><span>2026</span><span class="pg">S. 3</span></span><h3>Blue</h3><span class="chips"><span class="chip">Musik</span><span class="chip">Produktion</span><span class="chip">FL Studio</span></span></span></a>
+          <a class="card" href="#auric-master"><span class="c-img"><img src="assets/img/covers/auric-master.jpg" width="800" height="600" alt="" loading="lazy"></span><span class="c-meta"><span class="c-top"><span class="c-no"></span><span>2026</span><span class="pg">S. 4</span></span><h3>Auric Master</h3><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span></span></a>
+          <a class="card" href="#vox-clear"><span class="c-img"><img src="assets/img/covers/vox-clear.jpg" width="800" height="600" alt="" loading="lazy"></span><span class="c-meta"><span class="c-top"><span class="c-no"></span><span>2026</span><span class="pg">S. 5</span></span><h3>Vox Clear</h3><span class="chips"><span class="chip">Audio</span><span class="chip">C++</span><span class="chip">VST3</span></span></span></a>
+          <a class="card" href="#bandzentrale"><span class="c-img"><img src="assets/img/covers/bandzentrale.jpg" width="800" height="600" alt="" loading="lazy"></span><span class="c-meta"><span class="c-top"><span class="c-no"></span><span>2026</span><span class="pg">S. 6</span></span><h3>Bandzentrale</h3><span class="chips"><span class="chip">Web-App</span><span class="chip">Organisation</span><span class="chip">KI</span></span></span></a>
+          <a class="card" href="#sparplan"><span class="c-img"><img src="assets/img/covers/sparplan.jpg" width="800" height="600" alt="" loading="lazy"></span><span class="c-meta"><span class="c-top"><span class="c-no"></span><span>2026</span><span class="pg">S. 7</span></span><h3>Sparplan-Kompass</h3><span class="chips"><span class="chip">Web-App</span><span class="chip">Finanzen</span><span class="chip">Prognose</span></span></span></a>
+          <a class="card tile" href="#ueber-mich"><span class="c-img"><span class="t-label">Über mich</span><span class="t-arrow">→</span></span><span class="c-meta"><span class="c-top"><span>Vorgehen und Werkzeuge</span><span class="pg">S. 8</span></span></span></a>
+          <a class="card tile" href="#kontakt"><span class="c-img"><span class="t-label">Kontakt</span><span class="t-arrow">→</span></span><span class="c-meta"><span class="c-top"><span>E-Mail und Profile</span><span class="pg">S. 9</span></span></span></a>
+        </div>
+      </section>
     </div>
   </section>
 
@@ -658,7 +656,7 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
 
 </main>
 
-<footer class="site-footer" id="footer" hidden>
+<footer class="site-footer" id="footer">
   <div class="wide foot">
     <div><p class="label">Seiten</p><a href="#projekte">Projekte</a><a href="#ueber-mich">Über mich</a><a href="#kontakt">Kontakt</a></div>
     <div><p class="label">Kontakt</p><a href="mailto:tjarkreichart9@gmail.com">tjarkreichart9@gmail.com</a></div>
@@ -688,11 +686,11 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
     try { localStorage.setItem("pf-theme", next); } catch (e) {}
   }));
 
-  /* Ansichten über #hash */
+  /* Ansichten über #hash. „projekte“ ist kein eigener Bildschirm, sondern der Bereich mit den Projektkarten auf der Startseite. */
   const views = new Map($$(".view").map(v => [v.id, v]));
   const projects = $$(".view.project");
-  const header = $("#header"), footer = $("#footer"), menu = $("#menu"), menuBtn = $("#menuBtn"), menuIcon = $("#menuIcon");
-  let current = "start", mouseTop = false;
+  const header = $("#header"), menu = $("#menu"), menuBtn = $("#menuBtn"), menuIcon = $("#menuIcon"), cards = $("#projekte");
+  let current = "start", lastStartScroll = null, mouseTop = false;
 
   const arrowL = '<svg class="arr-l" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>';
   const arrowR = '<svg class="arr-r" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
@@ -711,7 +709,7 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
   menuBtn.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
 
   function updateHeader() {
-    const reveal = current !== "start" && views.get(current).classList.contains("project") && canHover;
+    const reveal = views.get(current).classList.contains("project") && canHover;
     const show = !reveal || mouseTop || scrollY > innerHeight * .6 || menu.classList.contains("open");
     header.classList.toggle("is-hidden", !show);
     header.classList.toggle("solid", scrollY > 24);
@@ -719,35 +717,38 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
   addEventListener("mousemove", e => { const t = e.clientY < 100; if (t !== mouseTop) { mouseTop = t; updateHeader(); } }, { passive: true });
   addEventListener("scroll", updateHeader, { passive: true });
 
-  function show(id, first) {
-    if (!views.has(id)) id = "start";
-    current = id;
-    for (const [k, v] of views) v.classList.toggle("on", k === id);
-    const v = views.get(id);
-    footer.hidden = id === "start";
-    document.body.dataset.view = id === "start" ? "home" : v.classList.contains("project") ? "project" : id;
+  const toCards = smooth => cards.scrollIntoView({ block: "start", behavior: smooth ? "smooth" : "instant" });
+  function show(raw, first) {
+    const target = raw === "projekte" || !views.has(raw) ? "start" : raw;
+    const from = current;
+    if (from === "start" && target !== "start") lastStartScroll = scrollY;
+    const fromProject = views.get(from).classList.contains("project");
+    current = target;
+    for (const [k, v] of views) v.classList.toggle("on", k === target);
+    const v = views.get(target);
+    document.body.dataset.view = target === "start" ? "home" : v.classList.contains("project") ? "project" : target;
     document.title = v.dataset.title ? `${v.dataset.title} · ${BASE}` : BASE;
     $$("[data-nav]").forEach(a => {
-      const on = a.dataset.nav === id || (a.dataset.nav === "projekte" && v.classList.contains("project"));
+      const on = a.dataset.nav === target || (a.dataset.nav === "projekte" && (target === "start" || v.classList.contains("project")));
       on ? a.setAttribute("aria-current", "page") : a.removeAttribute("aria-current");
     });
     setMenu(false);
-    if (!first) scrollTo({ top: 0, behavior: "instant" });
+    /* Zurück aus einem Projekt: an die Stelle der Startseite zurück, an der man weggeklickt hat */
+    if (target === "start" && !first && fromProject && raw !== "start" && lastStartScroll !== null) scrollTo({ top: lastStartScroll, behavior: "instant" });
+    else if (target === "start" && raw === "projekte") toCards(!first && from === "start");
+    else if (!first) scrollTo({ top: 0, behavior: "instant" });
     updateHeader();
   }
   const route = first => show(decodeURIComponent(location.hash.slice(1)), first);
   addEventListener("hashchange", () => route(false));
+  /* Auf der Startseite scrollen Links zu #projekte und #start weich, auch wenn der Hash schon stimmt */
+  document.addEventListener("click", e => {
+    const a = e.target.closest('a[href="#projekte"], a[href="#start"]');
+    if (!a || current !== "start") return;
+    e.preventDefault(); setMenu(false);
+    a.getAttribute("href") === "#projekte" ? toCards(true) : scrollTo({ top: 0, behavior: "smooth" });
+  });
   route(true);
-
-  /* Startseite: Bildraster folgt der Maus */
-  const hero = $("#hero"), grid = $("#heroGrid");
-  if (hero && canHover && !reduce) {
-    hero.addEventListener("mousemove", e => {
-      const r = hero.getBoundingClientRect();
-      const x = (e.clientX - r.left - r.width / 2) / (r.width / 2), y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-      grid.style.transform = `translate(${-x * 40}px, ${-y * 40}px)`;
-    });
-  }
 
   /* Player für „Blue“ */
   const PEAKS = [.72,.64,.54,.30,.47,.47,.40,.43,.48,.80,.76,.82,.80,.87,.88,.76,.61,.85,.74,.80,.76,.75,.83,.70,.84,.76,.78,.72,.80,.79,.73,.81,.83,.78,.54,.86,.79,.68,.83,.91,.87,.86,.89,.85,.91,.86,.94,1,.90,.87,.95,.79,.64,.72,.85,.83,.92,.88,.88,.81,.91,.76,.85,.74,.88,.92,.80,.90,.86,.76,.58,.65,.75,.80,.77,.81,.76,.75,.82,.78,.87,.84,.81,.93,.85,.89,.98,.92,.81,.91,.86,.89,.95,.94,.80,.99,.87,.83,.80,.91,.92,.78,.83,.93,.90,.77,.77,.87,.76,.92,.74,.70,.82,.77,.84,.80,.56,.11,.09,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08,.08];

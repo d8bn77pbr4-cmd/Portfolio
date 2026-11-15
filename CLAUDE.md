@@ -14,10 +14,10 @@ Titel der Seite: „Portfolio Tjark Reichart“. Es gibt **zwei Fassungen: mit u
 | `tools/build-all.sh` | **Nach jeder Änderung ausführen:** Variante, beide Artifact-Dateien, beide PDFs |
 | `tools/build-pdf.js` | Erzeugt beide PDFs (A4 quer, dunkel, jede Ansicht eine Seite; zu hohe Seiten werden über `zoom` auf `.fit` verkleinert) |
 | `tools/build-artifact.sh` | Erzeugt `build/artifact.html` und `build/artifact-ohne-youtube.html` (entfernt nur die `<html>/<head>/<body>`-Rahmenzeilen) |
-| `Portfolio-Tjark-Reichart.pdf` | PDF mit YouTube (11 Seiten) |
-| `Portfolio-Tjark-Reichart-ohne-YouTube.pdf` | PDF ohne YouTube (10 Seiten) |
+| `Portfolio-Tjark-Reichart.pdf` | PDF mit YouTube (10 Seiten) |
+| `Portfolio-Tjark-Reichart-ohne-YouTube.pdf` | PDF ohne YouTube (9 Seiten) |
 | `assets/img/*.jpg` | Bilder der Projekte (aus Plugin-Repos, Bravourfinds-PDF, Screenshots mit Beispieldaten) |
-| `assets/img/covers/*.jpg` | Hochformat-Cover 600×800 (3:4) für Startseiten-Raster und Hover-Bild der Projektliste; `kontakt.jpg` 4:5; `blue.jpg` ist eine erzeugte Wellenform |
+| `assets/img/covers/*.jpg` | Querformat-Cover 800×600 (4:3) für die Projektkarten der Startseite; `blue.jpg` ist eine erzeugte Wellenform; `kontakt.jpg` 800×1000 gehört zur Kontaktseite |
 | `assets/img/blue-hero.jpg` | Querformat-Wellenform als Kopfbild der Seite „Blue“ |
 | `assets/img/yt/vol1–8.jpg` | YouTube-Thumbnails (von `i.ytimg.com/vi/<id>/sddefault.jpg`, schwarze Balken auf 640×360 abgeschnitten: `crop=640:360:0:60`) |
 | `assets/audio/blue.mp3` | Der Song „Blue“ |
@@ -27,12 +27,16 @@ Titel der Seite: „Portfolio Tjark Reichart“. Es gibt **zwei Fassungen: mit u
 Tjark hat das Layout vom Lovable-Projekt `5aa1053c-657f-4a7f-b529-abe1ab10db80` („Dark Creative Portfolio“, Beispiel „Jordan Studio“)
 gewählt, **für beide Fassungen und beide PDFs**. Das Projekt ist privat; lesen geht mit den Lovable-Werkzeugen
 (`mcp__Lovable__read_file` usw., per ToolSearch laden). Übernommen wurde: Syne (Überschriften) + Inter (Text), scharfe Kanten,
-dunkel als Standard (hell über den Schalter), Akzent `#e6ff00`, Startseite mit 4×2-Bildraster hinter dem großen Namen (folgt der Maus),
-Projektliste mit Hover-Zeile in Akzentfarbe und schwebendem Bild, Projektseiten mit Vollbild-Kopf (Kopfleiste erscheint dort erst,
+dunkel als Standard (hell über den Schalter), Akzent `#e6ff00`, großer Name, Projektseiten mit Vollbild-Kopf (Kopfleiste erscheint dort erst,
 wenn die Maus oben ist oder gescrollt wurde), „Zurück zu den Projekten“, Footer mit laufendem Namen, Über mich, Kontakt.
+**Abweichung vom Template (15.11.2026, Wunsch von Tjark):** Es gibt keine eigene Projektliste und kein Hintergrund-Bildraster mehr.
+Die **Startseite zeigt direkt alle Projekte als Karten zum Scrollen** (Name + Kurztext oben, darunter Raster 2 Spalten, ab 1024 px 4 Spalten,
+Hover: Karte in Akzentfarbe); ein Klick öffnet das Projekt. Dazu Kacheln „Über mich“ (und in der Fassung ohne YouTube „Kontakt“, damit das Raster 8 Zellen hat).
 
 - **Ansichten statt Seiten:** `<section class="view" id="…">`, gewechselt über `#hash` (nur einfache Namen, kein `#/pfad`):
-  `start`, `projekte`, je Projekt `bravourfinds`, `tshirtalshose`, `blue`, `auric-master`, `vox-clear`, `bandzentrale`, `sparplan`, dazu `ueber-mich`, `kontakt`.
+  `start`, je Projekt `bravourfinds`, `tshirtalshose`, `blue`, `auric-master`, `vox-clear`, `bandzentrale`, `sparplan`, dazu `ueber-mich`, `kontakt`.
+  `#projekte` ist **keine eigene Ansicht**, sondern der Abschnitt mit den Karten auf der Startseite (`<section id="projekte">`): der Hash öffnet `start`
+  und scrollt zu den Karten. „Zurück zu den Projekten“ führt an dieselbe Scrollstelle zurück, von der man weggeklickt hat (`lastStartScroll` im JS).
   Ohne JavaScript stehen alle Ansichten untereinander.
 - **Farben nur über die Tokens** in `:root` (dunkel) und `:root[data-theme="light"]`. Der Akzent `--accent` (Füllung) ist eine einzige Variable.
   `--accent-text` ist der Akzent als Textfarbe (im hellen Design ein dunkles Oliv, wegen des Kontrasts). Kein Farbwechsel je Projekt.
@@ -45,9 +49,9 @@ wenn die Maus oben ist oder gescrollt wurde), „Zurück zu den Projekten“, Fo
 
 ### Ein Projekt hinzufügen
 1. `<section class="view project" id="…" data-title="…">` kopieren (Kopfbild, Details `Art/Jahr/Umsetzung/Technik/Kategorien`, Lead, Stichpunkte, „Gelernt“, Galerie, `.xl`, `data-pn`).
-2. Zeile in der Projektliste `.rows` (mit `.chips`, `.year`, `.pg` und `.float`-Cover) und Zelle im Startseiten-Raster `.hero-grid` (8 Zellen; bei mehr Projekten Raster anpassen).
-3. Cover 600×800 in `assets/img/covers/`, Text „N eigene Projekte“ in `.hero-bio` und die Aufzählung dort anpassen.
-4. Seitenzahlen `S. n` in der Liste (Projekte beginnen auf Seite 3; `variant.py` zählt die Variante selbst).
+2. Karte `<a class="card" href="#id">` in `.cards` auf der Startseite kopieren (Cover, `.c-no` zählt selbst, Jahr, `.pg`, Titel, `.chips`). Das Raster hat 4 Spalten: bei 8 Zellen ergeben sich zwei volle Reihen (7 Projekte + „Über mich“, in der Fassung ohne YouTube 6 + „Über mich“ + „Kontakt“); bei mehr Projekten die Kacheln prüfen.
+3. Cover 800×600 (4:3) in `assets/img/covers/`, Text „N eigene Projekte“ und die Aufzählung in `.bio` anpassen.
+4. Seitenzahlen `S. n` auf den Karten (Startseite = Seite 1, Projekte ab Seite 2 in Kartenreihenfolge; `variant.py` zählt die Variante selbst).
 5. `./tools/build-all.sh`, jede Seite der PDFs ansehen (Verkleinerung steht in der Ausgabe, Werte unter ca. 0,7 sind zu klein).
 
 ### YouTube-Teile

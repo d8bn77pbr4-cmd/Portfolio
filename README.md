@@ -1,6 +1,6 @@
 # Portfolio Tjark Reichart
 
-Mein Portfolio: sieben eigene Projekte von der Modemarke bis zur Web-App, im Layout eines dunklen Creative-Portfolios.
+Mein Portfolio: sieben eigene Projekte von der Modemarke bis zur Web-App, im Layout eines dunklen Creative-Portfolios. Die Startseite zeigt alle Projekte als Karten zum Scrollen, ein Klick öffnet das Projekt.
 
 Es gibt zwei Fassungen, mit und ohne die YouTube-Reihe:
 
