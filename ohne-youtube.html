@@ -88,6 +88,7 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
 /* Startseite: Name, darunter alle Projekte als Karten zum Scrollen */
 .intro{min-height:62vh;min-height:62svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:120px;padding-bottom:clamp(40px,6vw,72px)}
 .intro .label{margin-bottom:16px}
+@media (max-width:767px){.intro{min-height:0;padding-top:104px;padding-bottom:28px}.intro-row{margin-top:20px}}
 .intro h1{font-size:clamp(2.75rem,8.4vw,8.5rem);letter-spacing:-.03em;line-height:.95}
 .intro-row{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-top:32px}
 .bio{max-width:28rem;color:var(--muted-fg);font-size:1.0625rem;line-height:1.6}
@@ -204,9 +205,9 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
 .c-link:hover,.c-link:focus-visible{color:var(--accent-text)}.c-link:hover svg{stroke:var(--accent-text)}
 .c-link small{color:var(--muted-fg);font-size:.875rem}
 .c-mail{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.c-img{display:none}
-@media (min-width:1024px){.c-img{display:block}}
-.c-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.contact-img{display:none}
+@media (min-width:1024px){.contact-img{display:block}}
+.contact-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .online{font-size:.8125rem;line-height:1.6;color:var(--muted-fg);margin-top:28px}
 .online a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--accent)}
 
@@ -287,8 +288,8 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
   .about{padding-bottom:0}
   .about h2.label{margin:32px 0 14px}
   .contact{grid-template-columns:minmax(0,1fr) minmax(0,.7fr);gap:56px;padding-bottom:0}
-  .c-img{display:block}
-  .c-img img{max-height:560px}
+  .contact-img{display:block}
+  .contact-img img{max-height:560px}
   .marquee{animation:none}
 }
 </style>
@@ -652,7 +653,7 @@ html.js .view.on{display:block;animation:rise .6s var(--ease) both}
           </ul>
           <p class="online print-only">Online ansehen: <a href="https://claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ">claude.ai/artifact/EbLVkFa3xryE3ffkJ2T1EQ</a></p>
         </div>
-        <div class="c-img"><img src="assets/img/covers/kontakt.jpg" width="800" height="1000" alt="Sale-Post von Bravourfinds" loading="lazy"></div>
+        <div class="contact-img"><img src="assets/img/covers/kontakt.jpg" width="800" height="1000" alt="Sale-Post von Bravourfinds" loading="lazy"></div>
       </div>
     </div>
   </section>
